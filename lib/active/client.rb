@@ -1,7 +1,9 @@
 require 'faraday'
+require 'active/asset'
 require 'active/configurable'
 require 'active/error/forbidden'
 require 'active/error/not_found'
+require 'active/search_results'
 require 'simple_oauth'
 
 module Active
@@ -19,6 +21,39 @@ module Active
       Active::Configurable.keys.each do |key|
         instance_variable_set("@#{key}", options[key] || Active.options[key])
       end
+    end
+
+    # Returns assets that match a specified query.
+    #
+    # @authentication_required No
+    # @param q [String] A search term.
+    # @param options [Hash] A customizable set of options.
+    # @return [Active::SearchResults] Return assets that match a specified query with search metadata
+    # @example Returns assets related to running
+    #   Active.assets('running')
+    #   Active.search('running')
+    # def assets(q, options={})
+    #   response = get("/v1/search.json", options.merge(q: q))
+    #   Active::SearchResults.from_response(response)
+    # end
+    # alias search assets
+
+    # Sends a new direct message to the specified user from the authenticating user
+    #
+    # @authentication_required No
+    # @return [Active::Asset] The requested asset.
+    # @param id [String] An ssset ID.
+    # @param options [Hash] A customizable set of options.
+    # @example Return the asset with the id BA288960-2718-4B20-B380-8F939596B123
+    #   Active.asset("BA288960-2718-4B20-B380-8F939596B123")
+    def asset(id, options={})
+      response = get("/v2/assets/#{id}.json", options)
+      Active::Asset.from_response(response)
+    end
+
+    # Perform an HTTP GET request
+    def get(path, params={}, options={})
+      request(:get, path, params, options)
     end
     
     # Returns a Faraday::Connection object

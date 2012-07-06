@@ -63,19 +63,19 @@ module Active
       end
 
       def consumer_key
-        ENV['TWITTER_CONSUMER_KEY']
+        ENV['ACTIVE_CONSUMER_KEY']
       end
 
       def consumer_secret
-        ENV['TWITTER_CONSUMER_SECRET']
+        ENV['ACTIVE_CONSUMER_SECRET']
       end
 
       def oauth_token
-        ENV['TWITTER_OAUTH_TOKEN']
+        ENV['ACTIVE_OAUTH_TOKEN']
       end
 
       def oauth_token_secret
-        ENV['TWITTER_OAUTH_TOKEN_SECRET']
+        ENV['ACTIVE_OAUTH_TOKEN_SECRET']
       end
 
     end
