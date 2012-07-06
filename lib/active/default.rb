@@ -1,9 +1,9 @@
 require 'faraday'
 require 'active/configurable'
 require 'active/request/multipart_with_file'
-# require 'twitter/response/parse_json'
-# require 'active/response/raise_client_error'
-# require 'twitter/response/raise_server_error'
+require 'active/response/parse_json'
+require 'active/response/raise_client_error'
+require 'active/response/raise_server_error'
 # require 'twitter/response/rate_limit'
 require 'active/version'
 
@@ -55,7 +55,7 @@ module Active
             builder.use Faraday::Request::UrlEncoded        # Convert request params as "www-form-urlencoded"
             # builder.use Active::Response::RaiseClientError # Handle 4xx server responses
             # builder.use Active::Response::ParseJson        # Parse JSON response bodies using MultiJson
-            # builder.use Active::Response::RaiseServerError # Handle 5xx server responses
+            builder.use Active::Response::RaiseServerError # Handle 5xx server responses
             # builder.use Active::Response::RateLimit        # Update RateLimit object
             builder.adapter Faraday.default_adapter         # Set Faraday's HTTP adapter
           end
