@@ -21,15 +21,15 @@ module Active
       # @see http://staff.tumblr.com/post/287703110/api
       # @see http://developer.typepad.com/typepad-twitter-api/twitter-api.html
       def endpoint
-        @endpoint ||= 'https://api.twitter.com'
+        @endpoint ||= 'https://api.active.com'
       end
 
       def media_endpoint
-        @media_endpoint ||= 'https://upload.twitter.com'
+        @media_endpoint ||= 'https://upload.active.com'
       end
 
       def search_endpoint
-        @search_endpoint ||= 'https://search.twitter.com'
+        @search_endpoint ||= 'https://search.active.com'
       end
 
       def connection_options
