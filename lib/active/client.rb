@@ -1,5 +1,7 @@
 require 'faraday'
 require 'active/configurable'
+require 'active/error/forbidden'
+require 'active/error/not_found'
 require 'simple_oauth'
 
 module Active
@@ -55,7 +57,7 @@ module Active
         yield request if block_given?
       end.env
     rescue Faraday::Error::ClientError
-      # raise Twitter::Error::ClientError
+      raise Active::Error::ClientError
     end
     
     # Check whether credentials are present

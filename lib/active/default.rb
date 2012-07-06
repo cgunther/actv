@@ -1,8 +1,8 @@
 require 'faraday'
 require 'active/configurable'
-# require 'twitter/request/multipart_with_file'
+require 'active/request/multipart_with_file'
 # require 'twitter/response/parse_json'
-# require 'twitter/response/raise_client_error'
+# require 'active/response/raise_client_error'
 # require 'twitter/response/raise_server_error'
 # require 'twitter/response/rate_limit'
 require 'active/version'
@@ -15,8 +15,7 @@ module Active
         Hash[Active::Configurable.keys.map{|key| [key, send(key)]}]
       end
 
-      # @note This is configurable in case you want to use HTTP instead of HTTPS or use a Twitter-compatible endpoint.
-      # @see http://status.net/wiki/Twitter-compatible_API
+      # @note This is configurable in case you want to use HTTP instead of HTTPS or use a Active-compatible endpoint.
       # @see http://en.blog.wordpress.com/2009/12/12/twitter-api/
       # @see http://staff.tumblr.com/post/287703110/api
       # @see http://developer.typepad.com/typepad-twitter-api/twitter-api.html
@@ -51,7 +50,7 @@ module Active
       def middleware
         @middleware ||= Faraday::Builder.new(
           &Proc.new do |builder|
-            # builder.use Active::Request::MultipartWithFile # Convert file uploads to Faraday::UploadIO objects
+            builder.use Active::Request::MultipartWithFile # Convert file uploads to Faraday::UploadIO objects
             builder.use Faraday::Request::Multipart         # Checks for files in the payload
             builder.use Faraday::Request::UrlEncoded        # Convert request params as "www-form-urlencoded"
             # builder.use Active::Response::RaiseClientError # Handle 4xx server responses

@@ -11,7 +11,6 @@ describe Active::Client do
       stub_get("/system_health").
         to_return(:body => fixture("system_health.json"), :headers => {:content_type => "application/json; charset=utf-8"})
     end
-    
   end
   
 end

@@ -7,8 +7,10 @@ guard 'rspec', :version => 2 do
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }
 
-  # Rails example
-  watch(%r{^lib/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
+  # Lib
+  watch(%r{^lib/.+\.rb$}) { "spec" }
+  # watch(%r{^lib/active(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
+  # watch(%r{^lib/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
   
   # Capybara request specs
   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
