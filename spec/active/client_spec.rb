@@ -103,7 +103,7 @@ describe Active::Client do
         with(:headers => {'Accept'=>'application/json'}).
         to_return(:status => 200, :body => '{"status":"not implemented"}', :headers => {})
       
-      @client.request(:get, "/system_health", {}, {})[:body].should eql '{"status":"not implemented"}'
+      @client.request(:get, "/system_health", {}, {})[:body].should eql({status: "not implemented"})
     end
     
     it "encodes the entire body when no uploaded media is present" do
