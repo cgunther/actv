@@ -1,12 +1,17 @@
-require "active/version"
 require "active/client"
 require "active/configurable"
 require "active/default"
-require "active/base"
 
 module Active
   class << self
     include Active::Configurable
+
+    # Delegate to a Active::Client
+    #
+    # @return [Active::Client]
+    def client
+      Active::Client.new(options)
+    end
     
     def options
       @options = {}
@@ -15,6 +20,10 @@ module Active
       end
       
       @options
+    end
+
+    def respond_to?(method, include_private=false)
+      self.client.respond_to?(method, include_private) || super
     end
     
     def reset!
