@@ -48,4 +48,28 @@ describe Active::Asset do
     end
   end
 
+  describe "#status" do
+    it "returns a Asset Status when assetStatus is set" do
+      status = Active::Asset.new(assetGuid: 1, assetName: "Asset #1", assetStatus: { assetStatusId: 1, assetStatusName: "Status #1", isSearchable: true }).status
+      status.should be_a Active::AssetStatus
+    end
+
+    it "returns nil when assetStatus is not set" do
+      status = Active::Asset.new(assetGuid: 1, assetName: "Asset #1").status
+      status.should be_nil
+    end
+  end
+
+  describe "#legacy_data" do
+    it "returns a Asset Legacy Data when assetLegacyData is set" do
+      legacy_data = Active::Asset.new(assetGuid: 1, assetName: "Asset #1", assetLegacyData: { assetTypeId: 1, typeName: "Legacy Data", isSearchable: true }).legacy_data
+      legacy_data.should be_a Active::AssetLegacyData
+    end
+
+    it "returns nil when assetLegacyData is not set" do
+      legacy_data = Active::Asset.new(assetGuid: 1, assetName: "Asset #1").status
+      legacy_data.should be_nil
+    end
+  end
+
 end

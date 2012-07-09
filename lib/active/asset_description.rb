@@ -1,4 +1,3 @@
-require 'active/identity'
 require 'active/asset_description_type'
 
 module Active
@@ -9,6 +8,7 @@ module Active
     def description_type
         @description_type ||= Active::AssetDescriptionType.fetch_or_new(@attrs[:descriptionType]) unless @attrs[:descriptionType].nil?
     end
+    alias descriptionType description_type
 
   end
 end

@@ -28,6 +28,16 @@ describe Active::Client do
         asset.descriptions.size.should eq 1
         asset.descriptions.first.description.should eq 'The Run Daddy Run Event is the HCM Foundation way to bring the community together on Fathers Day Weekend to celebrate Fathers and their families.  100% of the proceeds will go to HCM service & scholarship programs.'
       end
+
+      it "returns the correct status" do
+        asset = @client.asset("BA288960-2718-4B20-B380-8F939596BB59")
+        asset.status.name.should eq 'VISIBLE'
+      end
+
+      it "returns the correct legacy data" do
+        asset = @client.asset("BA288960-2718-4B20-B380-8F939596BB59")
+        asset.legacy_data.online_registration?.should eq "true"
+      end
     end
   end
 

@@ -1,4 +1,6 @@
 require 'active/asset_description'
+require 'active/asset_legacy_data'
+require 'active/asset_status'
 require 'active/identity'
 require 'active/place'
 
@@ -32,6 +34,15 @@ module Active
       @descriptions ||= Array(@attrs[:assetDescriptions]).map do |description|
         Active::AssetDescription.fetch_or_new(description)
       end
+    end
+    alias assetDescriptions descriptions
+
+    def status
+      @status ||= Active::AssetStatus.fetch_or_new(@attrs[:assetStatus]) unless @attrs[:assetStatus].nil?
+    end
+
+    def legacy_data
+      @legacy_data ||= Active::AssetLegacyData.fetch_or_new(@attrs[:assetLegacyData]) unless @attrs[:assetLegacyData].nil?
     end
 
   end
