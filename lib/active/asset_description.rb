@@ -5,10 +5,11 @@ module Active
 
     attr_reader :description
 
-    def description_type
+    def type
         @description_type ||= Active::AssetDescriptionType.fetch_or_new(@attrs[:descriptionType]) unless @attrs[:descriptionType].nil?
     end
-    alias descriptionType description_type
+    alias description_type type
+    alias descriptionType type
 
   end
 end
