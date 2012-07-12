@@ -14,12 +14,12 @@ describe ACTV do
     end
 
     it "requests the correct resource" do
-      ACTV.asset('BA288960-2718-4B20-B380-8F939596BB59')
-      a_get("/v2/assets/BA288960-2718-4B20-B380-8F939596BB59.json").should have_been_made
+      ACTV.asset('valid_asset')
+      a_get("/v2/assets/valid_asset.json").should have_been_made
     end
 
     it "returns the same results as a client" do
-      ACTV.asset('BA288960-2718-4B20-B380-8F939596BB59').should eq ACTV::Client.new.asset('BA288960-2718-4B20-B380-8F939596BB59')
+      ACTV.asset('valid_asset').should eq ACTV::Client.new.asset('valid_asset')
     end
 
   end

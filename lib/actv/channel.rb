@@ -1,7 +1,7 @@
-require 'active/identity'
+require 'actv/identity'
 
-module Active
-  class Channel < Active::Identity
+module ACTV
+  class Channel < ACTV::Identity
 
     attr_reader :channelId, :channelName, :channelDsc
 

@@ -63,19 +63,19 @@ module ACTV
       end
 
       def consumer_key
-        ENV['ACTIVE_CONSUMER_KEY']
+        ENV['ACTV_CONSUMER_KEY']
       end
 
       def consumer_secret
-        ENV['ACTIVE_CONSUMER_SECRET']
+        ENV['ACTV_CONSUMER_SECRET']
       end
 
       def oauth_token
-        ENV['ACTIVE_OAUTH_TOKEN']
+        ENV['ACTV_OAUTH_TOKEN']
       end
 
       def oauth_token_secret
-        ENV['ACTIVE_OAUTH_TOKEN_SECRET']
+        ENV['ACTV_OAUTH_TOKEN_SECRET']
       end
 
     end

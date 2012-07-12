@@ -1,48 +1,48 @@
 require 'spec_helper'
 
-describe Active::Asset do
+describe ACTV::Asset do
 
   describe "#==" do
     it "return true when objects IDs are the same" do
-      asset = Active::Asset.new(assetGuid: 1, assetName: "Title 1")
-      other = Active::Asset.new(assetGuid: 1, assetName: "Title 2")
+      asset = ACTV::Asset.new(assetGuid: 1, assetName: "Title 1")
+      other = ACTV::Asset.new(assetGuid: 1, assetName: "Title 2")
       (asset == other).should be_true
     end
 
     it "return false when objects IDs are different" do
-      asset = Active::Asset.new(assetGuid: 1)
-      other = Active::Asset.new(assetGuid: 2)
+      asset = ACTV::Asset.new(assetGuid: 1)
+      other = ACTV::Asset.new(assetGuid: 2)
       (asset == other).should be_false
     end
 
     it "return false when classes are different" do
-      asset = Active::Asset.new(assetGuid: 1)
-      other = Active::Identity.new(id: 1)
+      asset = ACTV::Asset.new(assetGuid: 1)
+      other = ACTV::Identity.new(id: 1)
       (asset == other).should be_false
     end
   end
 
   describe "#place" do
     it "returns a Place when place is set" do
-      place = Active::Asset.new(assetGuid: 1, assetName: "Asset #1", place: { placeGuid: 1, placeName: "Name #1" }).place
-      place.should be_a Active::Place
+      place = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1", place: { placeGuid: 1, placeName: "Name #1" }).place
+      place.should be_a ACTV::Place
     end
 
     it "return nil when place is not set" do
-      place = Active::Asset.new(assetGuid: 1, assetName: "Asset #1").place
+      place = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1").place
       place.should be_nil
     end
   end
 
   describe "#descriptions" do
     it "returns an array of Asset Descriptions when assetDescriptions is set" do
-      descriptions = Active::Asset.new(assetGuid: 1, assetName: "Asset #1", assetDescriptions: [{ description: "Description #1" }, { description: "Description #2" }]).descriptions
+      descriptions = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1", assetDescriptions: [{ description: "Description #1" }, { description: "Description #2" }]).descriptions
       descriptions.should be_a Array
-      descriptions.first.should be_a Active::AssetDescription
+      descriptions.first.should be_a ACTV::AssetDescription
     end
 
     it "returns an empty array when assetDescriptions is not set" do
-      descriptions = Active::Asset.new(assetGuid: 1, assetName: "Asset #1").descriptions
+      descriptions = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1").descriptions
       descriptions.should be_a Array
       descriptions.should eq []
     end
@@ -50,37 +50,37 @@ describe Active::Asset do
 
   describe "#status" do
     it "returns a Asset Status when assetStatus is set" do
-      status = Active::Asset.new(assetGuid: 1, assetName: "Asset #1", assetStatus: { assetStatusId: 1, assetStatusName: "Status #1", isSearchable: true }).status
-      status.should be_a Active::AssetStatus
+      status = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1", assetStatus: { assetStatusId: 1, assetStatusName: "Status #1", isSearchable: true }).status
+      status.should be_a ACTV::AssetStatus
     end
 
     it "returns nil when assetStatus is not set" do
-      status = Active::Asset.new(assetGuid: 1, assetName: "Asset #1").status
+      status = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1").status
       status.should be_nil
     end
   end
 
   describe "#legacy_data" do
     it "returns a Asset Legacy Data when assetLegacyData is set" do
-      legacy_data = Active::Asset.new(assetGuid: 1, assetName: "Asset #1", assetLegacyData: { assetTypeId: 1, typeName: "Legacy Data", isSearchable: true }).legacy_data
-      legacy_data.should be_a Active::AssetLegacyData
+      legacy_data = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1", assetLegacyData: { assetTypeId: 1, typeName: "Legacy Data", isSearchable: true }).legacy_data
+      legacy_data.should be_a ACTV::AssetLegacyData
     end
 
     it "returns nil when assetLegacyData is not set" do
-      legacy_data = Active::Asset.new(assetGuid: 1, assetName: "Asset #1").status
+      legacy_data = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1").status
       legacy_data.should be_nil
     end
   end
 
   describe "#channels" do
     it "returns an array of Asset Channels when assetChannels is set" do
-      channels = Active::Asset.new(assetGuid: 1, assetName: "Asset #1", assetChannels: [{ sequence: "1", channel: { channelId: "1", channelName: "Channel", channelDsc: "Channel" } }]).channels
+      channels = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1", assetChannels: [{ sequence: "1", channel: { channelId: "1", channelName: "Channel", channelDsc: "Channel" } }]).channels
       channels.should be_a Array
-      channels.first.should be_a Active::AssetChannel
+      channels.first.should be_a ACTV::AssetChannel
     end
 
     it "returns an empty array when assetChannels is not set" do
-      channels = Active::Asset.new(assetGuid: 1, assetName: "Asset #1").channels
+      channels = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1").channels
       channels.should be_a Array
       channels.should eq []
     end

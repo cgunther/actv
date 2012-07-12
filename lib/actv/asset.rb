@@ -1,3 +1,4 @@
+require 'actv/asset_channel'
 require 'actv/asset_description'
 require 'actv/asset_legacy_data'
 require 'actv/asset_status'
@@ -50,7 +51,7 @@ module ACTV
 
     def channels
       @asset_channels ||= Array(@attrs[:assetChannels]).map do |channel|
-        Active::AssetChannel.fetch_or_new(channel)
+        ACTV::AssetChannel.fetch_or_new(channel)
       end
     end
     alias asset_channels channels

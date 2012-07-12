@@ -1,4 +1,4 @@
-require 'ACTV/channel'
+require 'actv/channel'
 
 module ACTV
   class AssetChannel < Base

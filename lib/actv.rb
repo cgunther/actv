@@ -1,13 +1,7 @@
-<<<<<<< HEAD:lib/actv.rb
+require "actv/base"
 require 'actv/client'
 require 'actv/configurable'
 require 'actv/default'
-=======
-require "active/base"
-require "active/client"
-require "active/configurable"
-require "active/default"
->>>>>>> e93a80c... adde channel to asset and updated fixture name for better understanding:lib/active.rb
 
 module ACTV
   class << self

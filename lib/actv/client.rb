@@ -7,7 +7,7 @@ require 'actv/search_results'
 require 'simple_oauth'
 
 module ACTV
-  # Wrapper for the Active REST API
+  # Wrapper for the ACTV REST API
   #
   # @note
   class Client
