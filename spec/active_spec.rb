@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Active do
+describe ACTV do
 
   after do
-    Active.reset!
+    ACTV.reset!
   end
 
   context "when delegating to a client" do
@@ -14,46 +14,46 @@ describe Active do
     end
 
     it "requests the correct resource" do
-      Active.asset('BA288960-2718-4B20-B380-8F939596BB59')
+      ACTV.asset('BA288960-2718-4B20-B380-8F939596BB59')
       a_get("/v2/assets/BA288960-2718-4B20-B380-8F939596BB59.json").should have_been_made
     end
 
     it "returns the same results as a client" do
-      Active.asset('BA288960-2718-4B20-B380-8F939596BB59').should eq Active::Client.new.asset('BA288960-2718-4B20-B380-8F939596BB59')
+      ACTV.asset('BA288960-2718-4B20-B380-8F939596BB59').should eq ACTV::Client.new.asset('BA288960-2718-4B20-B380-8F939596BB59')
     end
 
   end
 
   describe '.respond_to?' do
-    it "delegates to Active::Client" do
-      Active.respond_to?(:asset).should be_true
+    it "delegates to ACTV::Client" do
+      ACTV.respond_to?(:asset).should be_true
     end
 
     it "takes an optional argument" do
-      Active.respond_to?(:asset, true).should be_true
+      ACTV.respond_to?(:asset, true).should be_true
     end
   end
 
   describe ".client" do
-    it "returns a Active::Client" do
-      Active.client.should be_a Active::Client
+    it "returns a ACTV::Client" do
+      ACTV.client.should be_a ACTV::Client
     end
   end
 
   describe ".configure" do
-    Active::Configurable.keys.each do |key|
+    ACTV::Configurable.keys.each do |key|
       it "sets the #{key.to_s.gsub('_', ' ')}" do
-        Active.configure do |config|
+        ACTV.configure do |config|
           config.send("#{key}=", key)
         end
-        Active.instance_variable_get("@#{key}").should eq key
+        ACTV.instance_variable_get("@#{key}").should eq key
       end
     end
   end
 
-  Active::Configurable::CONFIG_KEYS.each do |key|
+  ACTV::Configurable::CONFIG_KEYS.each do |key|
     it "has a default #{key.to_s.gsub('_', ' ')}" do
-      Active.send(key).should eq Active::Default.options[key]
+      ACTV.send(key).should eq ACTV::Default.options[key]
     end
   end
 
