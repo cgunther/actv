@@ -9,7 +9,7 @@ module ACTV
   class Asset < ACTV::Identity
 
     attr_reader :assetGuid, :assetName, :assetDsc, :activityStartDate, :activityStartTime, :activityEndDate, :activityEndTime,
-      :homePageUrlAdr, :isRecurring, :contactName, :contactEmailAdr, :contactPhone, :showContact, :createdDate, :modifiedDate
+      :homePageUrlAdr, :isRecurring, :contactName, :contactEmailAdr, :contactPhone, :showContact, :publishDate, :createdDate, :modifiedDate
 
     alias id assetGuid
     alias title assetName
@@ -24,7 +24,8 @@ module ACTV
     alias contact_email contactEmailAdr
     alias contact_phone contactPhone
     alias show_contact? showContact
-    alias create_at createdDate
+    alias published_at publishDate
+    alias created_at createdDate
     alias updated_at modifiedDate
 
     def place
