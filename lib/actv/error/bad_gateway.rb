@@ -5,7 +5,7 @@ module ACTV
     # Raised when Active returns the HTTP status code 502
     class BadGateway < ACTV::Error::ServerError
       HTTP_STATUS_CODE = 502
-      MESSAGE = "Twitter is down or being upgraded."
+      MESSAGE = "A3PI, or something it depends on (like Asset Service) is down."
     end
   end
 end
