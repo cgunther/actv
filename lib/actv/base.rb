@@ -67,6 +67,22 @@ module ACTV
       self
     end
 
+    def method_missing(meth, *args, &block)
+      if @attrs && @attrs.has_key?(meth)
+        @attrs[meth]
+      else
+        super
+      end
+    end
+
+    def respond_to?(meth, *args)
+      if @attrs && @attrs.has_key?(meth)
+        true
+      else
+        super
+      end
+    end
+
   protected
 
     # @param attr [Symbol]
