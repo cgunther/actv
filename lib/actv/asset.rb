@@ -1,5 +1,6 @@
 require 'actv/asset_channel'
 require 'actv/asset_description'
+require 'actv/asset_image'
 require 'actv/asset_legacy_data'
 require 'actv/asset_status'
 require 'actv/identity'
@@ -58,5 +59,11 @@ module ACTV
     alias asset_channels channels
     alias assetChannels channels
 
+    def images
+      @images ||= Array(@attrs[:assetImages]).map do |img|
+        ACTV::AssetImage.fetch_or_new(img)
+      end
+    end
+    alias assetImages images
   end
 end

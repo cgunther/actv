@@ -72,4 +72,18 @@ describe ACTV::Asset do
     end
   end
 
+  describe "#images" do
+    it "returns an Array of Asset Descriptions when assetDescriptions is set" do
+      images = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1", assetImages: [{ imageUrlAdr: "img1.jpg" }, { imageUrlAdr: "img2.jpg" }]).images
+      images.should be_a Array
+      images.first.should be_a ACTV::AssetImage
+    end
+
+    it "returns an empty array when assetImages is not set" do
+      images = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1").images
+      images.should be_a Array
+      images.should eq []
+    end
+  end
+
 end
