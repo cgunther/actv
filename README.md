@@ -20,6 +20,18 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
+## Changelog
+
+### v1.0.1
+
+- New class ACTV::AssetImage
+- ACTV::Asset.images returns an array of AssetImages
+
+### v1.0.0
+
+- Basic ACTV::Asset implementation
+- Need more documentation
+
 ## Contributing
 
 1. Fork it
