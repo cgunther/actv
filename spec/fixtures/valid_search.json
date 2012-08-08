@@ -1,0 +1,1282 @@
+{
+
+    "results": [
+        {
+            "assetStatus": {
+                "assetStatusId": "2",
+                "assetStatusName": "VISIBLE",
+                "isSearchable": "true",
+                "isDeleted": "false",
+                "createdDate": "2012-05-09T09:18:06",
+                "modifiedDate": "2012-05-09T09:18:06"
+            },
+            "organization": { },
+            "place": {
+                "placeGuid": "bebdafae-62d6-4faf-bb67-c613c98f55be",
+                "placeName": "My all-new Place",
+                "placeDsc": "232x",
+                "placeUrlAdr": "",
+                "addressLine1Txt": "415 Colima St.",
+                "addressLine2Txt": "",
+                "cityName": "San Diego",
+                "stateProvinceCode": "CA",
+                "localityName": "",
+                "postalCode": "92109",
+                "countryName": "USA",
+                "countryCode": "",
+                "latitude": "32.811205",
+                "longitude": "-117.266330",
+                "directionsTxt": "I have no directions for you",
+                "geoPoint": {
+                    "lat": "32.811205",
+                    "lon": "-117.266330"
+                }
+            },
+            "evergreenAsset": { },
+            "dma": {
+                "dmaId": "143",
+                "dmaName": "Phoenix"
+            },
+            "sourceSystem": {
+                "sourceSystemName": "RegCenter",
+                "legacyGuid": "EA4E860A-9DCD-4DAA-A7CA-4A77AD194F65"
+            },
+            "assetRootAsset": { },
+            "assetParentAsset": { },
+            "market": { },
+            "assetGuid": "dd25451e-fc25-4cf9-b3a8-bb27e42835d7",
+            "assetName": "Running 5K",
+            "assetDsc": "asset dsc test",
+            "alternateName": "",
+            "timezone": "",
+            "timezoneAbb": "",
+            "timezoneName": "",
+            "currencyCd": "",
+            "localeCd": "",
+            "salesStartDate": null,
+            "salesEndDate": null,
+            "urlAdr": "gimma a url",
+            "detailPageTemplateId": "0",
+            "preferredUrlAdr": "http://www.ur.com/and%20here",
+            "logoUrlAdr": "a logo url",
+            "activityStartDate": "2012-04-07T00:00:00",
+            "activityStartTime": "07:08:09",
+            "activityEndDate": "2012-09-22T00:00:00",
+            "activityEndTime": "07:08:09",
+            "donationUrlAdr": "test donation",
+            "teamUrlAdr": "test team",
+            "homePageUrlAdr": "",
+            "registrationUrlAdr": "test reg",
+            "registrantSearchUrlAdr": "",
+            "regReqMinAge": "10",
+            "regReqMaxAge": "80",
+            "regReqGenderCd": "m",
+            "resultsUrlAdr": "test url addr",
+            "isRecurring": "true",
+            "contactName": "contact name test1",
+            "contactEmailAdr": "test email",
+            "contactPhone": "111222333",
+            "contactTxt": "",
+            "showContact": "true",
+            "sorId": "",
+            "sorCreateDtm": null,
+            "sorCreateUserId": "",
+            "authorName": "Author Name",
+            "publishDate": null,
+            "createdDate": "2012-08-02T01:58:00",
+            "modifiedDate": "2012-08-02T01:58:00",
+            "activityRecurrences": [ ],
+            "assetQuantity": { },
+            "assetLegacyData": {
+                "assetTypeId": "asset-type-here",
+                "typeName": "type name 1",
+                "uploadSearchUrlAdr": "up-srch url",
+                "authorName": "author name",
+                "onlineRegistration": "true",
+                "onlineDonation": "false",
+                "onlineMembership": "true",
+                "onlineMembershipCostAmt": "10.00",
+                "costAmt": "12.00",
+                "avgUserRatingTxt": "five stars",
+                "estParticipantNb": "200",
+                "maxTeamNb": "2",
+                "minGuaranteedGameNb": "1",
+                "multipleStartDate": "false",
+                "genderRequirementTxt": "M",
+                "participationCriteriaTxt": "participation",
+                "userCommentTxt": "",
+                "priceExtensionTxt": "",
+                "searchWeight": "",
+                "seoUrl": "",
+                "substitutionUrl": "",
+                "trackbackUrl": "",
+                "eventCategories": "",
+                "isSearchable": "true",
+                "createdDate": "2012-08-02T01:58:41",
+                "modifiedDate": "2012-08-02T01:58:41"
+            },
+            "assetTags": [
+                {
+                    "tag": {
+                        "tagId": "38416",
+                        "tagName": "tagJason4",
+                        "tagDescription": "MISCELLANEOUS"
+                    }
+                },
+                {
+                    "tag": {
+                        "tagId": "38415",
+                        "tagName": "tagJason6",
+                        "tagDescription": "MISCELLANEOUS"
+                    }
+                }
+            ],
+            "assetPrices": [ ],
+            "assetDescriptions": [
+                {
+                    "descriptionType": {
+                        "descriptionTypeId": "3",
+                        "descriptionTypeName": "allText"
+                    },
+                    "description": "I am the allText."
+                },
+                {
+                    "descriptionType": {
+                        "descriptionTypeId": "4",
+                        "descriptionTypeName": "summary"
+                    },
+                    "description": "Summary text."
+                }
+            ],
+            "assetChannels": [
+                {
+                    "sequence": "1",
+                    "channel": {
+                        "channelId": "1049",
+                        "channelName": "Skiing",
+                        "channelDsc": ""
+                    }
+                }
+            ],
+            "assetMediaTypes": [
+                {
+                    "sequence": "1",
+                    "mediaType": {
+                        "mediaTypeId": "9",
+                        "mediaTypeName": "Marathon",
+                        "mediaTypeDsc": ""
+                    }
+                }
+            ],
+            "assetImages": [
+                {
+                    "imageUrlAdr": "test url",
+                    "imageName": "test name",
+                    "imageCaptionTxt": "test caption"
+                },
+                {
+                    "imageUrlAdr": "test url2",
+                    "imageName": "test name2",
+                    "imageCaptionTxt": "test caption2"
+                }
+            ],
+            "assetTopics": [ ],
+            "assetCategories": [
+                {
+                    "sequence": "2",
+                    "category": {
+                        "categoryId": "28",
+                        "categoryName": "Experts"
+                    }
+                }
+            ],
+            "assetMetaInterests": [ ],
+            "assetComponents": [ ],
+            "assetServiceHostName": "wl92760004.active.local"
+        },
+        {
+            "assetStatus": {
+                "assetStatusId": "2",
+                "assetStatusName": "VISIBLE",
+                "isSearchable": "true",
+                "isDeleted": "false",
+                "createdDate": "2012-05-22T17:57:06",
+                "modifiedDate": "2012-05-22T17:57:06"
+            },
+            "organization": { },
+            "place": {
+                "placeGuid": "9e398d05-ac28-4ef2-a849-0f4e2162b467",
+                "placeName": "mobile",
+                "placeDsc": "",
+                "placeUrlAdr": "",
+                "addressLine1Txt": "fsdfdsggfhgt",
+                "addressLine2Txt": "",
+                "cityName": "Austin",
+                "stateProvinceCode": "TX",
+                "localityName": "",
+                "postalCode": "73301",
+                "countryName": "United States",
+                "countryCode": "",
+                "latitude": "30.230000",
+                "longitude": "-97.710000",
+                "directionsTxt": "",
+                "geoPoint": {
+                    "lat": "30.230000",
+                    "lon": "-97.710000"
+                }
+            },
+            "evergreenAsset": { },
+            "dma": { },
+            "sourceSystem": {
+                "sourceSystemName": "RegCenter",
+                "legacyGuid": "EA4E860A-9DCD-4DAA-A7CA-4A77AD194F65"
+            },
+            "assetRootAsset": { },
+            "assetParentAsset": {
+                "assetGuid": "8764EC81-9D24-425F-815B-7D3D6D64C9B7"
+            },
+            "market": { },
+            "assetGuid": "6a358dfa-602a-4359-8e9d-e8464aeda315",
+            "assetName": "5K Running",
+            "assetDsc": "",
+            "alternateName": "",
+            "timezone": "",
+            "timezoneAbb": "",
+            "timezoneName": "",
+            "currencyCd": "",
+            "localeCd": "",
+            "salesStartDate": null,
+            "salesEndDate": null,
+            "urlAdr": "",
+            "detailPageTemplateId": "",
+            "preferredUrlAdr": "",
+            "logoUrlAdr": "http://www.active.com/images/events/hotrace.gif",
+            "activityStartDate": "2012-12-31T00:00:00",
+            "activityStartTime": "0:00:00",
+            "activityEndDate": "2012-12-31T00:00:00",
+            "activityEndTime": "0:00:00",
+            "donationUrlAdr": "",
+            "teamUrlAdr": "",
+            "homePageUrlAdr": "",
+            "registrationUrlAdr": "",
+            "regReqMinAge": "",
+            "regReqMaxAge": "",
+            "regReqGenderCd": "",
+            "resultsUrlAdr": "",
+            "isRecurring": "false",
+            "contactName": "Steven",
+            "contactEmailAdr": "1234@gmail.com",
+            "contactPhone": "1111111111",
+            "contactTxt": "",
+            "showContact": "false",
+            "sorId": "",
+            "sorCreateDtm": null,
+            "sorCreateUserId": "",
+            "authorName": "",
+            "publishDate": null,
+            "createdDate": "2012-07-23T23:16:06",
+            "modifiedDate": "2012-07-23T23:16:06",
+            "activityRecurrences": "",
+            "assetQuantity": { },
+            "assetLegacyData": {
+                "assetTypeId": "",
+                "typeName": "",
+                "uploadSearchUrlAdr": "",
+                "authorName": "",
+                "onlineRegistration": "true",
+                "onlineDonation": "false",
+                "onlineMembership": "false",
+                "onlineMembershipCostAmt": "",
+                "costAmt": "",
+                "avgUserRatingTxt": "",
+                "estParticipantNb": "20",
+                "maxTeamNb": "",
+                "minGuaranteedGameNb": "",
+                "multipleStartDate": "",
+                "genderRequirementTxt": "",
+                "participationCriteriaTxt": "Adult,Family,Kids,Men,Women",
+                "userCommentTxt": "",
+                "priceExtensionTxt": "",
+                "searchWeight": "1",
+                "seoUrl": "",
+                "substitutionUrl": "1970443",
+                "trackbackUrl": "",
+                "eventCategories": "",
+                "isSearchable": "false",
+                "createdDate": null,
+                "modifiedDate": null
+            },
+            "assetTags": [
+                {
+                    "tag": {
+                        "tagId": "125937",
+                        "tagName": "false",
+                        "tagDescription": "usatsanctioned"
+                    }
+                },
+                {
+                    "tag": {
+                        "tagId": "89802",
+                        "tagName": "Austin",
+                        "tagDescription": "market"
+                    }
+                },
+                {
+                    "tag": {
+                        "tagId": "32308",
+                        "tagName": "true",
+                        "tagDescription": "activeadvantage"
+                    }
+                }
+            ],
+            "assetPrices": [
+                {
+                    "effectiveDate": "2013-07-30T19:00:00",
+                    "priceAmt": "0.01",
+                    "maxPriceAmt": "",
+                    "minPriceAmt": ""
+                },
+                {
+                    "effectiveDate": "2012-06-25T07:00:00",
+                    "priceAmt": "0.0",
+                    "maxPriceAmt": "",
+                    "minPriceAmt": ""
+                }
+            ],
+            "assetDescriptions": [
+                {
+                    "descriptionType": {
+                        "descriptionTypeId": "4",
+                        "descriptionTypeName": "summary"
+                    },
+                    "description": "qqq's aaa?s @!@$#%$#%#%#%%"
+                },
+                {
+                    "descriptionType": {
+                        "descriptionTypeId": "6",
+                        "descriptionTypeName": "Standard"
+                    },
+                    "description": "qqq's aaa?s @!@$#%$#%#%#%%"
+                }
+            ],
+            "assetChannels": [
+                {
+                    "sequence": "1",
+                    "channel": {
+                        "channelId": "1020",
+                        "channelName": "Running",
+                        "channelDsc": "Running"
+                    }
+                }
+            ],
+            "assetMediaTypes": [
+                {
+                    "sequence": "3",
+                    "mediaType": {
+                        "mediaTypeId": "95",
+                        "mediaTypeName": "Event\\5K",
+                        "mediaTypeDsc": ""
+                    }
+                },
+                {
+                    "sequence": "1",
+                    "mediaType": {
+                        "mediaTypeId": "2",
+                        "mediaTypeName": "Event",
+                        "mediaTypeDsc": ""
+                    }
+                },
+                {
+                    "sequence": "2",
+                    "mediaType": {
+                        "mediaTypeId": "316",
+                        "mediaTypeName": "Event\\5 mile",
+                        "mediaTypeDsc": ""
+                    }
+                }
+            ],
+            "assetImages": [
+                {
+                    "imageUrlAdr": "http://www.active.com/images/events/hotrace.gif",
+                    "imageName": "image1",
+                    "imageCaptionTxt": ""
+                }
+            ],
+            "assetTopics": [
+                {
+                    "sequence": "2",
+                    "topic": {
+                        "topicId": "27",
+                        "topicName": "Running"
+                    }
+                }
+            ],
+            "assetCategories": "",
+            "assetMetaInterests": "",
+            "assetComponents": [ ],
+            "assetServiceHostName": "asset-01"
+        },
+        {
+            "assetStatus": {
+                "assetStatusId": "2",
+                "assetStatusName": "VISIBLE",
+                "isSearchable": "true",
+                "isDeleted": "false",
+                "createdDate": "2012-05-22T17:57:06",
+                "modifiedDate": "2012-05-22T17:57:06"
+            },
+            "organization": { },
+            "place": {
+                "placeGuid": "b6e9648a-8ea4-4244-bdf1-77c4b1632040",
+                "placeName": "Nashville Fall Festival",
+                "placeDsc": "",
+                "placeUrlAdr": "",
+                "addressLine1Txt": "245 N. Kaskaskia St.",
+                "addressLine2Txt": "",
+                "cityName": "Nashville",
+                "stateProvinceCode": "IL",
+                "localityName": "",
+                "postalCode": "62263",
+                "countryName": "USA",
+                "countryCode": "",
+                "latitude": "38.344928",
+                "longitude": "-89.382868",
+                "directionsTxt": "",
+                "geoPoint": {
+                    "lat": "38.344928",
+                    "lon": "-89.382868"
+                }
+            },
+            "evergreenAsset": { },
+            "dma": { },
+            "sourceSystem": {
+                "sourceSystemName": "RegCenter",
+                "legacyGuid": "EA4E860A-9DCD-4DAA-A7CA-4A77AD194F65"
+            },
+            "assetRootAsset": { },
+            "assetParentAsset": { },
+            "market": {
+                "marketId": "8",
+                "marketName": "endurance-running"
+            },
+            "assetGuid": "8fed092d-2b07-4f82-a119-8516c4efa3d5",
+            "assetName": "Running Event - 5K run",
+            "assetDsc": "",
+            "alternateName": "",
+            "timezone": "",
+            "timezoneAbb": "",
+            "timezoneName": "",
+            "currencyCd": "",
+            "localeCd": "",
+            "salesStartDate": null,
+            "salesEndDate": null,
+            "urlAdr": "",
+            "detailPageTemplateId": "",
+            "preferredUrlAdr": "",
+            "logoUrlAdr": "http://www.active.com/images/events/hotrace.gif",
+            "activityStartDate": "2012-09-22T00:00:00",
+            "activityStartTime": "7:30:00",
+            "activityEndDate": "2012-09-22T00:00:00",
+            "activityEndTime": "7:30:00",
+            "donationUrlAdr": "",
+            "teamUrlAdr": "",
+            "homePageUrlAdr": "http://www.angelforautism.com",
+            "registrationUrlAdr": "",
+            "regReqMinAge": "",
+            "regReqMaxAge": "",
+            "regReqGenderCd": "",
+            "resultsUrlAdr": "",
+            "isRecurring": "false",
+            "contactName": "Heather Maschhoff",
+            "contactEmailAdr": "heather@angelforautism.com",
+            "contactPhone": "618-322-8387",
+            "contactTxt": "",
+            "showContact": "false",
+            "sorId": "",
+            "sorCreateDtm": null,
+            "sorCreateUserId": "",
+            "authorName": "",
+            "publishDate": null,
+            "createdDate": "2012-07-30T03:15:26",
+            "modifiedDate": "2012-08-02T18:16:06",
+            "activityRecurrences": [ ],
+            "assetQuantity": {
+                "capacityNb": "",
+                "soldCnt": "0",
+                "availableCnt": "0",
+                "waitlistCapacityNb": "",
+                "waitlistCnt": "",
+                "createdDate": "2012-07-30T03:15:26",
+                "modifiedDate": "2012-07-30T03:15:26"
+            },
+            "assetLegacyData": {
+                "assetTypeId": "",
+                "typeName": "",
+                "uploadSearchUrlAdr": "",
+                "authorName": "",
+                "onlineRegistration": "true",
+                "onlineDonation": "false",
+                "onlineMembership": "false",
+                "onlineMembershipCostAmt": "",
+                "costAmt": "",
+                "avgUserRatingTxt": "",
+                "estParticipantNb": "300",
+                "maxTeamNb": "",
+                "minGuaranteedGameNb": "",
+                "multipleStartDate": "",
+                "genderRequirementTxt": "",
+                "participationCriteriaTxt": "Family,Kids,Men,Women",
+                "userCommentTxt": "",
+                "priceExtensionTxt": "",
+                "searchWeight": "1.0000",
+                "seoUrl": "",
+                "substitutionUrl": "2049150",
+                "trackbackUrl": "",
+                "eventCategories": "",
+                "isSearchable": "false",
+                "createdDate": "2012-07-30T03:15:26",
+                "modifiedDate": "2012-07-30T03:15:26"
+            },
+            "assetTags": [
+                {
+                    "tag": {
+                        "tagId": "32308",
+                        "tagName": "true",
+                        "tagDescription": "activeadvantage"
+                    }
+                },
+                {
+                    "tag": {
+                        "tagId": "88733",
+                        "tagName": "Saint Louis",
+                        "tagDescription": "market"
+                    }
+                },
+                {
+                    "tag": {
+                        "tagId": "125937",
+                        "tagName": "false",
+                        "tagDescription": "usatsanctioned"
+                    }
+                }
+            ],
+            "assetPrices": [
+                {
+                    "effectiveDate": "2012-09-02T06:59:59",
+                    "priceAmt": "20.00",
+                    "maxPriceAmt": "",
+                    "minPriceAmt": ""
+                }
+            ],
+            "assetDescriptions": [
+                {
+                    "descriptionType": {
+                        "descriptionTypeId": "6",
+                        "descriptionTypeName": "Standard"
+                    },
+                    "description": " "
+                }
+            ],
+            "assetChannels": [
+                {
+                    "sequence": "1",
+                    "channel": {
+                        "channelId": "1020",
+                        "channelName": "Running",
+                        "channelDsc": "Running"
+                    }
+                },
+                {
+                    "sequence": "2",
+                    "channel": {
+                        "channelId": "1029",
+                        "channelName": "Walking",
+                        "channelDsc": "Walking"
+                    }
+                }
+            ],
+            "assetMediaTypes": [
+                {
+                    "sequence": "2",
+                    "mediaType": {
+                        "mediaTypeId": "95",
+                        "mediaTypeName": "Event\\5K",
+                        "mediaTypeDsc": ""
+                    }
+                },
+                {
+                    "sequence": "1",
+                    "mediaType": {
+                        "mediaTypeId": "2",
+                        "mediaTypeName": "Event",
+                        "mediaTypeDsc": ""
+                    }
+                },
+                {
+                    "sequence": "4",
+                    "mediaType": {
+                        "mediaTypeId": "224",
+                        "mediaTypeName": "=difficulty:Intermediate",
+                        "mediaTypeDsc": ""
+                    }
+                },
+                {
+                    "sequence": "3",
+                    "mediaType": {
+                        "mediaTypeId": "48",
+                        "mediaTypeName": "=difficulty:Beginner",
+                        "mediaTypeDsc": ""
+                    }
+                }
+            ],
+            "assetImages": [
+                {
+                    "imageUrlAdr": "http://www.active.com/images/events/hotrace.gif",
+                    "imageName": "image1",
+                    "imageCaptionTxt": ""
+                }
+            ],
+            "assetTopics": [
+                {
+                    "sequence": "3",
+                    "topic": {
+                        "topicId": "29",
+                        "topicName": "Walking"
+                    }
+                },
+                {
+                    "sequence": "2",
+                    "topic": {
+                        "topicId": "27",
+                        "topicName": "Running"
+                    }
+                }
+            ],
+            "assetCategories": [ ],
+            "assetMetaInterests": [ ],
+            "assetComponents": [ ],
+            "assetServiceHostName": "asset-02"
+        },
+        {
+            "assetStatus": {
+                "assetStatusId": "2",
+                "assetStatusName": "VISIBLE",
+                "isSearchable": "true",
+                "isDeleted": "false",
+                "createdDate": "2012-05-22T17:57:06",
+                "modifiedDate": "2012-05-22T17:57:06"
+            },
+            "organization": { },
+            "place": {
+                "placeGuid": "bd7d4ec3-1504-4304-a372-8dfc0f813606",
+                "placeName": "Granite Peak Ski Area",
+                "placeDsc": "",
+                "placeUrlAdr": "",
+                "addressLine1Txt": "3605 N. Mountain Road",
+                "addressLine2Txt": "",
+                "cityName": "Wausau",
+                "stateProvinceCode": "WI",
+                "localityName": "",
+                "postalCode": "54401",
+                "countryName": "United States",
+                "countryCode": "",
+                "latitude": "44.934264",
+                "longitude": "-89.681123",
+                "directionsTxt": "",
+                "geoPoint": {
+                    "lat": "44.934264",
+                    "lon": "-89.681123"
+                }
+            },
+            "evergreenAsset": { },
+            "dma": { },
+            "sourceSystem": {
+                "sourceSystemName": "RegCenter",
+                "legacyGuid": "EA4E860A-9DCD-4DAA-A7CA-4A77AD194F65"
+            },
+            "assetRootAsset": {
+                "assetGuid": "73E17EC9-FE5D-4DF0-964E-7A54EA937F77"
+            },
+            "assetParentAsset": { },
+            "market": {
+                "marketId": "8",
+                "marketName": "endurance-running"
+            },
+            "assetGuid": "73E17EC9-FE5D-4DF0-964E-7A54EA937F77",
+            "assetName": "Running Event - Wrut Run",
+            "assetDsc": "",
+            "alternateName": "",
+            "timezone": "",
+            "timezoneAbb": "",
+            "timezoneName": "",
+            "currencyCd": "",
+            "localeCd": "",
+            "salesStartDate": null,
+            "salesEndDate": null,
+            "urlAdr": "http://www.active.com/running/wausau-wi/wrut-run-2012",
+            "detailPageTemplateId": "",
+            "preferredUrlAdr": "",
+            "logoUrlAdr": "http://www.active.com/images/events/hotrace.gif",
+            "activityStartDate": "2012-10-06T00:00:00",
+            "activityStartTime": "8:00:00",
+            "activityEndDate": "2012-10-06T00:00:00",
+            "activityEndTime": "8:00:00",
+            "donationUrlAdr": "",
+            "teamUrlAdr": "",
+            "homePageUrlAdr": "http://www.wausaurotary.org/events.htm",
+            "registrationUrlAdr": "",
+            "regReqMinAge": "",
+            "regReqMaxAge": "",
+            "regReqGenderCd": "",
+            "resultsUrlAdr": "",
+            "isRecurring": "false",
+            "contactName": "Rebecca Pilgrim",
+            "contactEmailAdr": "rebecca@runkel.com",
+            "contactPhone": "715-845-4646",
+            "contactTxt": "",
+            "showContact": "false",
+            "sorId": "",
+            "sorCreateDtm": null,
+            "sorCreateUserId": "",
+            "authorName": "",
+            "publishDate": null,
+            "createdDate": "2012-03-23T21:15:46",
+            "modifiedDate": "2012-07-31T17:18:49",
+            "activityRecurrences": [ ],
+            "assetQuantity": {
+                "capacityNb": "",
+                "soldCnt": "",
+                "availableCnt": "",
+                "waitlistCapacityNb": "",
+                "waitlistCnt": "",
+                "createdDate": "2012-07-31T17:18:29",
+                "modifiedDate": "2012-07-31T17:18:29"
+            },
+            "assetLegacyData": {
+                "assetTypeId": "EA4E860A-9DCD-4DAA-A7CA-4A77AD194F65",
+                "typeName": "",
+                "uploadSearchUrlAdr": "",
+                "authorName": "",
+                "onlineRegistration": "true",
+                "onlineDonation": "false",
+                "onlineMembership": "false",
+                "onlineMembershipCostAmt": "",
+                "costAmt": "",
+                "avgUserRatingTxt": "",
+                "estParticipantNb": "100",
+                "maxTeamNb": "",
+                "minGuaranteedGameNb": "",
+                "multipleStartDate": "false",
+                "genderRequirementTxt": "",
+                "participationCriteriaTxt": "All",
+                "userCommentTxt": "",
+                "priceExtensionTxt": "",
+                "searchWeight": "1.0000",
+                "seoUrl": "http://www.active.com/running/wausau-wi/wrut-run-2012",
+                "substitutionUrl": "2023363",
+                "trackbackUrl": "http://www.active.com/page/Event_Details.htm?event_id=2023363&assetId=73E17EC9-FE5D-4DF0-964E-7A54EA937F77",
+                "eventCategories": "",
+                "isSearchable": "false",
+                "createdDate": "2012-03-23T21:15:46",
+                "modifiedDate": "2012-07-31T17:18:29"
+            },
+            "assetTags": [
+                {
+                    "tag": {
+                        "tagId": "125937",
+                        "tagName": "false",
+                        "tagDescription": "usatsanctioned"
+                    }
+                },
+                {
+                    "tag": {
+                        "tagId": "89622",
+                        "tagName": "Wausau - Rhinelander",
+                        "tagDescription": "market"
+                    }
+                },
+                {
+                    "tag": {
+                        "tagId": "32308",
+                        "tagName": "true",
+                        "tagDescription": "activeadvantage"
+                    }
+                }
+            ],
+            "assetPrices": [ ],
+            "assetDescriptions": [
+                {
+                    "descriptionType": {
+                        "descriptionTypeId": "6",
+                        "descriptionTypeName": "Standard"
+                    },
+                    "description": "<b>WRUT ~</b><br>Objective: How many Ultra Trek loops can you and/or your team complete in the 4 hour period?<p>Terrain: As the race is steep trail running, it will require sturdy footwear. The vertical rise is 700 feet.<p><b>FUN RUNs ~</b><br>Objective: Have fun - of course! And out race fellow racers and your friends and family!<p>Terrain: The Fun Run loop is more mild; it is located on the bunny hill portion of the ski area.The 2 hour solo run is the same course as the relay run."
+                },
+                {
+                    "descriptionType": {
+                        "descriptionTypeId": "4",
+                        "descriptionTypeName": "summary"
+                    },
+                    "description": "The Wausau Rotary Ultra Trek and Fun Runs is a three-part trail run supporting the Rotary Club of Wausau?s commitment to youth.<p><b>WRUT ~</b><br>Format: The WRUT is a 1 to 4 person team relay race on a 2 mile Ultra Trek loop cut into the Midwest?s highest vertical downhill ski area.<p> <b>FUN RUNs ~</b><br>Format: Join the fun for Central WI's most challenging 5K or a 1/2 Marathon equivalant - a 2 hour solo run.<p>"
+                }
+            ],
+            "assetChannels": [
+                {
+                    "sequence": "1",
+                    "channel": {
+                        "channelId": "1020",
+                        "channelName": "Running",
+                        "channelDsc": "Running"
+                    }
+                },
+                {
+                    "sequence": "2",
+                    "channel": {
+                        "channelId": "1029",
+                        "channelName": "Walking",
+                        "channelDsc": "Walking"
+                    }
+                }
+            ],
+            "assetMediaTypes": [
+                {
+                    "sequence": "4",
+                    "mediaType": {
+                        "mediaTypeId": "49",
+                        "mediaTypeName": "Event\\Relay",
+                        "mediaTypeDsc": ""
+                    }
+                },
+                {
+                    "sequence": "6",
+                    "mediaType": {
+                        "mediaTypeId": "194",
+                        "mediaTypeName": "Event\\Ultra",
+                        "mediaTypeDsc": ""
+                    }
+                },
+                {
+                    "sequence": "5",
+                    "mediaType": {
+                        "mediaTypeId": "51",
+                        "mediaTypeName": "Event\\Trail",
+                        "mediaTypeDsc": ""
+                    }
+                },
+                {
+                    "sequence": "3",
+                    "mediaType": {
+                        "mediaTypeId": "281",
+                        "mediaTypeName": "Event\\Half Marathon",
+                        "mediaTypeDsc": ""
+                    }
+                },
+                {
+                    "sequence": "2",
+                    "mediaType": {
+                        "mediaTypeId": "95",
+                        "mediaTypeName": "Event\\5K",
+                        "mediaTypeDsc": ""
+                    }
+                },
+                {
+                    "sequence": "1",
+                    "mediaType": {
+                        "mediaTypeId": "2",
+                        "mediaTypeName": "Event",
+                        "mediaTypeDsc": ""
+                    }
+                }
+            ],
+            "assetImages": [
+                {
+                    "imageUrlAdr": "http://www.active.com/images/events/hotrace.gif",
+                    "imageName": "image1",
+                    "imageCaptionTxt": ""
+                }
+            ],
+            "assetTopics": [
+                {
+                    "sequence": "2",
+                    "topic": {
+                        "topicId": "27",
+                        "topicName": "Running"
+                    }
+                },
+                {
+                    "sequence": "3",
+                    "topic": {
+                        "topicId": "29",
+                        "topicName": "Walking"
+                    }
+                }
+            ],
+            "assetCategories": [ ],
+            "assetMetaInterests": [ ],
+            "assetComponents": [
+                {
+                    "assetGuid": "5ca9bd44-12af-4741-873e-eab77c072d63"
+                },
+                {
+                    "assetGuid": "1a3e1b72-0dc0-4152-aa81-24809c4daeae"
+                },
+                {
+                    "assetGuid": "affb3b7a-af0f-47f1-93a4-c386333bf1e1"
+                },
+                {
+                    "assetGuid": "a9956a2b-b78c-4f9c-8176-6aa7110ba178"
+                },
+                {
+                    "assetGuid": "b72b6449-96d8-4a91-84c9-b3309e57f6bb"
+                },
+                {
+                    "assetGuid": "f8eef9e8-80f8-462e-aec4-700c275d9a57"
+                }
+            ],
+            "assetServiceHostName": "asset-04"
+        },
+        {
+            "assetStatus": {
+                "assetStatusId": "2",
+                "assetStatusName": "VISIBLE",
+                "isSearchable": "true",
+                "isDeleted": "false",
+                "createdDate": "2012-05-22T17:57:06",
+                "modifiedDate": "2012-05-22T17:57:06"
+            },
+            "organization": { },
+            "place": {
+                "placeGuid": "f3c27be2-14aa-4619-9f1e-3319fadcd406",
+                "placeName": "Anywhere in the USA or Canada",
+                "placeDsc": "",
+                "placeUrlAdr": "",
+                "addressLine1Txt": " ",
+                "addressLine2Txt": "",
+                "cityName": "Your favorite route",
+                "stateProvinceCode": "NY",
+                "localityName": "",
+                "postalCode": "10002",
+                "countryName": "USA",
+                "countryCode": "",
+                "latitude": "40.716077",
+                "longitude": "-73.987121",
+                "directionsTxt": "",
+                "geoPoint": {
+                    "lat": "40.716077",
+                    "lon": "-73.987121"
+                }
+            },
+            "evergreenAsset": { },
+            "dma": { },
+            "sourceSystem": {
+                "sourceSystemName": "RegCenter",
+                "legacyGuid": "EA4E860A-9DCD-4DAA-A7CA-4A77AD194F65"
+            },
+            "assetRootAsset": { },
+            "assetParentAsset": { },
+            "market": {
+                "marketId": "8",
+                "marketName": "endurance-running"
+            },
+            "assetGuid": "63b37b92-7a5e-4e17-bf0b-d1ba342c2dc6",
+            "assetName": "Running Event - 5K",
+            "assetDsc": "",
+            "alternateName": "",
+            "timezone": "",
+            "timezoneAbb": "",
+            "timezoneName": "",
+            "currencyCd": "",
+            "localeCd": "",
+            "salesStartDate": null,
+            "salesEndDate": null,
+            "urlAdr": "",
+            "detailPageTemplateId": "",
+            "preferredUrlAdr": "",
+            "logoUrlAdr": "http://www.active.com/images/events/hotrace.gif",
+            "activityStartDate": "2012-10-27T00:00:00",
+            "activityStartTime": "0:01:00",
+            "activityEndDate": "2012-11-04T00:00:00",
+            "activityEndTime": "23:59:00",
+            "donationUrlAdr": "",
+            "teamUrlAdr": "",
+            "homePageUrlAdr": "http://www.phantomrunner.com",
+            "registrationUrlAdr": "",
+            "registrantSearchUrlAdr": "",
+            "regReqMinAge": "",
+            "regReqMaxAge": "",
+            "regReqGenderCd": "",
+            "resultsUrlAdr": "",
+            "isRecurring": "false",
+            "contactName": "Race Director",
+            "contactEmailAdr": "director@phantomrunner.com",
+            "contactPhone": "4437913736",
+            "contactTxt": "",
+            "showContact": "false",
+            "sorId": "",
+            "sorCreateDtm": null,
+            "sorCreateUserId": "",
+            "authorName": "",
+            "publishDate": null,
+            "createdDate": "2012-07-31T01:15:25",
+            "modifiedDate": "2012-08-02T18:59:40",
+            "activityRecurrences": [ ],
+            "assetQuantity": {
+                "capacityNb": "",
+                "soldCnt": "0",
+                "availableCnt": "0",
+                "waitlistCapacityNb": "",
+                "waitlistCnt": "",
+                "createdDate": "2012-07-31T01:15:26",
+                "modifiedDate": "2012-07-31T01:15:26"
+            },
+            "assetLegacyData": {
+                "assetTypeId": "",
+                "typeName": "",
+                "uploadSearchUrlAdr": "",
+                "authorName": "",
+                "onlineRegistration": "true",
+                "onlineDonation": "false",
+                "onlineMembership": "false",
+                "onlineMembershipCostAmt": "",
+                "costAmt": "",
+                "avgUserRatingTxt": "",
+                "estParticipantNb": "300",
+                "maxTeamNb": "",
+                "minGuaranteedGameNb": "",
+                "multipleStartDate": "",
+                "genderRequirementTxt": "",
+                "participationCriteriaTxt": "Adult,Family,Kids,Men,Women",
+                "userCommentTxt": "",
+                "priceExtensionTxt": "",
+                "searchWeight": "1.0000",
+                "seoUrl": "",
+                "substitutionUrl": "2049145",
+                "trackbackUrl": "",
+                "eventCategories": "",
+                "isSearchable": "false",
+                "createdDate": "2012-07-31T01:15:26",
+                "modifiedDate": "2012-07-31T01:15:26"
+            },
+            "assetTags": [
+                {
+                    "tag": {
+                        "tagId": "32308",
+                        "tagName": "true",
+                        "tagDescription": "activeadvantage"
+                    }
+                },
+                {
+                    "tag": {
+                        "tagId": "125937",
+                        "tagName": "false",
+                        "tagDescription": "usatsanctioned"
+                    }
+                },
+                {
+                    "tag": {
+                        "tagId": "88732",
+                        "tagName": "New York",
+                        "tagDescription": "market"
+                    }
+                }
+            ],
+            "assetPrices": [
+                {
+                    "effectiveDate": "2012-10-26T19:00:00",
+                    "priceAmt": "27.99",
+                    "maxPriceAmt": "",
+                    "minPriceAmt": ""
+                },
+                {
+                    "effectiveDate": "2012-08-31T07:00:00",
+                    "priceAmt": "24.99",
+                    "maxPriceAmt": "",
+                    "minPriceAmt": ""
+                }
+            ],
+            "assetDescriptions": [
+                {
+                    "descriptionType": {
+                        "descriptionTypeId": "6",
+                        "descriptionTypeName": "Standard"
+                    },
+                    "description": "15% of entry fee goes to Homes for Our Troops.Visit us on Facebook: http://www.facebook.com/PRvirtualracing"
+                },
+                {
+                    "descriptionType": {
+                        "descriptionTypeId": "4",
+                        "descriptionTypeName": "summary"
+                    },
+                    "description": "PhantomRunner is a virtual race, which means you can participate from anywhere in the US or Canada. You simply run your favorite route at any time during Race Week (Oct 27 - Nov 4), and we post the results. Race fee includes: Finisher's Medal, PhantomRunner Wristband, Race Bib, and eligibility for Prize Drawings."
+                }
+            ],
+            "assetChannels": [
+                {
+                    "sequence": "1",
+                    "channel": {
+                        "channelId": "1020",
+                        "channelName": "Running",
+                        "channelDsc": "Running"
+                    }
+                }
+            ],
+            "assetMediaTypes": [
+                {
+                    "sequence": "2",
+                    "mediaType": {
+                        "mediaTypeId": "187",
+                        "mediaTypeName": "Event\\1 mile",
+                        "mediaTypeDsc": ""
+                    }
+                },
+                {
+                    "sequence": "8",
+                    "mediaType": {
+                        "mediaTypeId": "224",
+                        "mediaTypeName": "=difficulty:Intermediate",
+                        "mediaTypeDsc": ""
+                    }
+                },
+                {
+                    "sequence": "1",
+                    "mediaType": {
+                        "mediaTypeId": "2",
+                        "mediaTypeName": "Event",
+                        "mediaTypeDsc": ""
+                    }
+                },
+                {
+                    "sequence": "4",
+                    "mediaType": {
+                        "mediaTypeId": "95",
+                        "mediaTypeName": "Event\\5K",
+                        "mediaTypeDsc": ""
+                    }
+                },
+                {
+                    "sequence": "6",
+                    "mediaType": {
+                        "mediaTypeId": "116",
+                        "mediaTypeName": "=difficulty:Advanced",
+                        "mediaTypeDsc": ""
+                    }
+                },
+                {
+                    "sequence": "3",
+                    "mediaType": {
+                        "mediaTypeId": "126",
+                        "mediaTypeName": "Event\\10K",
+                        "mediaTypeDsc": ""
+                    }
+                },
+                {
+                    "sequence": "7",
+                    "mediaType": {
+                        "mediaTypeId": "48",
+                        "mediaTypeName": "=difficulty:Beginner",
+                        "mediaTypeDsc": ""
+                    }
+                },
+                {
+                    "sequence": "5",
+                    "mediaType": {
+                        "mediaTypeId": "281",
+                        "mediaTypeName": "Event\\Half Marathon",
+                        "mediaTypeDsc": ""
+                    }
+                }
+            ],
+            "assetImages": [
+                {
+                    "imageUrlAdr": "http://www.active.com/images/events/hotrace.gif",
+                    "imageName": "image1",
+                    "imageCaptionTxt": ""
+                }
+            ],
+            "assetTopics": [
+                {
+                    "sequence": "2",
+                    "topic": {
+                        "topicId": "27",
+                        "topicName": "Running"
+                    }
+                }
+            ],
+            "assetCategories": [
+                {
+                    "sequence": "2",
+                    "category": {
+                        "categoryId": "22",
+                        "categoryName": "Races"
+                    }
+                }
+            ],
+            "assetMetaInterests": [ ],
+            "assetComponents": [ ],
+            "assetServiceHostName": "asset-02"
+        }
+    ],
+    "facets": [
+        {
+            "name": "topicName",
+            "terms": [
+                {
+                    "term": "Running",
+                    "count": 188
+                },
+                {
+                    "term": "Walking",
+                    "count": 51
+                },
+                {
+                    "term": "Distance running",
+                    "count": 14
+                },
+                {
+                    "term": "Triathlon",
+                    "count": 10
+                },
+                {
+                    "term": "Tai chi",
+                    "count": 1
+                },
+                {
+                    "term": "Other recreation",
+                    "count": 1
+                },
+                {
+                    "term": "Martial arts",
+                    "count": 1
+                },
+                {
+                    "term": "General chemistry",
+                    "count": 1
+                },
+                {
+                    "term": "Fitness",
+                    "count": 1
+                },
+                {
+                    "term": "Cycling",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "facet_values": [
+        {
+            "name": "topicName",
+            "value": "Running",
+            "count": 188
+        },
+        {
+            "name": "topicName",
+            "value": "Fitness",
+            "count": 1
+        }
+    ],
+    "items_per_page": 5,
+    "start_index": 0,
+    "total_results": 211
+
+}

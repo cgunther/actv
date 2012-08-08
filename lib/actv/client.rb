@@ -32,11 +32,11 @@ module ACTV
     # @example Returns assets related to running
     #   ACTV.assets('running')
     #   ACTV.search('running')
-    # def assets(q, options={})
-    #   response = get("/v1/search.json", options.merge(q: q))
-    #   ACTV::SearchResults.from_response(response)
-    # end
-    # alias search assets
+    def assets(q, options={})
+      response = get("/v2/search.json", options.merge(query: q))
+          ACTV::SearchResults.from_response(response)
+    end
+    alias search assets
 
     # Sends a new direct message to the specified user from the authenticating user
     #
