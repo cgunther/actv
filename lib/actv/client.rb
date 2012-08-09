@@ -4,6 +4,7 @@ require 'actv/configurable'
 require 'actv/error/forbidden'
 require 'actv/error/not_found'
 require 'actv/search_results'
+require 'actv/user'
 require 'simple_oauth'
 
 module ACTV
@@ -38,7 +39,7 @@ module ACTV
     # end
     # alias search assets
 
-    # Sends a new direct message to the specified user from the authenticating user
+    # Returns an asset with the specified ID
     #
     # @authentication_required No
     # @return [ACTV::Asset] The requested asset.
@@ -49,6 +50,18 @@ module ACTV
     def asset(id, options={})
       response = get("/v2/assets/#{id}.json", options)
       ACTV::Asset.from_response(response)
+    end
+
+    # Returns the currently logged in user
+    #
+    # @authentication_required Yes
+    # @return [ACTV::User] The requested current user.
+    # @param options [Hash] A customizable set of options.
+    # @example Return current_user if authentication was susccessful
+    #   ACTV.me
+    def me(options={})
+      response = get("/v2/me.json", options)
+      ACTV::User.from_response(response)
     end
 
     # Perform an HTTP GET request
