@@ -53,7 +53,7 @@ module ACTV
             builder.use ACTV::Request::MultipartWithFile # Convert file uploads to Faraday::UploadIO objects
             builder.use Faraday::Request::Multipart         # Checks for files in the payload
             builder.use Faraday::Request::UrlEncoded        # Convert request params as "www-form-urlencoded"
-            # builder.use ACTV::Response::RaiseClientError # Handle 4xx server responses
+            builder.use ACTV::Response::RaiseClientError # Handle 4xx server responses
             builder.use ACTV::Response::ParseJson        # Parse JSON response bodies using MultiJson
             builder.use ACTV::Response::RaiseServerError # Handle 5xx server responses
             # builder.use ACTV::Response::RateLimit        # Update RateLimit object
