@@ -1,5 +1,6 @@
 require 'faraday'
 require 'actv/article'
+require 'actv/article_search_results'
 require 'actv/asset'
 require 'actv/configurable'
 require 'actv/error/forbidden'
@@ -53,6 +54,19 @@ module ACTV
       ACTV::Asset.from_response(response)
     end
 
+    # Returns articles that match a specified query.
+    #
+    # @authentication_required No
+    # @param q [String] A search term.
+    # @param options [Hash] A customizable set of options.
+    # @return [ACTV::SearchResults] Return articles that match a specified query with search metadata
+    # @example Returns articles related to running
+    #   ACTV.articles('running')
+    #   ACTV.articles('running')
+    def articles(q, options={})
+      response = get("/v2/search.json", options.merge({query: q, category: 'articles'}))
+      ACTV::SearchResults.from_response(response)
+    end
 
     # Returns an article with the specified ID
     #
