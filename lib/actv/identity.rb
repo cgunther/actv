@@ -15,7 +15,7 @@ module ACTV
         @@identity_map[self.class] ||= {}
         @@identity_map[self.class][self.id] = self
       else
-        raise ArgumentError, "argument must have an :id key"
+        raise ArgumentError, "argument (#{self.class}) must have an :id key"
       end
     end
 
