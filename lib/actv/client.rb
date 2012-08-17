@@ -1,4 +1,5 @@
 require 'faraday'
+require 'actv/article'
 require 'actv/asset'
 require 'actv/configurable'
 require 'actv/error/forbidden'
@@ -35,7 +36,7 @@ module ACTV
     #   ACTV.search('running')
     def assets(q, options={})
       response = get("/v2/search.json", options.merge(query: q))
-          ACTV::SearchResults.from_response(response)
+      ACTV::SearchResults.from_response(response)
     end
     alias search assets
 
@@ -43,13 +44,27 @@ module ACTV
     #
     # @authentication_required No
     # @return [ACTV::Asset] The requested asset.
-    # @param id [String] An ssset ID.
+    # @param id [String] An assset ID.
     # @param options [Hash] A customizable set of options.
     # @example Return the asset with the id BA288960-2718-4B20-B380-8F939596B123
     #   ACTV.asset("BA288960-2718-4B20-B380-8F939596B123")
     def asset(id, options={})
       response = get("/v2/assets/#{id}.json", options)
       ACTV::Asset.from_response(response)
+    end
+
+
+    # Returns an article with the specified ID
+    #
+    # @authentication_required No
+    # @return [ACTV::Article] The requested article.
+    # @param id [String] An article ID.
+    # @param options [Hash] A customizable set of options.
+    # @example Return the article with the id BA288960-2718-4B20-B380-8F939596B123
+    #   ACTV.article("BA288960-2718-4B20-B380-8F939596B123")
+    def article(id, options={})
+      response = get("/v2/assets/#{id}.json", options)
+      ACTV::Article.from_response(response)
     end
 
     # Returns the currently logged in user
