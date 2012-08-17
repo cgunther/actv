@@ -20,8 +20,10 @@ describe ACTV::Client do
 
       it "returns the correct name" do
         me = @client.me
-        me.first_name.should eq 'John'
-        me.last_name.should eq 'Smith'
+        me.first_name.should eq 'Jeff'
+        me.last_name.should eq 'Fang'
+        me.address.city.should eql "sfsfsf"
+        me.address.postal_code.should eql "12345"
       end
     end
   end

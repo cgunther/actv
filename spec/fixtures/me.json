@@ -1,13 +1,21 @@
 {
-    "aus_id": "519e7089-f92a-4483-9b2f-43d245b5c445",
-    "created_at": "2012-08-09T16:36:20Z",
-    "email": "john.smith@activenetwork.com",
-    "id": 1,
-    "updated_at": "2012-08-09T16:36:20Z",
-    "first_name": "John",
-    "last_name": "Smith",
-    "middle_name": null,
-    "gender": null,
-    "display_name": "JohnSmith",
-    "date_of_birth": "1975-01-01T00:00:00+00:00"
+  "active_eid": "bc7bb889-35df-4e9f-8eb9-18900d1af4e8",
+  "id":"1",
+  "first_name":"Jeff",
+  "last_name":"Fang",
+  "middle_name":null,
+  "gender":"MALE",
+  "display_name":"JeffFang",
+  "date_of_birth":"1982-10-10T00:00:00+00:00",
+  "address":{
+    "city":"sfsfsf",
+    "country_code":"US",
+    "id":"bbb2106a-97f0-4619-bcfe-794bb3311614",
+    "line1":"sfsf",
+    "line2":"sf",
+    "postal_code":"12345",
+    "province":"AR"
+    },
+  "phone_number":null,
+  "email":"testSTG@testactive.com"
 }
