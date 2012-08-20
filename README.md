@@ -1,6 +1,6 @@
 # ACTV
 
-TODO: Write a gem description
+A Ruby wrapper for The ACTIVE Network 3.0 API
 
 ## Installation
 
@@ -16,21 +16,61 @@ Or install it yourself as:
 
     $ gem install actv
 
-## Usage
+## Usage Examples
 
-TODO: Write usage instructions here
+Search for Running
 
+    ACTV.search('Running')
+
+Return an Asset with Id of 12345678-9012-3456-7890-123456789012
+
+    ACTV.asset('12345678-9012-3456-7890-123456789012')
+
+Search for Swimming Articles
+
+    ACTV.articles('Swimming')
+
+Return an Article with Id of 12345678-9012-3456-7890-123456789012
+
+    ACTV.article('12345678-9012-3456-7890-123456789012')
+    
+Certain methods require authentication. You need to instantiate a Client object with a valid acceess token
+
+    @actv = ACTV::Client.new({ 
+        oauth_token: session[:access_token]
+    })
+
+Get the requested current user
+
+    @actv.me
+    
 ## Changelog
 
-### v1.0.1
+###v1.0.4
+- Basic implementation of ACTV::Article
+- Added ability to find articles by Id
+- Added ability to search for articles
+- Added Summary and Description attributes to ACTV::Asset
 
+###v1.0.3
+- Address now extends ACTV::Base instead of ACTV::Identity
+
+### v1.0.2
+- Basic implementation of ACTV::User
+- Added method to return current user
+- Added ability to search assets
+- Basic implementation of ACTV::SearchResults
+- Bubbling up client errors correctly
+
+### v1.0.1
 - New class ACTV::AssetImage
 - ACTV::Asset.images returns an array of AssetImages
+- Added method_missing and respond_to? to ACTV::Base to allow access to arbitrary attributes
 
 ### v1.0.0
-
 - Basic ACTV::Asset implementation
-- Need more documentation
+- Basic Base object implementation
+- HTTP Request implementation
 
 ## Contributing
 
