@@ -15,7 +15,6 @@ module ACTV
 
     alias id assetGuid
     alias title assetName
-    alias description assetDsc
     alias start_date activityStartDate
     alias start_time activityStartTime
     alias end_date activityEndDate
@@ -67,5 +66,24 @@ module ACTV
       end
     end
     alias assetImages images
+
+    def summary
+      @summary ||= description_by_type 'summary'
+    end
+
+    def description
+      @description ||= description_by_type 'Standard'
+    end
+
+  private
+
+    def description_by_type(type)
+      dsc = self.descriptions.find { |dsc| dsc.type.name.downcase == type.downcase }
+      dsc.description if dsc
+    end
+
+    def image_by_name(name)
+      self.images.find { |img| img.name.downcase == name.downcase }
+    end
   end
 end
