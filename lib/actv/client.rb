@@ -65,7 +65,7 @@ module ACTV
     #   ACTV.articles('running')
     def articles(q, options={})
       response = get("/v2/search.json", options.merge({query: q, category: 'articles'}))
-      ACTV::SearchResults.from_response(response)
+      ACTV::ArticleSearchResults.from_response(response)
     end
 
     # Returns an article with the specified ID
