@@ -3,6 +3,7 @@ require 'actv/asset_description'
 require 'actv/asset_image'
 require 'actv/asset_legacy_data'
 require 'actv/asset_status'
+require 'actv/asset_tag'
 require 'actv/identity'
 require 'actv/place'
 
@@ -67,6 +68,12 @@ module ACTV
     end
     alias assetImages images
 
+    def tags
+      @asset_tags ||= Array(@attrs[:assetTags]).map do |tag|
+        ACTV::AssetTag.fetch_or_new(tag)
+      end
+    end
+
     def summary
       @summary ||= description_by_type 'summary'
     end
@@ -84,6 +91,11 @@ module ACTV
 
     def image_by_name(name)
       self.images.find { |img| img.name.downcase == name.downcase }
+    end
+
+    def tag_by_description(description)
+      asset_tag = self.tags.find { |at| at.tag.description.downcase == description.downcase }
+      asset_tag.tag.name if asset_tag
     end
   end
 end
