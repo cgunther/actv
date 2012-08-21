@@ -45,6 +45,10 @@ describe ACTV::Client do
       it "should return the correct author bio" do
         @article.author_bio.should eq "Author Bio"
       end
+
+      it "should return the correct type" do
+        @article.type.should eq "Article"
+      end
     end
   end
 

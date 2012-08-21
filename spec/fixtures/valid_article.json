@@ -89,7 +89,7 @@
         {
             "tag": {
                 "tagId": "3162",
-                "tagName": "Article types associated with this article, as carried over from ACM.",
+                "tagName": "Article",
                 "tagDescription": "articleType"
             }
         }

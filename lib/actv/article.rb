@@ -17,5 +17,9 @@ module ACTV
     def source
       @source ||= description_by_type 'articleSource'
     end
+
+    def type
+      @type ||= tag_by_description 'articleType'
+    end
   end
 end
