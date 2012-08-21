@@ -51,6 +51,9 @@ Get the requested current user
 - Added ability to find articles by Id
 - Added ability to search for articles
 - Added Summary and Description attributes to ACTV::Asset
+- Basic implementation of ACTV::AssetTag
+- Basic implementation of ACTV::Tag
+- ACTV::Asset.tags returns an array of AssetTags
 
 ###v1.0.3
 - Address now extends ACTV::Base instead of ACTV::Identity
