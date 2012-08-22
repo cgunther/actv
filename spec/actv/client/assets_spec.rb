@@ -36,9 +36,14 @@ describe ACTV::Client do
         @asset.legacy_data.online_registration?.should eq "true"
       end
 
-      it "return the correct asset channel" do
-        @asset.asset_channels.size.should eq 2
-        @asset.asset_channels.first.sequence.should eq "1"
+      it "returns the correct asset channel" do
+        @asset.channels.size.should eq 2
+        @asset.channels.first.sequence.should eq "1"
+      end
+
+      it "returns the correct asset component" do
+        @asset.components.size.should eq 2
+        @asset.components.first.asset_guid.should eq "63e030f3-3df4-402c-9617-d37f6fb2c11b"
       end
     end
   end

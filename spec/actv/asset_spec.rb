@@ -100,4 +100,18 @@ describe ACTV::Asset do
     end
   end
 
+  describe "#components" do
+    it "returns an Array of Asset Components when assetComponents is set" do
+      components = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1", assetComponents: [{ assetGuid: 1}]).components
+      components.should be_a Array
+      components.first.should be_a ACTV::AssetComponent
+    end
+
+    it "returns an empty array when assetComponents is not set" do
+      components = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1").tags
+      components.should be_a Array
+      components.should eq []
+    end
+  end
+
 end
