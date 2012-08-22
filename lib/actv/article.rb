@@ -21,5 +21,9 @@ module ACTV
     def type
       @type ||= tag_by_description 'articleType'
     end
+
+    def image
+      @image ||= image_by_name 'image2'
+    end
   end
 end
