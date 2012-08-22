@@ -1,4 +1,5 @@
 require 'actv/asset_channel'
+require 'actv/asset_component'
 require 'actv/asset_description'
 require 'actv/asset_image'
 require 'actv/asset_legacy_data'
@@ -46,11 +47,13 @@ module ACTV
     def status
       @status ||= ACTV::AssetStatus.fetch_or_new(@attrs[:assetStatus]) unless @attrs[:assetStatus].nil?
     end
+    alias asset_status status
     alias assetStatus status
 
     def legacy_data
       @legacy_data ||= ACTV::AssetLegacyData.fetch_or_new(@attrs[:assetLegacyData]) unless @attrs[:assetLegacyData].nil?
     end
+    alias asset_legacy_data legacy_data
     alias assetLegacyData legacy_data
 
     def channels
@@ -66,6 +69,7 @@ module ACTV
         ACTV::AssetImage.fetch_or_new(img)
       end
     end
+    alias asset_images images
     alias assetImages images
 
     def tags
@@ -73,6 +77,16 @@ module ACTV
         ACTV::AssetTag.fetch_or_new(tag)
       end
     end
+    alias asset_tags tags
+    alias assetTags tags
+
+    def components
+      @asset_components ||= Array(@attrs[:assetComponents]).map do |component|
+        ACTV::AssetComponent.fetch_or_new(component)
+      end
+    end
+    alias asset_components components
+    alias assetComponents components
 
     def summary
       @summary ||= description_by_type 'summary'
