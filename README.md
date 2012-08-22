@@ -46,6 +46,10 @@ Get the requested current user
     
 ## Changelog
 
+###v1.0.5
+- Basic implementation of ACTV::AssetComponent
+- ACTV::Asset.components returns an array of AssetComponents
+
 ###v1.0.4
 - Basic implementation of ACTV::Article
 - Added ability to find articles by Id
