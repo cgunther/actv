@@ -154,6 +154,13 @@
     "assetTopics": [],
     "assetCategories": [],
     "assetMetaInterests": [],
-    "assetComponents": [],
+    "assetComponents": [
+        {
+            "assetGuid": "63e030f3-3df4-402c-9617-d37f6fb2c11b"
+        },
+        {
+            "assetGuid": "63e030f3-3df4-402c-9617-d37f6fb2c11c"
+        }
+    ],
     "assetServiceHostName": "asset-03"
 }
