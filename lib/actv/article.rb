@@ -25,5 +25,9 @@ module ACTV
     def image
       @image ||= image_by_name 'image2'
     end
+
+    def subtitle
+      @subtitle ||= description_by_type 'subtitle'
+    end
   end
 end
