@@ -96,8 +96,6 @@ module ACTV
       @description ||= description_by_type 'Standard'
     end
 
-  private
-
     def description_by_type(type)
       dsc = self.descriptions.find { |dsc| dsc.type.name.downcase == type.downcase }
       dsc.description if dsc
