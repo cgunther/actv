@@ -49,6 +49,7 @@ Get the requested current user
 ###v1.0.5
 - Basic implementation of ACTV::AssetComponent
 - ACTV::Asset.components returns an array of AssetComponents
+- Added asset image link url and link target
 
 ###v1.0.4
 - Basic implementation of ACTV::Article
