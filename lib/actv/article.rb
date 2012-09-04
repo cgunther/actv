@@ -29,5 +29,9 @@ module ACTV
     def subtitle
       @subtitle ||= description_by_type 'subtitle'
     end
+
+    def footer
+      @footer ||= description_by_type 'footer'
+    end
   end
 end

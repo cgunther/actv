@@ -13,5 +13,6 @@ describe ACTV::Article do
     it { should respond_to :type }
     it { should respond_to :image }
     it { should respond_to :subtitle }
+    it { should respond_to :footer }
   end
 end
