@@ -33,5 +33,10 @@ module ACTV
     def footer
       @footer ||= description_by_type 'footer'
     end
+
+    def inline_ad
+      @inline_ad ||= tag_by_description 'inlinead'
+    end
+    alias inline_ad? inline_ad
   end
 end

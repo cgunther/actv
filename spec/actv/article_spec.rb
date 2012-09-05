@@ -14,5 +14,7 @@ describe ACTV::Article do
     it { should respond_to :image }
     it { should respond_to :subtitle }
     it { should respond_to :footer }
+    it { should respond_to :inline_ad }
+    it { should respond_to :inline_ad? }
   end
 end
