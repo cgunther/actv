@@ -112,7 +112,12 @@
         "modifiedDate": "2012-05-17T18:29:19"
     },
     "assetTags": [],
-    "assetPrices": [],
+    "assetPrices": [{
+        "effectiveDate": "2012-08-03T06:59:00",
+        "priceAmt": "10",
+        "maxPriceAmt": "",
+        "minPriceAmt": ""
+    }],
     "assetDescriptions": [{
         "descriptionType": {
             "descriptionTypeId": "1",

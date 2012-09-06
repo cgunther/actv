@@ -45,6 +45,11 @@ describe ACTV::Client do
         @asset.components.size.should eq 2
         @asset.components.first.asset_guid.should eq "63e030f3-3df4-402c-9617-d37f6fb2c11b"
       end
+
+      it "returns the correct asset prices" do
+        @asset.prices.size.should eq 1
+        @asset.prices.first.amount.should eq "10"
+      end
     end
   end
 

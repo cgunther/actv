@@ -3,6 +3,7 @@ require 'actv/asset_component'
 require 'actv/asset_description'
 require 'actv/asset_image'
 require 'actv/asset_legacy_data'
+require 'actv/asset_price'
 require 'actv/asset_status'
 require 'actv/asset_tag'
 require 'actv/identity'
@@ -87,6 +88,14 @@ module ACTV
     end
     alias asset_components components
     alias assetComponents components
+
+    def prices
+      @asset_prices ||= Array(@attrs[:assetPrices]).map do |price|
+        ACTV::AssetPrice.fetch_or_new(price)
+      end
+    end
+    alias asset_prices prices
+    alias assetPrices prices
 
     def summary
       @summary ||= description_by_type 'summary'

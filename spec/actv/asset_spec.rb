@@ -114,4 +114,18 @@ describe ACTV::Asset do
     end
   end
 
+  describe "#prices" do
+    it "returns an Array of Asset Prices when assetPrices is set" do
+      prices = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1", assetPrices: [{ effectiveDate: "2012-08-03T06:59:00", priceAmt: "10" }]).prices
+      prices.should be_a Array
+      prices.first.should be_a ACTV::AssetPrice
+    end
+
+    it "returns an empty array when assetComponents is not set" do
+      prices = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1").tags
+      prices.should be_a Array
+      prices.should eq []
+    end
+  end
+
 end
