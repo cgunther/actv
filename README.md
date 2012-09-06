@@ -46,10 +46,15 @@ Get the requested current user
     
 ## Changelog
 
+###v1.0.6
+- Basi implemenetation of ACTV::AssetPrice
+- ACTV::Asset.prices returns an array of AssetPrices
+- Added footer and inline_ad attribute to ACTV::Article
+
 ###v1.0.5
 - Basic implementation of ACTV::AssetComponent
 - ACTV::Asset.components returns an array of AssetComponents
-- Added asset image link url and link target
+- Added link and target to ACTV::AssetImage
 
 ###v1.0.4
 - Basic implementation of ACTV::Article
