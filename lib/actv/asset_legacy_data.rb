@@ -1,7 +1,7 @@
 require 'actv/identity'
 
 module ACTV
-  class AssetLegacyData < ACTV::Identity
+  class AssetLegacyData < Base
 
     attr_reader :assetTypeId, :typeName, :onlineRegistration, :seoUrl, 
       :substitutionUrl, :isSearchable, :createdDate, :modifiedDate
