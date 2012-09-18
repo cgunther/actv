@@ -9,6 +9,7 @@ module ACTV
     alias id assetTypeId
     alias type_name typeName
     alias online_registration? onlineRegistration
+    alias online_registration onlineRegistration
     alias seo_url seoUrl
     alias substitution_url substitutionUrl
     alias is_searchable? isSearchable
