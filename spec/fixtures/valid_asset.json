@@ -156,7 +156,14 @@
         }
     }],
     "assetImages": [],
-    "assetTopics": [],
+    "assetTopics": [{
+        "sequence": "3",
+        "topic": {
+            "topicId": "26",
+            "topicTaxonomy": "Endurance/Duathlon",
+            "topicName": "Duathlon"
+        }
+    }],
     "assetCategories": [],
     "assetMetaInterests": [],
     "assetComponents": [

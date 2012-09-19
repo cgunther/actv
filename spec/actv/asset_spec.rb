@@ -67,7 +67,7 @@ describe ACTV::Asset do
     end
 
     it "returns nil when assetLegacyData is not set" do
-      legacy_data = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1").status
+      legacy_data = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1").legacy_data
       legacy_data.should be_nil
     end
   end
@@ -125,6 +125,20 @@ describe ACTV::Asset do
       prices = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1").tags
       prices.should be_a Array
       prices.should eq []
+    end
+  end
+
+  describe "#topics" do
+    it "returns an Array of Asset Topics when assetTopics is set" do
+      topics = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1", assetTopics: [{ sequence: "1", topic: { topicId: "27", topicName: "Running" } }]).topics
+      topics.should be_a Array
+      topics.first.should be_a ACTV::AssetTopic
+    end
+
+    it "returns an empty array when assetComponents is not set" do
+      topics = ACTV::Asset.new(assetGuid: 1, assetName: "Asset #1").topics
+      topics.should be_a Array
+      topics.should eq []
     end
   end
 

@@ -6,6 +6,7 @@ require 'actv/asset_legacy_data'
 require 'actv/asset_price'
 require 'actv/asset_status'
 require 'actv/asset_tag'
+require 'actv/asset_topic'
 require 'actv/identity'
 require 'actv/place'
 
@@ -96,6 +97,14 @@ module ACTV
     end
     alias asset_prices prices
     alias assetPrices prices
+
+    def topics
+      @asset_topics ||= Array(@attrs[:assetTopics]).map do |topic|
+        ACTV::AssetTopic.fetch_or_new(topic)
+      end
+    end
+    alias asset_topics topics
+    alias assetTopics topics
 
     def summary
       @summary ||= description_by_type 'summary'

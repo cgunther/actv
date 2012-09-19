@@ -50,6 +50,14 @@ describe ACTV::Client do
         @asset.prices.size.should eq 1
         @asset.prices.first.amount.should eq "10"
       end
+
+      it "returns the correct asset topic" do
+        @asset.topics.size.should eq 1
+        @asset.topics.first.sequence.should eq "3"
+        @asset.topics.first.topic.should be_a ACTV::Topic
+        @asset.topics.first.topic.name.should eq "Duathlon"
+        @asset.topics.first.topic.taxonomy.should eq "Endurance/Duathlon"
+      end
     end
   end
 
