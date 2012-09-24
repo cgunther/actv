@@ -93,9 +93,29 @@ module ACTV
       ACTV::User.from_response(response)
     end
 
+    def update_me(user, options={})
+      response = put("/v2/me.json", options.merge(user))
+      ACTV::User.from_response(response)
+    end
+
     # Perform an HTTP GET request
     def get(path, params={}, options={})
       request(:get, path, params, options)
+    end
+
+    # Perform an HTTP POST request
+    def post(path, params={}, options={})
+      request(:post, path, params, options)
+    end
+
+    # Perform an HTTP UPDATE request
+    def put(path, params={}, options={})
+      request(:put, path, params, options)
+    end
+
+    # Perform an HTTP DELETE request
+    def delete(path, params={}, options={})
+      request(:delete, path, params, options)
     end
     
     # Returns a Faraday::Connection object
@@ -111,6 +131,7 @@ module ACTV
       uri = URI(uri) unless uri.respond_to?(:host)
       uri += path
       request_headers = {}
+
       if self.credentials?
         # When posting a file, don't sign any params
         signature_params = if [:post, :put].include?(method.to_sym) && params.values.any?{|value| value.is_a?(File) || (value.is_a?(Hash) && (value[:io].is_a?(IO) || value[:io].is_a?(StringIO)))}
@@ -136,7 +157,6 @@ module ACTV
     rescue Faraday::Error::ClientError
       raise ACTV::Error::ClientError
     end
-    
     # Check whether credentials are present
     #
     # @return [Boolean]
@@ -151,10 +171,10 @@ module ACTV
     # @return [Hash]
     def credentials
       {
-        :consumer_key => @consumer_key,
-        :consumer_secret => @consumer_secret,
-        :token => @oauth_token,
-        :token_secret => @oauth_token_secret,
+        # :consumer_key => @consumer_key,
+        # :consumer_secret => @consumer_secret,
+        :token => @oauth_token
+        # :token_secret => @oauth_token_secret,
       }
     end
     

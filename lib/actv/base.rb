@@ -5,7 +5,7 @@ module ACTV
   class Base
     attr_reader :attrs
     alias body attrs
-    alias to_hash attrs
+    # alias to_hash attrs
 
     @@identity_map = IdentityMap.new
 
@@ -70,6 +70,8 @@ module ACTV
     def method_missing(meth, *args, &block)
       if @attrs && @attrs.has_key?(meth)
         @attrs[meth]
+      elsif meth.to_s.include?('=') and !args.empty?
+        @attrs[meth[0..-2].to_sym] = args.first
       else
         super
       end
@@ -81,6 +83,19 @@ module ACTV
       else
         super
       end
+    end
+
+    # Creation of object hash when sending request to soap
+    def to_hash
+      hash = {}
+      hash["attrs"] = @attrs
+
+      self.instance_variables.keep_if { |key| key != :@attrs }.each do |var|
+        val = self.instance_variable_get(var)
+        hash["attrs"][var.to_s.delete("@").to_sym] = val.to_hash if val.is_a? ACTV::Base
+      end
+
+      hash["attrs"]
     end
 
   protected

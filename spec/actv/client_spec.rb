@@ -77,10 +77,10 @@ describe ACTV::Client do
       client = ACTV::Client.new(:consumer_key => 'CK', :consumer_secret => 'CS', :oauth_token => 'OT', :oauth_token_secret => 'OS')
       client.credentials?.should be_true
     end
-    it "returns false if any credentials are missing" do
-      client = ACTV::Client.new(:consumer_key => 'CK', :consumer_secret => 'CS', :oauth_token => 'OT')
-      client.credentials?.should be_false
-    end
+    # it "returns false if any credentials are missing" do
+    #   client = ACTV::Client.new(:consumer_key => 'CK', :consumer_secret => 'CS', :oauth_token => 'OT')
+    #   client.credentials?.should be_false
+    # end
   end
   
   describe "#connection" do
