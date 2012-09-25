@@ -19,7 +19,11 @@ module ACTV
         if body.nil?
           ''
         elsif body[:error]
-          body[:error]
+          if body[:error][:message]
+            body[:error][:message]
+          else
+            body[:error]
+          end
         elsif body[:errors]
           first = Array(body[:errors]).first
           if first.kind_of?(Hash)
