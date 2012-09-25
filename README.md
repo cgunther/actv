@@ -46,6 +46,11 @@ Get the requested current user
     
 ## Changelog
 
+###v1.0.8
+- Basic implementation of ACTV::PhoneNumber
+- ACTV::User.phone_number returns a PhoneNumber object
+- Implemented code to give the ability to update current user
+
 ###v1.0.7
 - Basic implementation of ACTV::AssetTopic
 - ACTV::Asset.topics returns an array of AssetTopics

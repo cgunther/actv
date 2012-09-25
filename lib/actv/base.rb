@@ -5,7 +5,6 @@ module ACTV
   class Base
     attr_reader :attrs
     alias body attrs
-    # alias to_hash attrs
 
     @@identity_map = IdentityMap.new
 
