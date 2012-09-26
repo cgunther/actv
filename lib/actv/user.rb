@@ -5,7 +5,7 @@ module ACTV
   class User < ACTV::Identity
 
     attr_reader :first_name, :last_name, :middle_name, :gender, 
-      :display_name, :date_of_birth, :email, :user_name
+      :display_name, :date_of_birth, :email, :user_name, :created_date
 
     alias dob date_of_birth
     
