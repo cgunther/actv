@@ -98,6 +98,14 @@ module ACTV
       ACTV::User.from_response(response)
     end
 
+    def user_name_exists?(user_name, options={})
+      get("/v2/users/user_name/#{user_name}", options)[:body][:exists]
+    end
+
+    def display_name_exists?(display_name, options={})
+      get("/v2/users/display_name/#{URI.escape(display_name)}", options)[:body][:exists]
+    end
+
     # Perform an HTTP GET request
     def get(path, params={}, options={})
       request(:get, path, params, options)

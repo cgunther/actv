@@ -46,6 +46,9 @@ Get the requested current user
     
 ## Changelog
 
+###v.1.0.9
+- Implemented user_name and display_name existence check
+
 ###v1.0.8
 - Basic implementation of ACTV::PhoneNumber
 - ACTV::User.phone_number returns a PhoneNumber object
