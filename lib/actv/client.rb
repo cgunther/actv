@@ -148,7 +148,7 @@ module ACTV
           params
         end
         authorization = SimpleOAuth::Header.new(method, uri, signature_params, credentials)
-        request_headers[:authorization] = authorization.to_s
+        request_headers[:authorization] = authorization.to_s.sub('OAuth', "Bearer")
       end
       connection.url_prefix = options[:endpoint] || @endpoint
       connection.run_request(method.to_sym, path, nil, request_headers) do |request|
