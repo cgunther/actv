@@ -46,6 +46,9 @@ Get the requested current user
     
 ## Changelog
 
+###v.1.0.10
+- Implemented fix to get authentication to work correctly through HTTP Headers
+
 ###v.1.0.9
 - Implemented user_name and display_name existence check
 
