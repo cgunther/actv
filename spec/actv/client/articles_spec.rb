@@ -101,6 +101,32 @@ describe ACTV::Client do
         @search_results.facet_values.first.value.should eql 'Running'
       end
     end
+
+    describe "#popular_articles" do
+      context 'performs a search with results' do
+        before do
+          stub_get("/v2/articles/popular").
+          to_return(body: fixture("valid_search.json"), headers: { content_type: "application/json; charset=utf-8" })
+        end
+
+        it 'returns an array of popular articles' do
+            search_results = @client.popular_articles()
+            search_results.results.size.should eql 5
+        end
+      end
+
+      context "performs an popular search with no results" do
+        before do
+          stub_get("/v2/articles/popular?topic=asdf").
+          to_return(body: fixture("valid_search_no_results.json"), headers: { content_type: "application/json; charset=utf-8" })        
+        end
+
+        it 'returns an empty array of assets in results' do
+          search_results = @client.popular_articles({'topic' => 'asdf'})        
+          search_results.results.size.should eql 0
+        end      
+      end
+    end
     
   end
 end

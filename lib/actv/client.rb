@@ -81,6 +81,46 @@ module ACTV
       ACTV::Article.from_response(response)
     end
 
+    # Returns popular assets that match a specified query.
+    #
+    # @authentication_required No
+    # @param options [Hash] A customizable set of options.
+    # @return [ACTV::SearchResults] Return events that match a specified query with search metadata
+    # @example Returns articles related to running
+    #   ACTV.popular_events()
+    #   ACTV.popular_events("topic:running")
+    def popular_events(options={})
+      response = get("/v2/events/popular", options)
+      ACTV::SearchResults.from_response(response)
+    end
+
+    # Returns upcoming assets that match a specified query.
+    #
+    # @authentication_required No
+    # @param options [Hash] A customizable set of options.
+    # @return [ACTV::SearchResults] Return events that match a specified query with search metadata
+    # @example Returns articles related to running
+    #   ACTV.upcoming_events()
+    #   ACTV.upcoming_events("topic:running")
+    def upcoming_events(options={})
+      response = get("/v2/events/upcoming", options)
+      ACTV::SearchResults.from_response(response)
+    end
+
+    # Returns popular assets that match a specified query.
+    #
+    # @authentication_required No
+    # @param options [Hash] A customizable set of options.
+    # @return [ACTV::SearchResults] Return events that match a specified query with search metadata
+    # @example Returns articles related to running
+    #   ACTV.popular_articles()
+    #   ACTV.popular_articles("topic:running")
+    def popular_articles(options={})
+      response = get("/v2/articles/popular", options)
+      ACTV::SearchResults.from_response(response)      
+    end
+
+
     # Returns the currently logged in user
     #
     # @authentication_required Yes
