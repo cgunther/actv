@@ -117,6 +117,11 @@ module ACTV
     #   ACTV.popular_articles("topic:running")
     def popular_articles(options={})
       response = get("/v2/articles/popular", options)
+      ACTV::ArticleSearchResults.from_response(response)
+    end
+
+    def event_results(options={})
+      response = get("/v2/articles/popular", options)
       ACTV::SearchResults.from_response(response)      
     end
 
