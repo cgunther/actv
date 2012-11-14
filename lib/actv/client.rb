@@ -5,6 +5,7 @@ require 'actv/asset'
 require 'actv/configurable'
 require 'actv/error/forbidden'
 require 'actv/error/not_found'
+require 'actv/event_result'
 require 'actv/search_results'
 require 'actv/user'
 require 'simple_oauth'
@@ -35,8 +36,8 @@ module ACTV
     # @example Returns assets related to running
     #   ACTV.assets('running')
     #   ACTV.search('running')
-    def assets(q, options={})
-      response = get("/v2/search.json", options.merge(query: q))
+    def assets(q, params={})
+      response = get("/v2/search.json", params.merge(query: q))
       ACTV::SearchResults.from_response(response)
     end
     alias search assets
@@ -49,8 +50,8 @@ module ACTV
     # @param options [Hash] A customizable set of options.
     # @example Return the asset with the id BA288960-2718-4B20-B380-8F939596B123
     #   ACTV.asset("BA288960-2718-4B20-B380-8F939596B123")
-    def asset(id, options={})
-      response = get("/v2/assets/#{id}.json", options)
+    def asset(id, params={})
+      response = get("/v2/assets/#{id}.json", params)
       ACTV::Asset.from_response(response)
     end
 
@@ -63,8 +64,8 @@ module ACTV
     # @example Returns articles related to running
     #   ACTV.articles('running')
     #   ACTV.articles('running')
-    def articles(q, options={})
-      response = get("/v2/search.json", options.merge({query: q, category: 'articles'}))
+    def articles(q, params={})
+      response = get("/v2/search.json", params.merge({query: q, category: 'articles'}))
       ACTV::ArticleSearchResults.from_response(response)
     end
 
@@ -76,8 +77,8 @@ module ACTV
     # @param options [Hash] A customizable set of options.
     # @example Return the article with the id BA288960-2718-4B20-B380-8F939596B123
     #   ACTV.article("BA288960-2718-4B20-B380-8F939596B123")
-    def article(id, options={})
-      response = get("/v2/assets/#{id}.json", options)
+    def article(id, params={})
+      response = get("/v2/assets/#{id}.json", params)
       ACTV::Article.from_response(response)
     end
 
@@ -89,8 +90,8 @@ module ACTV
     # @example Returns articles related to running
     #   ACTV.popular_events()
     #   ACTV.popular_events("topic:running")
-    def popular_events(options={})
-      response = get("/v2/events/popular", options)
+    def popular_events(params={})
+      response = get("/v2/events/popular", params)
       ACTV::SearchResults.from_response(response)
     end
 
@@ -102,8 +103,8 @@ module ACTV
     # @example Returns articles related to running
     #   ACTV.upcoming_events()
     #   ACTV.upcoming_events("topic:running")
-    def upcoming_events(options={})
-      response = get("/v2/events/upcoming", options)
+    def upcoming_events(params={})
+      response = get("/v2/events/upcoming", params)
       ACTV::SearchResults.from_response(response)
     end
 
@@ -115,16 +116,23 @@ module ACTV
     # @example Returns articles related to running
     #   ACTV.popular_articles()
     #   ACTV.popular_articles("topic:running")
-    def popular_articles(options={})
-      response = get("/v2/articles/popular", options)
+    def popular_articles(params={})
+      response = get("/v2/articles/popular", params)
       ACTV::ArticleSearchResults.from_response(response)
     end
 
-    def event_results(options={})
-      response = get("/v2/articles/popular", options)
-      ACTV::SearchResults.from_response(response)      
+    # Returns a result with the specified asset ID and asset type ID
+    #
+    # @authentication_required No
+    # @return [ACTV::EventResult] The requested event result.
+    # @param assetId [String] An asset ID.
+    # @param assetTypeId [String] An asset type ID.
+    # @example Return the result with the assetId 286F5731-9800-4C6E-ADD5-0E3B72392CA7 and assetTypeId 3BF82BBE-CF88-4E8C-A56F-78F5CE87E4C6
+    #   ACTV.event_results("286F5731-9800-4C6E-ADD5-0E3B72392CA7","3BF82BBE-CF88-4E8C-A56F-78F5CE87E4C6")
+    def event_results(assetId, assetTypeId, options={})
+      response = get("/api/v1/events/#{assetId}/#{assetTypeId}.json", {}, options)
+      ACTV::EventResult.from_response(response)
     end
-
 
     # Returns the currently logged in user
     #
@@ -133,26 +141,27 @@ module ACTV
     # @param options [Hash] A customizable set of options.
     # @example Return current_user if authentication was susccessful
     #   ACTV.me
-    def me(options={})
-      response = get("/v2/me.json", options)
+    def me(params={})
+      response = get("/v2/me.json", params)
       ACTV::User.from_response(response)
     end
 
-    def update_me(user, options={})
-      response = put("/v2/me.json", options.merge(user))
+    def update_me(user, params={})
+      response = put("/v2/me.json", params.merge(user))
       ACTV::User.from_response(response)
     end
 
-    def user_name_exists?(user_name, options={})
-      get("/v2/users/user_name/#{user_name}", options)[:body][:exists]
+    def user_name_exists?(user_name, params={})
+      get("/v2/users/user_name/#{user_name}", params)[:body][:exists]
     end
 
-    def display_name_exists?(display_name, options={})
-      get("/v2/users/display_name/#{URI.escape(display_name)}", options)[:body][:exists]
+    def display_name_exists?(display_name, params={})
+      get("/v2/users/display_name/#{URI.escape(display_name)}", params)[:body][:exists]
     end
 
     # Perform an HTTP GET request
     def get(path, params={}, options={})
+      Rails.logger.info{"**********GET options.inspect: #{options.inspect}"}
       request(:get, path, params, options)
     end
 
