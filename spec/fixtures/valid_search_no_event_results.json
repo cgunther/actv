@@ -1,0 +1,5 @@
+{
+  error: {
+    message: "Sorry, that does not exist."
+  }
+}

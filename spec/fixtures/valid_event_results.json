@@ -1,0 +1,23 @@
+{
+  "id": 34,
+  "title": "2013 IRONMAN 70.3 Hawaii",
+  "date": "2013-06-01T14:00:00Z",
+  "asset_type_id": "3BF82BBE-CF88-4E8C-A56F-78F5CE87E4C6",
+  "asset_id": "286F5731-9800-4C6E-ADD5-0E3B72392CA7",
+  "event_type": null,
+  "latitude": 20.0203,
+  "longitude": -155.669,
+  "address": "The Fairmont Orchid Hawai'i on the Kohala Coast",
+  "url": "http://results2qa01.dev.activenetwork.com/events/2013-ironman-70-3-hawaii",
+  "user": {
+    "full_name": "Jonathan Spooner"
+  },
+  "sub_events": [
+    {
+      "sub_event": {
+        "id": 49,
+        "title": "Results"
+      }
+    }
+  ]
+}

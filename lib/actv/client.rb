@@ -130,8 +130,12 @@ module ACTV
     # @example Return the result with the assetId 286F5731-9800-4C6E-ADD5-0E3B72392CA7 and assetTypeId 3BF82BBE-CF88-4E8C-A56F-78F5CE87E4C6
     #   ACTV.event_results("286F5731-9800-4C6E-ADD5-0E3B72392CA7","3BF82BBE-CF88-4E8C-A56F-78F5CE87E4C6")
     def event_results(assetId, assetTypeId, options={})
-      response = get("/api/v1/events/#{assetId}/#{assetTypeId}.json", {}, options)
-      ACTV::EventResult.from_response(response)
+      begin
+        response = get("/api/v1/events/#{assetId}/#{assetTypeId}.json", {}, options)
+        ACTV::EventResult.from_response(response)
+      rescue
+        nil
+      end
     end
 
     # Returns the currently logged in user
@@ -161,7 +165,6 @@ module ACTV
 
     # Perform an HTTP GET request
     def get(path, params={}, options={})
-      Rails.logger.info{"**********GET options.inspect: #{options.inspect}"}
       request(:get, path, params, options)
     end
 
