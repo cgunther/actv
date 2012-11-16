@@ -121,6 +121,34 @@ module ACTV
       ACTV::ArticleSearchResults.from_response(response)
     end
 
+    # Returns popular assets that match a specified query.
+    #
+    # @authentication_required No
+    # @param options [Hash] A customizable set of options.
+    # @return [ACTV::SearchResults] Return events that match a specified query with search metadata
+    # @example Returns articles related to running
+    #   ACTV.popular_articles()
+    #   ACTV.popular_articles("topic:running")
+    def popular_interests(params={})
+      #response = get("/v2/articles/popular", params)
+      #ACTV::ArticleSearchResults.from_response(response)
+      ['Running','5K Running','10K Running','Half Marathon','Marathon','Ultra','Trail Running','Running Camps']
+    end
+
+    # Returns popular assets that match a specified query.
+    #
+    # @authentication_required No
+    # @param options [Hash] A customizable set of options.
+    # @return [ACTV::SearchResults] Return events that match a specified query with search metadata
+    # @example Returns articles related to running
+    #   ACTV.popular_articles()
+    #   ACTV.popular_articles("topic:running")
+    def popular_searches(params={})
+      #response = get("/v2/articles/popular", params)
+      #ACTV::ArticleSearchResults.from_response(response)
+      ["Couch to 5k","Kids' Camps","Swimming Classes","Half MArathons in Southern CA","Gyms in Solana Beach","Dignissim Qui Blandit","Dolore Te Feugait","Lorem Ipsum","Convnetio Ibidem","Aliquam Jugis"]
+    end
+
     # Returns a result with the specified asset ID and asset type ID
     #
     # @authentication_required No
