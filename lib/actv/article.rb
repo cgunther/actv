@@ -2,16 +2,33 @@ require 'actv/asset'
 
 module ACTV
   class Article < ACTV::Asset
+
+    def author_footer
+      @author_footer ||= description_by_type 'authorFooter'
+    end
+    
     def by_line
       @author ||= description_by_type 'articleByLine'
     end
 
     def author_bio
-      @author_bio ||= description_by_type 'articleAuthorBio'
+      @author_bio ||= begin
+        bio_node = get_from_author_footer('div.author-text')
+        bio_node.inner_html unless bio_node.nil?
+      end
     end
 
     def author_photo
-      @author_photo ||= image_by_name 'authorImage'
+      @author_photo ||= begin
+        image = nil
+
+        image_node = get_from_author_footer('div.signature-block-photo img')
+        if !image_node.nil?
+          image = ACTV::AssetImage.new({imageUrlAdr: image_node.attribute('src').text})
+        end
+
+        image
+      end
     end
 
     def source
@@ -38,5 +55,20 @@ module ACTV
       @inline_ad ||= tag_by_description 'inlinead'
     end
     alias inline_ad? inline_ad
+
+    private
+
+      def get_from_author_footer(selector)
+        node = nil
+
+        if !author_footer.nil? && !author_footer.empty?
+          doc = Nokogiri::HTML(author_footer)
+          node = doc.css(selector).first
+        end
+
+        node
+      end
   end
 end
+
+

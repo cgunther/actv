@@ -15,6 +15,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'webmock'
   gem.add_development_dependency 'yard'
   gem.add_development_dependency 'guard-rspec'
+  gem.add_development_dependency 'nokogiri'
   
   gem.authors       = ["Jonathan Spooner"]
   gem.email         = ["jspooner@gmail.com"]

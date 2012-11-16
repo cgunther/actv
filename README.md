@@ -45,6 +45,9 @@ Get the requested current user
     @actv.me
     
 ## Changelog
+###v.1.0.12
+- Add author_footer to ACTV::Article
+- fixed author_image/author_bio on ACTV::Article to pull correct info
 
 ###v.1.0.10
 - Implemented fix to get authentication to work correctly through HTTP Headers
