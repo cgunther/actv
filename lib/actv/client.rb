@@ -7,6 +7,7 @@ require 'actv/error/forbidden'
 require 'actv/error/not_found'
 require 'actv/event_result'
 require 'actv/search_results'
+require 'actv/popular_interest_search_results'
 require 'actv/user'
 require 'simple_oauth'
 
@@ -129,10 +130,11 @@ module ACTV
     # @example Returns articles related to running
     #   ACTV.popular_articles()
     #   ACTV.popular_articles("topic:running")
-    def popular_interests(params={})
-      #response = get("/v2/articles/popular", params)
-      #ACTV::ArticleSearchResults.from_response(response)
-      ['Running','5K Running','10K Running','Half Marathon','Marathon','Ultra','Trail Running','Running Camps']
+    def popular_interests(options={})
+      response = get("/a3pi_interests/interest/c836f7b1-08af-4cff-bd4d-050bab1cde8f", {}, options)
+      #ACTV::PopularInterestSearchResults.from_response(response)
+      ACTV::PopularInterest.from_response(response)
+      #['Running','5K Running','10K Running','Half Marathon','Marathon','Ultra','Trail Running','Running Camps']
     end
 
     # Returns popular assets that match a specified query.
@@ -143,10 +145,10 @@ module ACTV
     # @example Returns articles related to running
     #   ACTV.popular_articles()
     #   ACTV.popular_articles("topic:running")
-    def popular_searches(params={})
+    def popular_searches(options={})
       #response = get("/v2/articles/popular", params)
       #ACTV::ArticleSearchResults.from_response(response)
-      ["Couch to 5k","Kids' Camps","Swimming Classes","Half MArathons in Southern CA","Gyms in Solana Beach","Dignissim Qui Blandit","Dolore Te Feugait","Lorem Ipsum","Convnetio Ibidem","Aliquam Jugis"]
+      ["Couch to 5k","Kids' Camps","Swimming Classes","Half Marathons in Southern CA","Gyms in Solana Beach","Dignissim Qui Blandit","Dolore Te Feugait","Lorem Ipsum","Convnetio Ibidem","Aliquam Jugis"]
     end
 
     # Returns a result with the specified asset ID and asset type ID
