@@ -122,29 +122,27 @@ module ACTV
       ACTV::ArticleSearchResults.from_response(response)
     end
 
-    # Returns popular assets that match a specified query.
+    # Returns popular interests
     #
     # @authentication_required No
     # @param options [Hash] A customizable set of options.
-    # @return [ACTV::SearchResults] Return events that match a specified query with search metadata
-    # @example Returns articles related to running
-    #   ACTV.popular_articles()
-    #   ACTV.popular_articles("topic:running")
-    def popular_interests(options={})
-      response = get("/a3pi_interests/interest/c836f7b1-08af-4cff-bd4d-050bab1cde8f", {}, options)
-      #ACTV::PopularInterestSearchResults.from_response(response)
-      ACTV::PopularInterest.from_response(response)
-      #['Running','5K Running','10K Running','Half Marathon','Marathon','Ultra','Trail Running','Running Camps']
+    # @return [ACTV::PopularInterestSearchResults] Return intersts
+    # @example Returns most popular interests
+    #   ACTV.popular_interests()
+    #   ACTV.popular_interests({per_page: 8})
+    def popular_interests(params={}, options={})
+      response = get("/int-a3pi_interests/interest/_search", params, options)
+      ACTV::PopularInterestSearchResults.from_response(response)
     end
-
-    # Returns popular assets that match a specified query.
+    
+    # Returns popular searches
     #
     # @authentication_required No
     # @param options [Hash] A customizable set of options.
-    # @return [ACTV::SearchResults] Return events that match a specified query with search metadata
-    # @example Returns articles related to running
-    #   ACTV.popular_articles()
-    #   ACTV.popular_articles("topic:running")
+    # @return [ACTV::PopularSearchSearchResults] Return searches
+    # @example Returns most popular searches
+    #   ACTV.popular_searches()
+    #   ACTV.popular_searches({per_page: 8})
     def popular_searches(options={})
       #response = get("/v2/articles/popular", params)
       #ACTV::ArticleSearchResults.from_response(response)
