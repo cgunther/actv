@@ -7,6 +7,7 @@ require 'actv/error/forbidden'
 require 'actv/error/not_found'
 require 'actv/event_result'
 require 'actv/search_results'
+require 'actv/popular_interest_search_results'
 require 'actv/user'
 require 'simple_oauth'
 
@@ -119,6 +120,33 @@ module ACTV
     def popular_articles(params={})
       response = get("/v2/articles/popular", params)
       ACTV::ArticleSearchResults.from_response(response)
+    end
+
+    # Returns popular interests
+    #
+    # @authentication_required No
+    # @param options [Hash] A customizable set of options.
+    # @return [ACTV::PopularInterestSearchResults] Return intersts
+    # @example Returns most popular interests
+    #   ACTV.popular_interests()
+    #   ACTV.popular_interests({per_page: 8})
+    def popular_interests(params={}, options={})
+      response = get("/interest/_search", params, options)
+      ACTV::PopularInterestSearchResults.from_response(response)
+    end
+    
+    # Returns popular searches
+    #
+    # @authentication_required No
+    # @param options [Hash] A customizable set of options.
+    # @return [ACTV::PopularSearchSearchResults] Return searches
+    # @example Returns most popular searches
+    #   ACTV.popular_searches()
+    #   ACTV.popular_searches({per_page: 8})
+    def popular_searches(options={})
+      #response = get("/v2/articles/popular", params)
+      #ACTV::ArticleSearchResults.from_response(response)
+      ["Couch to 5k","Kids' Camps","Swimming Classes","Half Marathons in Southern CA","Gyms in Solana Beach","Dignissim Qui Blandit","Dolore Te Feugait","Lorem Ipsum","Convnetio Ibidem","Aliquam Jugis"]
     end
 
     # Returns a result with the specified asset ID and asset type ID
