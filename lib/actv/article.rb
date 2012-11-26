@@ -1,4 +1,5 @@
 require 'actv/asset'
+require 'nokogiri'
 
 module ACTV
   class Article < ACTV::Asset
@@ -28,6 +29,13 @@ module ACTV
         end
 
         image
+      end
+    end
+
+    def author_name_from_footer
+      @author_name_from_footer ||= begin
+        name_node = get_from_author_footer('span.author-name')
+        name_node.text unless name_node.nil?
       end
     end
 

@@ -130,6 +130,13 @@
                 "descriptionTypeName": "articleAuthorBio"
             },
             "description": "Author Bio"
+        },
+        {
+            "descriptionType": {
+                "descriptionTypeId": "28",
+                "descriptionTypeName": "authorFooter"
+            },
+            "description": "<div class=\"article-signature-block\"> <div class=\"signature-block-photo\"><img width=\"60\" height=\"60\" src=\"/Assets/Running/Experts/Jeff+Galloway_120.jpg\" /></div> <div class=\"author-info\"> <span class=\"author-link\"><a href=\"http://www.active.com/running/experts/jeffgalloway/\" title=\"Jeff Galloway\">Jeff's Bio</a></span> <span class=\"author-name\">Jeff Galloway</span><span class=\"author-title\"> Active.com Running Expert</span> </div> <div class=\"author-text\">Olympian Jeff Galloway has helped over a million runners through his running schools, training programs, beach and Tahoe retreats, books and training programs?which are fun and offer individualized coaching from Jeff. To subscribe to his free newsletter visit <a target=\"_blank\" href=\"http://www.JeffGalloway.com\">JeffGalloway.com</a> </div> </div>"
         }
     ],
     "assetChannels": [

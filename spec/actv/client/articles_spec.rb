@@ -37,13 +37,11 @@ describe ACTV::Client do
       end
 
       it "should return the correct author photo" do
-        @article.author_photo.name.should eq "authorImage"
-        @article.author_photo.url.should eq "http://www.active.com/AssetFactory.aspx?did=50534"
-        @article.author_photo.caption.should eq "Author"
+        @article.author_photo.url.should eq "/Assets/Running/Experts/Jeff+Galloway_120.jpg"
       end
 
       it "should return the correct author bio" do
-        @article.author_bio.should eq "Author Bio"
+        @article.author_bio.should =~ /Olympian Jeff Galloway has helped over/
       end
 
       it "should return the correct type" do
