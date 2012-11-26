@@ -131,7 +131,7 @@ module ACTV
     #   ACTV.popular_interests()
     #   ACTV.popular_interests({per_page: 8})
     def popular_interests(params={}, options={})
-      response = get("/int-a3pi_interests/interest/_search", params, options)
+      response = get("/interest/_search", params, options)
       ACTV::PopularInterestSearchResults.from_response(response)
     end
     
