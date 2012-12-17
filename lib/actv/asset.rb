@@ -15,7 +15,7 @@ module ACTV
 
     attr_reader :assetGuid, :assetName, :assetDsc, :activityStartDate, :activityStartTime, :activityEndDate, :activityEndTime,
       :homePageUrlAdr, :isRecurring, :contactName, :contactEmailAdr, :contactPhone, :showContact, :publishDate, :createdDate, :modifiedDate,
-      :authorName
+      :authorName, :is_event, :is_article
 
     alias id assetGuid
     alias title assetName
@@ -126,6 +126,24 @@ module ACTV
     def tag_by_description(description)
       asset_tag = self.tags.find { |at| at.tag.description.downcase == description.downcase }
       asset_tag.tag.name if asset_tag
+    end
+
+    def is_event?
+      self.assetCategories.each do |category|
+        if category[:category][:categoryName].downcase == 'event'
+          return true
+        end
+      end
+      false
+    end
+
+    def is_article?
+      self.assetCategories.category.each do |category|
+        if category[:category][:categoryName].downcase == 'articles'
+          return true
+        end
+      end
+      false
     end
   end
 end
