@@ -138,7 +138,7 @@ module ACTV
     end
 
     def is_article?
-      self.assetCategories.category.each do |category|
+      self.assetCategories.each do |category|
         if category[:category][:categoryName].downcase == 'articles'
           return true
         end
