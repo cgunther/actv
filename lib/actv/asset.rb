@@ -116,7 +116,7 @@ module ACTV
 
     def description_by_type(type)
       dsc = self.descriptions.find { |dsc| dsc.type.name.downcase == type.downcase }
-      dsc.description if dsc
+      (dsc.description.downcase == 'n/a' ? '' : dsc.description) if dsc
     end
 
     def image_by_name(name)
