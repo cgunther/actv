@@ -130,7 +130,7 @@ module ACTV
 
     def is_event?
       self.assetCategories.each do |category|
-        if category[:category][:categoryName].downcase == 'event'
+        if category[:category][:categoryTaxonomy].downcase.start_with?('event')
           return true
         end
       end
