@@ -33,18 +33,23 @@ Search for Swimming Articles
 Return an Article with Id of 12345678-9012-3456-7890-123456789012
 
     ACTV.article('12345678-9012-3456-7890-123456789012')
-    
+
 Certain methods require authentication. You need to instantiate a Client object with a valid acceess token
 
-    @actv = ACTV::Client.new({ 
+    @actv = ACTV::Client.new({
         oauth_token: session[:access_token]
     })
 
 Get the requested current user
 
     @actv.me
-    
+
 ## Changelog
+###v1.0.20
+- Basic implementation of ACTV::Event
+- Added ability to find events by Id
+- Added ability to search for events
+
 ###v.1.0.12
 - Add author_footer to ACTV::Article
 - fixed author_image/author_bio on ACTV::Article to pull correct info
