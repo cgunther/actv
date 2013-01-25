@@ -5,6 +5,7 @@ require 'actv/asset'
 require 'actv/configurable'
 require 'actv/error/forbidden'
 require 'actv/error/not_found'
+require 'actv/event'
 require 'actv/event_result'
 require 'actv/search_results'
 require 'actv/popular_interest_search_results'
@@ -17,9 +18,9 @@ module ACTV
   # @note
   class Client
     include ACTV::Configurable
-    
+
     # Initialized a new Client object
-    # 
+    #
     # @param options [Hash]
     # @return[ACTV::Client]
     def initialize(options={})
@@ -83,6 +84,16 @@ module ACTV
       ACTV::Article.from_response(response)
     end
 
+    def events(q, params={})
+      response = get("/v2/search.json", params.merge({query: q, category: 'events'}))
+      ACTV::ArticleSearchResults.from_response(response)
+    end
+
+    def event(id, params={})
+      response = get("/v2/assets/#{id}.json", params)
+      ACTV::Event.from_response(response)
+    end
+
     # Returns popular assets that match a specified query.
     #
     # @authentication_required No
@@ -134,7 +145,7 @@ module ACTV
       response = get("/interest/_search", params, options)
       ACTV::PopularInterestSearchResults.from_response(response)
     end
-    
+
     # Returns popular searches
     #
     # @authentication_required No
@@ -214,14 +225,14 @@ module ACTV
     def delete(path, params={}, options={})
       request(:delete, path, params, options)
     end
-    
+
     # Returns a Faraday::Connection object
     #
     # @return [Faraday::Connection]
     def connection
       @connection ||= Faraday.new(@endpoint, @connection_options.merge(:builder => @middleware))
     end
-    
+
     # Perform an HTTP Request
     def request(method, path, params, options)
       uri = options[:endpoint] || @endpoint
@@ -260,9 +271,9 @@ module ACTV
     def credentials?
       credentials.values.all?
     end
-    
+
   private
-    
+
     # Credentials hash
     #
     # @return [Hash]
@@ -274,6 +285,6 @@ module ACTV
         # :token_secret => @oauth_token_secret,
       }
     end
-    
+
   end
 end
