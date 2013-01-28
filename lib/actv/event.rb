@@ -71,7 +71,7 @@ module ACTV
         if online_registration_available?
           if self.sales_start_date
             if now_in_utc >= utc_time(self.sales_start_date) - time_in_days.days and
-              now_in_utc < utc_time(self.sales_end_date)
+              now_in_utc < utc_time(self.sales_start_date)
               return true
             end
           elsif now_in_utc >= utc_time(self.start_date) - time_in_days.days and
