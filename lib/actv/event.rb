@@ -66,7 +66,7 @@ module ACTV
       return true if now_in_utc > utc_time(self.end_date)
     end
 
-    def registration_opening_soon?(time_in_days=3)
+    def registration_opening_soon?(time_in_days=2)
       @reg_open_soon ||= begin
         if online_registration_available?
           if self.sales_start_date
@@ -102,7 +102,27 @@ module ACTV
       end
     end
 
-  private
+    def image_url
+      defaultImage = 'http://www.active.com/images/events/hotrace.gif'
+      image = ''
+
+      self.assetImages.each do |i|
+        if i.imageUrlAdr.downcase != defaultImage
+          image = i.imageUrlAdr
+          break
+        end
+      end
+
+      if image.blank?
+        if (self.logoUrlAdr && self.logoUrlAdr != defaultImage && self.logoUrlAdr =~ URI::regexp)
+          self.logoUrlAdr
+        end
+      end
+      image
+    end
+
+
+    private
 
     def now_in_utc
       Time.now.utc
