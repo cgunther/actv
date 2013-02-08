@@ -79,9 +79,10 @@ module ACTV
     # @param options [Hash] A customizable set of options.
     # @example Return the article with the id BA288960-2718-4B20-B380-8F939596B123
     #   ACTV.article("BA288960-2718-4B20-B380-8F939596B123")
-    def article(id, params={})
-      response = get("/v2/assets/#{id}.json", params)
-      ACTV::Article.from_response(response)
+    def article(id)
+      response = get("/v2/assets/#{id}.json")
+      article = ACTV::Article.from_response(response)
+      article.is_article? ? article : nil
     end
 
     def events(q, params={})
@@ -89,9 +90,10 @@ module ACTV
       ACTV::ArticleSearchResults.from_response(response)
     end
 
-    def event(id, params={})
-      response = get("/v2/assets/#{id}.json", params)
-      ACTV::Event.from_response(response)
+    def event(id)
+      response = get("/v2/assets/#{id}.json")
+      event = ACTV::Event.from_response(response)
+      event.is_event? ? event : nil
     end
 
     # Returns popular assets that match a specified query.
