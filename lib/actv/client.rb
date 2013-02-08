@@ -8,6 +8,7 @@ require 'actv/error/not_found'
 require 'actv/event'
 require 'actv/event_result'
 require 'actv/search_results'
+require 'actv/event_search_results'
 require 'actv/popular_interest_search_results'
 require 'actv/user'
 require 'simple_oauth'
@@ -87,7 +88,7 @@ module ACTV
 
     def events(q, params={})
       response = get("/v2/search.json", params.merge({query: q, category: 'events'}))
-      ACTV::ArticleSearchResults.from_response(response)
+      ACTV::EventSearchResults.from_response(response)
     end
 
     def event(id)
