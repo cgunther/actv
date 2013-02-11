@@ -48,11 +48,10 @@ module ACTV
       @reg_closed ||= begin
         if online_registration_available?
           if self.sales_end_date
-            if now_in_utc > utc_time(self.sales_end_date) and
-              now_in_utc < utc_time(self.end_date)
+            if now_in_utc > utc_time(self.sales_end_date)              
               return true
             end
-          elsif now_in_utc < utc_time(self.end_date)
+          elsif now_in_utc > utc_time(self.end_date)
             return true
           end
         end
@@ -65,6 +64,7 @@ module ACTV
     def ended?
       return true if now_in_utc > utc_time(self.end_date)
     end
+    alias event_ended? ended?
 
     def registration_opening_soon?(time_in_days=2)
       @reg_open_soon ||= begin
