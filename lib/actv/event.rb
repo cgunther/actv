@@ -66,7 +66,7 @@ module ACTV
     end
     alias event_ended? ended?
 
-    def registration_opening_soon?(time_in_days=2)
+    def registration_opening_soon?(time_in_days=3)
       @reg_open_soon ||= begin
         if online_registration_available?
           if self.sales_start_date
