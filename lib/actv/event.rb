@@ -115,7 +115,7 @@ module ACTV
 
       if image.blank?
         if (self.logoUrlAdr && self.logoUrlAdr != defaultImage && self.logoUrlAdr =~ URI::regexp)
-          self.logoUrlAdr
+          image = self.logoUrlAdr
         end
       end
       image
