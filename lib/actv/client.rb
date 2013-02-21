@@ -205,10 +205,6 @@ module ACTV
       get("/v2/users/display_name/#{URI.escape(display_name)}", params)[:body][:exists]
     end
 
-    def is_advantage_member?(options={})
-      get("/v2/me/is_advantage_member", options)[:body][:is_advantage_member]
-    end
-
     # Perform an HTTP GET request
     def get(path, params={}, options={})
       request(:get, path, params, options)

@@ -5,10 +5,11 @@ module ACTV
   class User < ACTV::Identity
 
     attr_reader :first_name, :last_name, :middle_name, :gender, 
-      :display_name, :date_of_birth, :email, :user_name, :created_date
+      :display_name, :date_of_birth, :email, :user_name, :created_date, :advantage_member
 
     alias dob date_of_birth
-    
+    alias is_advantage_member? advantage_member
+
     def address
       @address ||= ACTV::Address.fetch_or_new(@attrs[:address]) unless @attrs[:address].nil?
     end

@@ -21,18 +21,6 @@ describe ACTV::Client do
         a_get("/v2/assets/valid_event.json").should have_been_made
       end
 
-      context "without online registration" do
-      end
-
-      context "with online registration and registration not yet open" do
-      end
-
-      context "with online registration, registration open, registration not closed and event hasn't ended" do
-      end
-
-      context "with online registration, registration passed, registration closed and event has ended" do
-      end
-
       it "has online reigstration available" do
         @event.online_registration_available?.should eq true
       end

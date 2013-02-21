@@ -164,7 +164,15 @@
             "topicName": "Duathlon"
         }
     }],
-    "assetCategories": [],
+    "assetCategories": [
+      {
+        "category": {
+            "categoryName": "Races",
+            "categoryId": "22",
+            "categoryTaxonomy": "Event/Races"
+        },
+      "sequence": "1"
+    }],
     "assetMetaInterests": [],
     "assetComponents": [
         {
