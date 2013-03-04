@@ -74,9 +74,6 @@ module ACTV
               now_in_utc < utc_time(self.sales_start_date)
               return true
             end
-          elsif now_in_utc >= utc_time(self.start_date) - time_in_days.days and
-            now_in_utc < utc_time(self.start_date)
-            return true
           end
         end
 
@@ -84,7 +81,7 @@ module ACTV
       end
     end
 
-    def registration_closing_soon?(time_in_days=2)
+    def registration_closing_soon?(time_in_days=3)
       @reg_closing_soon ||= begin
         if online_registration_available?
           if self.sales_end_date
@@ -92,9 +89,6 @@ module ACTV
               now_in_utc < utc_time(self.end_date)
               return true
             end
-          elsif now_in_utc >= utc_time(self.end_date) - time_in_days.days and
-            now_in_utc < utc_time(self.end_date)
-            return true
           end
         end
 
