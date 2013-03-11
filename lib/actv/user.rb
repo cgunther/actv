@@ -5,9 +5,13 @@ module ACTV
   class User < ACTV::Identity
 
     attr_reader :first_name, :last_name, :middle_name, :gender, 
-      :display_name, :date_of_birth, :email, :user_name, :created_date, :advantage_member
+      :display_name, :date_of_birth, :email, :user_name, :created_date#, :advantage_member
 
     alias dob date_of_birth
+
+    def advantage_member
+      puts "Called advantage member"
+    end
     alias is_advantage_member? advantage_member
 
     def address
