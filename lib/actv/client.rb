@@ -189,12 +189,16 @@ module ACTV
     #   ACTV.me
     def me(params={})
       response = get("/v2/me.json", params)
-      ACTV::User.from_response(response)
+      user = ACTV::User.from_response(response)
+      user.access_token =  @oauth_token
+      user
     end
 
     def update_me(user, params={})
       response = put("/v2/me.json", params.merge(user))
-      ACTV::User.from_response(response)
+      user = ACTV::User.from_response(response)
+      user.access_token =  @oauth_token
+      user
     end
 
     def user_name_exists?(user_name, params={})
@@ -203,6 +207,10 @@ module ACTV
 
     def display_name_exists?(display_name, params={})
       get("/v2/users/display_name/#{URI.escape(display_name)}", params)[:body][:exists]
+    end
+
+    def is_advantage_member?(options={})
+      get("/v2/me/is_advantage_member", options)[:body][:is_advantage_member]
     end
 
     # Perform an HTTP GET request

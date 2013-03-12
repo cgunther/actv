@@ -7,10 +7,15 @@ module ACTV
     attr_reader :first_name, :last_name, :middle_name, :gender, 
       :display_name, :date_of_birth, :email, :user_name, :created_date
 
+    attr_writer :access_token
+
     alias dob date_of_birth
 
     def advantage_member
-      get("/v2/me/is_advantage_member")[:body][:is_advantage_member]
+      @is_member ||= begin
+        client= ACTV::Client.new({ oauth_token: @access_token })
+        client.is_advantage_member?
+      end
     end
     alias is_advantage_member? advantage_member
 
