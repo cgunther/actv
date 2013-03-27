@@ -7,6 +7,7 @@ require 'actv/asset_price'
 require 'actv/asset_status'
 require 'actv/asset_tag'
 require 'actv/asset_topic'
+require 'actv/asset_seo_url'
 require 'actv/identity'
 require 'actv/place'
 
@@ -105,6 +106,14 @@ module ACTV
     end
     alias asset_topics topics
     alias assetTopics topics
+
+    def seo_urls
+      @seo_urls ||= Array(@attrs[:assetSeoUrls]).map do |seo_url|
+        ACTV::AssetSeoUrl.fetch_or_new(seo_url)
+      end
+    end
+    alias asset_seo_urls seo_urls
+    alias assetSeoUrls seo_urls
 
     def summary
       @summary ||= description_by_type 'summary'
