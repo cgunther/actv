@@ -20,6 +20,8 @@ module ACTV
   class Client
     include ACTV::Configurable
 
+    attr_reader :oauth_token
+
     # Initialized a new Client object
     #
     # @param options [Hash]
