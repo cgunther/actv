@@ -7,7 +7,7 @@ module ACTV
     attr_reader :first_name, :last_name, :middle_name, :gender, 
       :display_name, :date_of_birth, :email, :user_name, :created_date
 
-    attr_writer :access_token
+    attr_accessor :access_token
 
     alias dob date_of_birth
 

@@ -15,12 +15,12 @@ module ACTV
 
     private
 
-      def self.parse_error(body)
+      def self.parse_error(body)   
         if body.nil?
           ''
         elsif body[:error]
-          if body[:error][:message]
-            body[:error][:message]
+          if body[:error].is_a? Hash
+            body[:error].fetch(:message, "")
           else
             body[:error]
           end
