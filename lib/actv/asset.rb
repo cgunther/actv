@@ -123,6 +123,11 @@ module ACTV
       @description ||= description_by_type 'Standard'
     end
 
+    def seo_url(systemName = 'as3')
+      seo_url = self.seo_urls.find { |s| s.seoSystemName.downcase == systemName.downcase }
+      seo_url.urlAdr unless seo_url.nil?
+    end
+
     def description_by_type(type)
       dsc = self.descriptions.find { |dsc| dsc.type.name.downcase == type.downcase }
       (dsc.description.downcase == 'n/a' ? '' : dsc.description) if dsc
