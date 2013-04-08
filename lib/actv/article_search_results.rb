@@ -7,5 +7,9 @@ module ACTV
         ACTV::Article.fetch_or_new(event)
       end
     end
+
+    def first_article? art
+      results.first == art
+    end
   end
 end
