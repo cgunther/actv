@@ -19,6 +19,13 @@ module ACTV
     end
     alias is_advantage_member? advantage_member
 
+    def avatar_url
+      @avatar_url ||= begin
+        client= ACTV::Client.new({ oauth_token: @access_token })
+        client.avatar_url
+      end
+    end
+
     def address
       @address ||= ACTV::Address.fetch_or_new(@attrs[:address]) unless @attrs[:address].nil?
     end

@@ -215,6 +215,10 @@ module ACTV
       get("/v2/me/is_advantage_member", options)[:body][:is_advantage_member]
     end
 
+    def avatar_url(options={})
+      get("/v2/me/avatar_url", options)[:body][:avatar_url]
+    end
+
     # Perform an HTTP GET request
     def get(path, params={}, options={})
       request(:get, path, params, options)
