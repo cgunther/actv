@@ -62,7 +62,13 @@ module ACTV
     alias reg_closed? registration_closed?
 
     def ended?
-      return true if now_in_utc > utc_time(self.end_date)
+      end_date = self.end_date
+
+      if self.start_date == self.end_date
+        end_date = end_date.split('T').first + "T23:59:59"
+      end
+
+      return true if now_in_utc > utc_time(end_date)
     end
     alias event_ended? ended?
 
