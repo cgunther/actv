@@ -34,6 +34,10 @@ module ACTV
               now_in_utc < utc_time(self.sales_end_date)
               return true
             end
+          elsif self.sales_end_date
+            if now_in_utc < utc_time(self.sales_end_date)
+              return true
+            end
           elsif now_in_utc < utc_time(self.start_date)
             return true
           end

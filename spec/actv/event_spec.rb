@@ -11,6 +11,46 @@ describe ACTV::Event do
     it { should respond_to :ended? }
   end
 
+  context 'registration_open?' do
+    before(:each) do
+      stub_get("/v2/assets/valid_event.json").
+        to_return(body: fixture("valid_event.json"), headers: { content_type: "application/json; charset=utf-8" })
+      @event = ACTV.event('valid_event')
+    end
+
+    it "should return false if now is not between sales_start_date and sales_end_date" do
+      @event.registration_open?.should be_false
+    end
+
+    it "should return true if now is between sales_start_date and sales_end_date" do
+      today = Time.now.strftime('%Y-%m-%dT%H:%M:%S')
+      tomorrow = (Time.now + (24*60*60)).strftime('%Y-%m-%dT%H:%M:%S')
+
+      @event.stub(:sales_start_date).and_return(today)
+      @event.stub(:sales_end_date).and_return(tomorrow)
+
+      @event.registration_open?.should be_true
+    end
+
+    it "should return true if now is before sales_end_date and there is no sales_start_date" do      
+      tomorrow = (Time.now + (24*60*60)).strftime('%Y-%m-%dT%H:%M:%S')
+
+      @event.stub(:sales_start_date).and_return(nil)
+      @event.stub(:sales_end_date).and_return(tomorrow)
+
+      @event.registration_open?.should be_true
+    end    
+
+    it "should return true if now is before start_date and there isn't a sales_start_date or sales_end_date" do
+      tomorrow = (Time.now + (24*60*60)).strftime('%Y-%m-%dT%H:%M:%S')
+
+      @event.stub(:sales_start_date).and_return(nil)
+      @event.stub(:sales_end_date).and_return(nil)
+      @event.stub(:start_date).and_return(tomorrow)
+
+      @event.registration_open?.should be_true
+    end
+  end
 
   context 'ended?' do
 
