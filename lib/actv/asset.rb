@@ -151,12 +151,22 @@ module ACTV
     end
 
     def is_article?
-      self.assetCategories.each do |category|
-        if category[:category][:categoryName].downcase == 'articles'
-          return true
+      is_article = false
+      if self.assetCategories.any?
+        self.assetCategories.each do |category|
+          if category[:category][:categoryName].downcase == 'articles'
+            is_article = true
+          end
+        end
+      else
+        # no categories so check the sourceSystem
+        # this guid is equal to the Active.com Articles
+        if self.sourceSystem.fetch(:legacyGuid, "").upcase == "CA4EA0B1-7377-470D-B20D-BF6BEA23F040"
+          is_article = true
         end
       end
-      false
+
+      is_article
     end
 
     def registration_status
