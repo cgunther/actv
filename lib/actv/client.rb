@@ -96,7 +96,7 @@ module ACTV
     def event(id)
       response = get("/v2/assets/#{id}.json")
       event = ACTV::Event.from_response(response)
-      event.is_event? ? event : nil
+      event.is_article? ? nil : event
     end
 
     # Returns popular assets that match a specified query.
