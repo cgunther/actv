@@ -16,6 +16,8 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'yard'
   gem.add_development_dependency 'guard-rspec'
   gem.add_development_dependency 'nokogiri'
+  gem.add_development_dependency 'active_support'
+
   
   gem.authors       = ["Jonathan Spooner"]
   gem.email         = ["jspooner@gmail.com"]
