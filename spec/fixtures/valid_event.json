@@ -9,6 +9,8 @@
     },
     "organization": {},
     "place": {
+        "timezoneOffset": -5,
+        "timezoneDST": 1,
         "placeGuid": "3993F0DC-2168-4497-943D-C64334CC8714",
         "placeName": "Kingwood Park New Jersey",
         "placeDsc": "",

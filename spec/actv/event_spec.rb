@@ -6,8 +6,13 @@ describe ACTV::Event do
     stub_get("/v2/assets/valid_event.json").to_return(body: fixture("valid_event.json"), headers: { content_type: "application/json; charset=utf-8" })
   end
 
+  subject { ACTV.event('valid_event') }
+
   def format_date date
     date.strftime('%Y-%m-%dT%H:%M:%S')
+  end
+  def format_date_in_utc date
+    format_date(date) << ' UTC'
   end
 
   # describe "available methods" do
@@ -20,8 +25,33 @@ describe ACTV::Event do
   #   it { should respond_to :event_ended? }
   # end
 
+  describe '#registration_open_date' do
+    before { subject.stub(:sales_start_date).and_return format_date 1.day.from_now }
+    its(:registration_open_date) { should be_within(1.second).of Time.parse format_date_in_utc 1.day.from_now }
+  end
+
+  describe '#registration_close_date' do
+    before { subject.stub(:sales_end_date).and_return format_date 1.day.from_now }
+    its(:registration_close_date) { should be_within(1.second).of Time.parse format_date_in_utc 1.day.from_now }
+  end
+
+  describe '#event_start_date' do
+    before do
+      subject.stub(:activity_start_date).and_return("2013-05-10T00:00:00")
+      subject.stub(:timezone_offset).and_return(-4)
+    end
+    its(:event_start_date) { should eq Time.parse "2013-05-10T00:00:00 -0400" }
+  end
+
+  describe '#event_end_date' do
+    before do
+      subject.stub(:activity_end_date).and_return("2013-05-10T00:00:00")
+      subject.stub(:timezone_offset).and_return(-4)
+    end
+    its(:event_end_date) { should eq Time.parse "2013-05-10T00:00:00 -0400" }
+  end
+
   describe '#registration_not_yet_open' do
-    subject { ACTV.event('valid_event') }
 
     context 'when the event has sales start date' do
       context 'when now is before the date' do
@@ -56,7 +86,6 @@ describe ACTV::Event do
   end
 
   describe '#registration_closed' do
-    subject { ACTV.event('valid_event') }
 
     context 'when the event has sales end date' do
       context 'when now is before the date' do

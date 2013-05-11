@@ -28,7 +28,7 @@ module ACTV
       end
     end
 
-    def registration_not_yet_open?
+    def registration_not_yet_open? 
       if online_registration_available?
         is_now_before? authoritative_reg_start_date
       else
@@ -74,6 +74,38 @@ module ACTV
       end
     end
 
+    ############
+
+    # Returns the asset's registration open date
+    # in UTC.  This is pulled from the salesStartDate
+    def registration_open_date
+      Time.parse "#{authoritative_reg_start_date} UTC"
+    end
+
+    # Returns the asset's registration end date
+    # in UTC.  This is pulled from the salesEndDate
+    def registration_close_date
+      Time.parse "#{authoritative_reg_end_date} UTC"
+    end
+
+    # Returns the asset's start date
+    # in UTC.  This is pulled from the activityStartDate.
+    def event_start_date
+      Time.parse "#{activity_start_date} #{format_timezone_offset(timezone_offset)}"
+    end
+
+    # Returns the asset's end date
+    # in UTC.  This is pulled from the activityEndDate.
+    def event_end_date
+      Time.parse "#{activity_end_date} #{format_timezone_offset(timezone_offset)}"
+    end
+
+    def timezone_offset
+      place.timezoneOffset + place.timezoneDST
+    end
+
+    ############
+
     def image_url
       defaultImage = 'http://www.active.com/images/events/hotrace.gif'
       image = ''
@@ -103,6 +135,11 @@ module ACTV
 
     private
 
+    # EG: -7 => "-0700"
+    def format_timezone_offset(offset)
+      (offset < 0 ? "-" : "") << offset.abs.to_s.rjust(2,'0') << '00'
+    end
+
     def authoritative_reg_end_date
       if is_present? sales_end_date
         sales_end_date
@@ -111,7 +148,7 @@ module ACTV
       elsif is_present? activity_start_date
         activity_start_date
       else
-        "9999-12-31T23:59:59"
+        "2100-12-31T23:59:59"
       end
     end
 
@@ -119,7 +156,7 @@ module ACTV
       if is_present? sales_start_date
         sales_start_date
       else
-        "0000-01-01T00:00:00"
+        "1970-01-01T00:00:00"
       end
     end
 
