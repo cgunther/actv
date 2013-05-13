@@ -27,12 +27,16 @@ describe ACTV::Event do
 
   describe '#registration_open_date' do
     before { subject.stub(:sales_start_date).and_return format_date 1.day.from_now }
-    its(:registration_open_date) { should be_within(1.second).of Time.parse format_date_in_utc 1.day.from_now }
+    it "returns the correct date in the correct timezone" do
+      subject.registration_open_date.should be_within(1.second).of Time.parse format_date_in_utc 1.day.from_now
+    end
   end
 
   describe '#registration_close_date' do
     before { subject.stub(:sales_end_date).and_return format_date 1.day.from_now }
-    its(:registration_close_date) { should be_within(1.second).of Time.parse format_date_in_utc 1.day.from_now }
+    it "returns the correct date in the correct timezone" do
+      subject.registration_close_date.should be_within(1.second).of Time.parse format_date_in_utc 1.day.from_now
+    end
   end
 
   describe '#event_start_date' do
@@ -40,7 +44,9 @@ describe ACTV::Event do
       subject.stub(:activity_start_date).and_return("2013-05-10T00:00:00")
       subject.stub(:timezone_offset).and_return(-4)
     end
-    its(:event_start_date) { should eq Time.parse "2013-05-10T00:00:00 -0400" }
+    it "returns the correct date in the correct timezone" do
+      subject.event_start_date.should eq Time.parse "2013-05-10T00:00:00 -0400"
+    end
   end
 
   describe '#event_end_date' do
@@ -48,7 +54,9 @@ describe ACTV::Event do
       subject.stub(:activity_end_date).and_return("2013-05-10T00:00:00")
       subject.stub(:timezone_offset).and_return(-4)
     end
-    its(:event_end_date) { should eq Time.parse "2013-05-10T00:00:00 -0400" }
+    it "returns the correct date in the correct timezone" do
+      subject.event_end_date.should eq Time.parse "2013-05-10T00:00:00 -0400"
+    end
   end
 
   describe '#registration_not_yet_open' do
