@@ -9,7 +9,11 @@ module ACTV
     alias activity_end_date activityEndDate
 
     def online_registration_available?
-      self.legacy_data.onlineRegistration.downcase == 'true'
+      if is_present? self.legacy_data.onlineRegistration
+        self.legacy_data.onlineRegistration.downcase == 'true'
+      else
+        false
+      end
     end
 
     def registration_open?
@@ -28,7 +32,7 @@ module ACTV
       end
     end
 
-    def registration_not_yet_open? 
+    def registration_not_yet_open?
       if online_registration_available?
         is_now_before? authoritative_reg_start_date
       else

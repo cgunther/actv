@@ -25,6 +25,22 @@ describe ACTV::Event do
   #   it { should respond_to :event_ended? }
   # end
 
+  describe '#online_registration_available?' do
+    it "returns true if the registration flag is true" do
+      subject.online_registration_available?.should be_true
+    end
+
+    it "returns false if the registration flag is not true" do
+      subject.legacy_data.stub(:onlineRegistration).and_return("false")
+      subject.online_registration_available?.should be_false
+    end
+
+    it "return false if the registration flag is not present" do
+      subject.legacy_data.stub(:onlineRegistration).and_return(nil)
+      subject.online_registration_available?.should be_false
+    end
+  end
+
   describe '#registration_open_date' do
     before { subject.stub(:sales_start_date).and_return format_date 1.day.from_now }
     it "returns the correct date in the correct timezone" do
@@ -80,7 +96,7 @@ describe ACTV::Event do
         subject.stub(:sales_start_date).and_return ''
       end
       its(:registration_not_yet_open?) { should be_false }
-      
+
       context 'when the event has no dates' do
         before do
           subject.stub(:sales_start_date).and_return ''
@@ -149,7 +165,7 @@ describe ACTV::Event do
       its(:registration_open?) { should be_false }
     end
 
-    context 'when the event has sales start and end dates' do      
+    context 'when the event has sales start and end dates' do
       context 'when now is between start and end dates' do
         before do
           subject.stub(:sales_start_date).and_return format_date 1.day.ago
@@ -213,7 +229,7 @@ end
   #     before(:each) do
   #       stub_get("/v2/assets/valid_event.json").
   #         to_return(body: fixture("valid_event.json"), headers: { content_type: "application/json; charset=utf-8" })
-        
+
   #       @event = ACTV.event('valid_event')
   #     end
 
@@ -231,14 +247,14 @@ end
   #       @event.registration_open?.should be_true
   #     end
 
-  #     it "should return true if now is before sales_end_date and there is no sales_start_date" do      
+  #     it "should return true if now is before sales_end_date and there is no sales_start_date" do
   #       tomorrow = (Time.now + (24*60*60)).strftime('%Y-%m-%dT%H:%M:%S')
 
   #       @event.stub(:sales_start_date).and_return(nil)
   #       @event.stub(:sales_end_date).and_return(tomorrow)
 
   #       @event.registration_open?.should be_true
-  #     end    
+  #     end
 
   #     it "should return true if now is before start_date and there isn't a sales_start_date or sales_end_date" do
   #       tomorrow = (Time.now + (24*60*60)).strftime('%Y-%m-%dT%H:%M:%S')
@@ -272,11 +288,11 @@ end
   #     @event.stub(:end_date).and_return(tomorrow)
 
   #     @event.ended?.should be_false
-  #   end    
+  #   end
 
   #   it "should return false if today is the event date of a one day event" do
   #     today = Time.now.strftime('%Y-%m-%dT%H:%M:%S')
-      
+
   #     @event.stub(:start_date).and_return(today)
   #     @event.stub(:end_date).and_return(today)
 
