@@ -17,7 +17,6 @@ describe ACTV::Event do
 
   # describe "available methods" do
   #   subject { ACTV::Event.new(assetGuid: 1) }
-
   #   it { should respond_to :online_registration_available? }
   #   it { should respond_to :registration_not_yet_open? }
   #   it { should respond_to :registration_open? }
@@ -26,18 +25,42 @@ describe ACTV::Event do
   # end
 
   describe '#online_registration_available?' do
-    it "returns true if the registration flag is true" do
-      subject.online_registration_available?.should be_true
+    context 'when online_registration_available is true' do
+      before { subject.legacy_data.stub(:onlineRegistration).and_return("true") }
+      its(:online_registration_available?) { should be_true }
     end
 
-    it "returns false if the registration flag is not true" do
-      subject.legacy_data.stub(:onlineRegistration).and_return("false")
-      subject.online_registration_available?.should be_false
+    context "when online_registration_available is not true" do
+      before { subject.legacy_data.stub(:onlineRegistration).and_return("false") }
+      its(:online_registration_available?) { should be_false }
     end
 
-    it "return false if the registration flag is not present" do
-      subject.legacy_data.stub(:onlineRegistration).and_return(nil)
-      subject.online_registration_available?.should be_false
+    context "when online_registration_available is not present" do
+      before { subject.legacy_data.stub(:onlineRegistration).and_return(nil) }
+
+      context "when registrationUrlAdr is present" do
+        before { subject.stub(:registrationUrlAdr).and_return("something") }
+        its(:online_registration_available?) { should be_true }
+      end
+
+      context "when registrationUrlAdr is not present" do
+        before { subject.stub(:registrationUrlAdr).and_return(nil) }
+        its(:online_registration_available?) { should be_false }
+      end
+    end
+
+    context "when legacy_data is not present" do
+      before { subject.stub(:legacy_data).and_return(nil) }
+
+      context "when registrationUrlAdr is present" do
+        before { subject.stub(:registrationUrlAdr).and_return("something") }
+        its(:online_registration_available?) { should be_true }
+      end
+
+      context "when registrationUrlAdr is not present" do
+        before { subject.stub(:registrationUrlAdr).and_return(nil) }
+        its(:online_registration_available?) { should be_false }
+      end
     end
   end
 
@@ -93,16 +116,16 @@ describe ACTV::Event do
     end
     context 'when the event does not have a sales start date' do
       before do
-        subject.stub(:sales_start_date).and_return ''
+        subject.stub(:sales_start_date).and_return nil
       end
       its(:registration_not_yet_open?) { should be_false }
 
       context 'when the event has no dates' do
         before do
-          subject.stub(:sales_start_date).and_return ''
-          subject.stub(:sales_end_date).and_return ''
-          subject.stub(:activity_start_date).and_return ''
-          subject.stub(:activity_end_date).and_return ''
+          subject.stub(:sales_start_date).and_return nil
+          subject.stub(:sales_end_date).and_return nil
+          subject.stub(:activity_start_date).and_return nil
+          subject.stub(:activity_end_date).and_return nil
         end
         its(:registration_not_yet_open?) { should be_false }
       end
@@ -127,7 +150,7 @@ describe ACTV::Event do
     end
     context 'when the event does not have a sales end date' do
       before do
-        subject.stub(:sales_end_date).and_return ''
+        subject.stub(:sales_end_date).and_return nil
       end
       context 'when the event has an activity end date' do
         context 'when now is before the date' do
@@ -145,10 +168,10 @@ describe ACTV::Event do
       end
       context 'when the event has no dates' do
         before do
-          subject.stub(:sales_start_date).and_return ''
-          subject.stub(:sales_end_date).and_return ''
-          subject.stub(:activity_start_date).and_return ''
-          subject.stub(:activity_end_date).and_return ''
+          subject.stub(:sales_start_date).and_return nil
+          subject.stub(:sales_end_date).and_return nil
+          subject.stub(:activity_start_date).and_return nil
+          subject.stub(:activity_end_date).and_return nil
         end
         its(:registration_closed?) { should be_false }
       end
@@ -193,8 +216,8 @@ describe ACTV::Event do
 
     context 'when the event does not have sales start and end dates' do
       before do
-        subject.stub(:sales_start_date).and_return ''
-        subject.stub(:sales_end_date).and_return ''
+        subject.stub(:sales_start_date).and_return nil
+        subject.stub(:sales_end_date).and_return nil
       end
       context 'when the event has activity start and end dates' do
         before do
@@ -218,85 +241,25 @@ describe ACTV::Event do
       end
       context 'when the event does not have activity start and end dates' do
         before do
-          subject.stub(:activity_start_date).and_return ''
-          subject.stub(:activity_end_date).and_return ''
+          subject.stub(:activity_start_date).and_return nil
+          subject.stub(:activity_end_date).and_return nil
         end
-        its(:registration_open?) { should be_true } # ask Huiwen
+        its(:registration_open?) { should be_true } # Huiwen says this is correct
       end
     end
   end
+
+  # describe "confirming LH-906" do
+  #   context 'when the sales_start_date is nil, sales_end_date is in the past and today is between activity start and end' do
+  #     before do
+  #       subject.stub(:sales_start_date).and_return nil
+  #       subject.stub(:sales_end_date).and_return format_date 2.days.ago
+  #       subject.stub(:activity_start_date).and_return format_date 1.day.ago
+  #       subject.stub(:activity_end_date).and_return format_date 1.day.from_now
+  #     end
+  #     its(:registration_not_yet_open?)  { should be_false }
+  #     its(:registration_open?)          { should be_false }
+  #     its(:registration_closed?)        { should be_true }
+  #   end
+  # end
 end
-  #     before(:each) do
-  #       stub_get("/v2/assets/valid_event.json").
-  #         to_return(body: fixture("valid_event.json"), headers: { content_type: "application/json; charset=utf-8" })
-
-  #       @event = ACTV.event('valid_event')
-  #     end
-
-  #     it "should return false if now is not between sales_start_date and sales_end_date" do
-  #       @event.registration_open?.should be_false
-  #     end
-
-  #     it "should return true if now is between sales_start_date and sales_end_date" do
-  #       today = Time.now.strftime('%Y-%m-%dT%H:%M:%S')
-  #       tomorrow = (Time.now + (24*60*60)).strftime('%Y-%m-%dT%H:%M:%S')
-
-  #       @event.stub(:sales_start_date).and_return(today)
-  #       @event.stub(:sales_end_date).and_return(tomorrow)
-
-  #       @event.registration_open?.should be_true
-  #     end
-
-  #     it "should return true if now is before sales_end_date and there is no sales_start_date" do
-  #       tomorrow = (Time.now + (24*60*60)).strftime('%Y-%m-%dT%H:%M:%S')
-
-  #       @event.stub(:sales_start_date).and_return(nil)
-  #       @event.stub(:sales_end_date).and_return(tomorrow)
-
-  #       @event.registration_open?.should be_true
-  #     end
-
-  #     it "should return true if now is before start_date and there isn't a sales_start_date or sales_end_date" do
-  #       tomorrow = (Time.now + (24*60*60)).strftime('%Y-%m-%dT%H:%M:%S')
-
-  #       @event.stub(:sales_start_date).and_return(nil)
-  #       @event.stub(:sales_end_date).and_return(nil)
-  #       @event.stub(:start_date).and_return(tomorrow)
-
-  #       @event.registration_open?.should be_true
-  #     end
-  #   end
-  # end
-
-  # context 'when registration has ended' do
-
-  #   before(:each) do
-  #     stub_get("/v2/assets/valid_event.json").
-  #       to_return(body: fixture("valid_event.json"), headers: { content_type: "application/json; charset=utf-8" })
-  #     @event = ACTV.event('valid_event')
-  #   end
-
-  #   it "should return true if start date and end date are different and end date has passed" do
-  #     @event.ended?.should be_true
-  #   end
-
-  #   it "should return false if start date and end date are different and end date has not passed" do
-  #     today = Time.now.strftime('%Y-%m-%dT%H:%M:%S')
-  #     tomorrow = (Time.now + (24*60*60)).strftime('%Y-%m-%dT%H:%M:%S')
-
-  #     @event.stub(:start_date).and_return(today)
-  #     @event.stub(:end_date).and_return(tomorrow)
-
-  #     @event.ended?.should be_false
-  #   end
-
-  #   it "should return false if today is the event date of a one day event" do
-  #     today = Time.now.strftime('%Y-%m-%dT%H:%M:%S')
-
-  #     @event.stub(:start_date).and_return(today)
-  #     @event.stub(:end_date).and_return(today)
-
-  #     @event.ended?.should be_false
-  #   end
-
-  # end
