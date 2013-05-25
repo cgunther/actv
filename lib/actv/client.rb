@@ -7,6 +7,8 @@ require 'actv/error/forbidden'
 require 'actv/error/not_found'
 require 'actv/event'
 require 'actv/event_result'
+require 'actv/evergreen'
+require 'actv/sub_event'
 require 'actv/search_results'
 require 'actv/event_search_results'
 require 'actv/popular_interest_search_results'
@@ -96,6 +98,7 @@ module ACTV
     def event(id)
       response = get("/v2/assets/#{id}.json")
       event = ACTV::Event.from_response(response)
+      event = ACTV::Evergreen.new(event) if event.evergreen?
       event.is_article? ? nil : event
     end
 

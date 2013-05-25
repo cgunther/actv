@@ -133,6 +133,10 @@ module ACTV
       image
     end
 
+    def evergreen?
+      self.evergreenAssetFlag.to_bool rescue false
+    end
+
     alias online_registration? online_registration_available?
     alias reg_open? registration_open?
     alias reg_closed? registration_closed?
