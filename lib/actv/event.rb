@@ -9,10 +9,14 @@ module ACTV
     alias activity_end_date activityEndDate
 
     def online_registration_available?
-      if is_present? self.legacy_data.onlineRegistration
+      if is_present?(self.legacy_data) && is_present?(self.legacy_data.onlineRegistration)
         self.legacy_data.onlineRegistration.downcase == 'true'
       else
-        false
+        if is_present? self.registrationUrlAdr
+          true
+        else
+          false
+        end
       end
     end
 
@@ -177,7 +181,11 @@ module ACTV
     end
 
     def is_present? obj
-      !obj.nil? && !obj.empty?
+      !is_empty? obj
+    end
+
+    def is_empty? obj
+      obj.respond_to?(:empty?) ? obj.empty? : !obj
     end
 
     def now_in_utc
