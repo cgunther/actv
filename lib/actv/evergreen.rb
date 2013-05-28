@@ -19,6 +19,16 @@ module ACTV
       true
     end
 
+    def description_by_type type
+      asset_description = @asset.description_by_type type
+
+      if asset_description.present?
+        asset_description
+      else
+        @current_event.description_by_type type
+      end
+    end
+
     def method_missing method, *args, &block
       @current_event.send method, *args
     end
