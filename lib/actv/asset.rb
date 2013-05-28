@@ -169,6 +169,10 @@ module ACTV
       is_article
     end
 
+    def evergreen?
+      self.evergreenAssetFlag.to_bool rescue false
+    end
+
     def registration_status
       @registration_status ||= nil
     end
