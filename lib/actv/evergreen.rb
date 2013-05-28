@@ -20,7 +20,7 @@ module ACTV
     end
 
     def description_by_type type
-      asset_description = @asset.description_by_type type
+      asset_description = @asset.description_by_type type rescue nil
 
       if asset_description.present?
         asset_description
