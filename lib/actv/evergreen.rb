@@ -1,5 +1,7 @@
+require 'delegate'
+
 module ACTV
-  class Evergreen < SimpleDelegator
+  class Evergreen < ::SimpleDelegator
     attr_accessor :asset, :current_event, :events
 
     def initialize asset
