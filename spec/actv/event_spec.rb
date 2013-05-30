@@ -248,18 +248,35 @@ describe ACTV::Event do
       end
     end
   end
+  
+  describe "Fixes for LH bugs" do
+    describe "LH-925" do
+      context "when the sales dates are not available" do
 
-  # describe "confirming LH-906" do
-  #   context 'when the sales_start_date is nil, sales_end_date is in the past and today is between activity start and end' do
-  #     before do
-  #       subject.stub(:sales_start_date).and_return nil
-  #       subject.stub(:sales_end_date).and_return format_date 2.days.ago
-  #       subject.stub(:activity_start_date).and_return format_date 1.day.ago
-  #       subject.stub(:activity_end_date).and_return format_date 1.day.from_now
-  #     end
-  #     its(:registration_not_yet_open?)  { should be_false }
-  #     its(:registration_open?)          { should be_false }
-  #     its(:registration_closed?)        { should be_true }
-  #   end
-  # end
+        context "when the activity start and end date are the same" do
+          before do
+            subject.stub(:sales_start_date).and_return nil
+            subject.stub(:sales_end_date).and_return nil
+            subject.stub(:activity_start_date).and_return format_date Date.today
+            subject.stub(:activity_end_date).and_return format_date Date.today
+          end
+          its(:registration_open?) { should be_true }
+        end
+      end
+    end
+
+    describe "LH-906" do
+      context 'when the sales_start_date is nil, sales_end_date is in the past and today is between activity start and end' do
+        before do
+          subject.stub(:sales_start_date).and_return nil
+          subject.stub(:sales_end_date).and_return format_date 2.days.ago
+          subject.stub(:activity_start_date).and_return format_date 1.day.ago
+          subject.stub(:activity_end_date).and_return format_date 1.day.from_now
+        end
+        its(:registration_not_yet_open?)  { should be_false }
+        its(:registration_open?)          { should be_false }
+        its(:registration_closed?)        { should be_true }
+      end
+    end
+  end
 end

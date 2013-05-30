@@ -152,7 +152,7 @@ module ACTV
       if is_present? sales_end_date
         sales_end_date
       elsif is_present? activity_end_date
-        activity_end_date
+        activity_end_date.split('T').first << 'T23:59:59'
       elsif is_present? activity_start_date
         activity_start_date
       else
