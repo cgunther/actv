@@ -45,11 +45,9 @@ module ACTV
     end
 
     def event_ended?
-      event_end_date = self.end_date
-      if self.start_date == event_end_date
-        event_end_date = "#{event_end_date.split('T').first}T23:59:59"
+      if is_present? activity_end_date
+        is_now_after? "#{activity_end_date.split('T').first}T23:59:59"
       end
-      is_now_after? event_end_date
     end
 
     def registration_opening_soon?(time_in_days=3)
@@ -152,7 +150,7 @@ module ACTV
       if is_present? sales_end_date
         sales_end_date
       elsif is_present? activity_end_date
-        activity_end_date.split('T').first << 'T23:59:59'
+        "#{activity_end_date.split('T').first}T23:59:59"
       elsif is_present? activity_start_date
         activity_start_date
       else

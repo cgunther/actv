@@ -252,14 +252,16 @@ describe ACTV::Event do
   describe "Fixes for LH bugs" do
     describe "LH-925" do
       context "when the sales dates are not available" do
-
+        before do
+          subject.stub(:sales_start_date).and_return nil
+          subject.stub(:sales_end_date).and_return nil
+        end
         context "when the activity start and end date are the same" do
           before do
-            subject.stub(:sales_start_date).and_return nil
-            subject.stub(:sales_end_date).and_return nil
-            subject.stub(:activity_start_date).and_return format_date Date.today
+            subject.stub(:activity_start_date).and_return format_date 1.month.ago
             subject.stub(:activity_end_date).and_return format_date Date.today
           end
+          its(:event_ended?) { should be_false }
           its(:registration_open?) { should be_true }
         end
       end
