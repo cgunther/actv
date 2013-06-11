@@ -91,7 +91,7 @@ module ACTV
     end
 
     def events(q, params={})
-      response = get("/v2/search.json", params.merge({query: q, category: 'events'}))
+      response = get("/v2/search.json", params.merge({query: q, category: 'event'}))
       ACTV::EventSearchResults.from_response(response)
     end
 
