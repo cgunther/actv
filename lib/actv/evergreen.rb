@@ -22,6 +22,10 @@ module ACTV
       true
     end
 
+    def components
+      @asset.components
+    end
+
     def description_by_type type
       asset_description = @asset.description_by_type type rescue nil
 
