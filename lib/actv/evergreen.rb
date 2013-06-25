@@ -6,6 +6,7 @@ module ACTV
 
     def initialize asset
       super asset
+      @asset = asset
       @events = []
       @current_event = {}
       asset.evergreenAssets.each do |sub_asset|
