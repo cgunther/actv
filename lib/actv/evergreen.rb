@@ -23,7 +23,7 @@ module ACTV
     end
 
     def components
-      @asset.components
+      @current_event.components
     end
 
     def description_by_type type
