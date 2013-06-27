@@ -37,7 +37,11 @@ module ACTV
     end
 
     def method_missing method, *args, &block
-      @current_event.send method, *args
+      begin
+        @asset.send(method, *args)
+      rescue NoMethodError => e
+        @current_event.send(method, *args)
+      end
     end
   end
 end
