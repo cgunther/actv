@@ -26,6 +26,10 @@ module ACTV
       @current_event.components
     end
 
+    def legacy_data
+      @current_event.legacy_data
+    end
+
     def description_by_type type
       asset_description = @asset.description_by_type type rescue nil
 
