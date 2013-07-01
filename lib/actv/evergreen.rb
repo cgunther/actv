@@ -12,7 +12,7 @@ module ACTV
       asset.evergreenAssets.each do |sub_asset|
         @events << SubEvent.new(sub_asset)
       end
-      @events.sort_by { |event| event.end_date }
+      @events = @events.sort_by { |event| event.end_date }.reverse
       @current_event = @events.first
       @current_event = ACTV.event @current_event[:assetGuid]
 
