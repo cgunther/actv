@@ -13,7 +13,7 @@ module ACTV
         @events << SubEvent.new(sub_asset)
       end
       @events = @events.sort_by { |event| event.end_date }.reverse
-      @current_event = @events.first
+      @events = @events.first
       @current_event = ACTV.event @current_event[:assetGuid]
 
       self
