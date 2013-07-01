@@ -11,8 +11,9 @@ module ACTV
       @current_event = {}
       asset.evergreenAssets.each do |sub_asset|
         @events << SubEvent.new(sub_asset)
-        @current_event = sub_asset if Time.parse(sub_asset.fetch(:activityEndDate, "1970-01-01T00:00:01")) > Time.parse(@current_event.fetch(:activityEndDate, "1970-01-01T00:00:01"))
       end
+      @events.sort_by { |event| event.end_date }
+      @current_event = @events.first
       @current_event = ACTV.event @current_event[:assetGuid]
 
       self
