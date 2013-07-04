@@ -1,3 +1,3 @@
 module ACTV
-  VERSION = "1.0.50"
+  VERSION = "1.0.51"
 end

@@ -25,7 +25,7 @@ module ACTV
 
         image_node = get_from_author_footer('div.signature-block-photo img')
         if !image_node.nil?
-          image = ACTV::AssetImage.new({imageUrlAdr: image_node.attribute('src').text})
+          image = ACTV::AssetImage.new({imageUrlAdr: image_node.attribute('src').text}) if image_node.attribute 'src'
         end
 
         image
