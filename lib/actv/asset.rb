@@ -171,7 +171,7 @@ module ACTV
     end
 
     def evergreen?
-      self.evergreenAssetFlag.to_bool rescue false
+      self.evergreenAssetFlag.downcase == 'true' rescue false
     end
 
     def registration_status
