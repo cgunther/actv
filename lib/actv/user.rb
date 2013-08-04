@@ -27,11 +27,11 @@ module ACTV
     end
 
     def address
-      @address ||= ACTV::Address.fetch_or_create(@attrs[:address]) unless @attrs[:address].nil?
+      @address ||= ACTV::Address.fetch_or_new(@attrs[:address]) unless @attrs[:address].nil?
     end
 
     def phone_number
-      @phone_number ||= ACTV::PhoneNumber.fetch_or_create(@attrs[:phone_number]) unless @attrs[:phone_number].nil?
+      @phone_number ||= ACTV::PhoneNumber.fetch_or_new(@attrs[:phone_number]) unless @attrs[:phone_number].nil?
     end
 
   end

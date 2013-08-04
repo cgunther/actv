@@ -21,7 +21,7 @@ module ACTV
 
     def tags
       @asset_tags ||= Array(@attrs[:interestTags]).map do |tag|
-        ACTV::AssetTag.fetch_or_create(tag)
+        ACTV::AssetTag.fetch_or_new(tag)
       end
     end
     alias interest_tags tags
@@ -29,7 +29,7 @@ module ACTV
 
     def topics
       @asset_topics ||= Array(@attrs[:interestTopics]).map do |topic|
-        ACTV::AssetTopic.fetch_or_create(topic)
+        ACTV::AssetTopic.fetch_or_new(topic)
       end
     end
     alias interest_topics topics

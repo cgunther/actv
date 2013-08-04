@@ -12,7 +12,7 @@ module ACTV
     alias version _version
 
     def interest
-      @interest ||= ACTV::Interest.fetch_or_create(@attrs[:_source][:interest]) unless @attrs[:_source].nil? || @attrs[:_source][:interest].nil?
+      @interest ||= ACTV::Interest.fetch_or_new(@attrs[:_source][:interest]) unless @attrs[:_source].nil? || @attrs[:_source][:interest].nil?
     end
   end
 end

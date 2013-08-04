@@ -1,12 +1,7 @@
-require 'actv/identity_map'
-# require 'twitter/rate_limit'
-
 module ACTV
   class Base
     attr_reader :attrs
     alias body attrs
-
-    @@identity_map = IdentityMap.new
 
     # Define methods that retrieve the value from an initialized instance variable Hash, using the attribute as a key
     #
@@ -25,9 +20,10 @@ module ACTV
     end
 
     def self.fetch(attrs)
-      @@identity_map[self] ||= {}
+      return unless ACTV.identity_map
 
-      if object = @@identity_map[self][Marshal.dump(attrs)]
+      ACTV.identity_map[self] ||= {}
+      if object = ACTV.identity_map[self][Marshal.dump(attrs)]
         return object
       end
 
@@ -36,22 +32,22 @@ module ACTV
     end
 
     def self.store(object)
-      @@identity_map[self] ||= {}
-      @@identity_map[self][Marshal.dump(object.attrs)] = object
-    end
+      return object unless ACTV.identity_map
 
-    def self.create(attrs={})
-      object = self.new(attrs)
-      self.store(object)
+      ACTV.identity_map[self] ||= {}
+      ACTV.identity_map[self][Marshal.dump(object.attrs)] = object
     end
 
     def self.from_response(response={})
-      self.fetch_or_create(response[:body])
+      self.fetch_or_new(response[:body])
     end
 
-    def self.fetch_or_create(attrs={})
+    def self.fetch_or_new(attrs={})
+      return self.new(attrs) unless ACTV.identity_map
+
       self.fetch(attrs) do
-        self.create(attrs)
+        object = self.new(attrs)
+        self.store(object)
       end
     end
 

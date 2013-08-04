@@ -1,5 +1,6 @@
 require 'faraday'
 require 'actv/configurable'
+require 'actv/identity_map'
 require 'actv/request/multipart_with_file'
 require 'actv/response/parse_json'
 require 'actv/response/raise_client_error'
@@ -60,6 +61,10 @@ module ACTV
             builder.adapter Faraday.default_adapter         # Set Faraday's HTTP adapter
           end
         )
+      end
+
+      def identity_map
+        @identity_map ||= ACTV::IdentityMap.new
       end
 
       def consumer_key

@@ -7,7 +7,7 @@ module ACTV
 
     def terms
       @terms ||= Array(@attrs[:terms]).map do |term|
-        ACTV::FacetTerm.fetch_or_create(term)
+        ACTV::FacetTerm.fetch_or_new(term)
       end
     end
 

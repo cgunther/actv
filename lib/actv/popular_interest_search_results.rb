@@ -5,7 +5,7 @@ module ACTV
   class PopularInterestSearchResults < ACTV::SearchResults
     def results
       @results ||= Array(@attrs[:hits][:hits]).map do |article|
-        ACTV::PopularInterest.fetch_or_create(article)
+        ACTV::PopularInterest.fetch_or_new(article)
       end
     end
   end
