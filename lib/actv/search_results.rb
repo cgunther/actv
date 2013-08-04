@@ -9,21 +9,21 @@ module ACTV
     # @return [Array<ACTV::Asset>]
     def results
       @results ||= Array(@attrs[:results]).map do |asset|
-        ACTV::Asset.fetch_or_new(asset)
+        ACTV::Asset.fetch_or_create(asset)
       end
     end
-    
+
     # @return [Array<ACTV::Facet>]
     def facets
       @facets ||= Array(@attrs[:facets]).map do |facet|
-        ACTV::Facet.fetch_or_new(facet)
+        ACTV::Facet.fetch_or_create(facet)
       end
     end
-    
+
     # @return [Array<ACTV::FacetValue>]
     def facet_values
       @facet_values ||= Array(@attrs[:facet_values]).map do |facet_value|
-        ACTV::FacetValue.fetch_or_new(facet_value)
+        ACTV::FacetValue.fetch_or_create(facet_value)
       end
     end
   end

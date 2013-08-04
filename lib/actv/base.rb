@@ -26,15 +26,33 @@ module ACTV
 
     def self.fetch(attrs)
       @@identity_map[self] ||= {}
-      @@identity_map[self][Marshal.dump(attrs)]
+
+      if object = @@identity_map[self][Marshal.dump(attrs)]
+        return object
+      end
+
+      return yield if block_given?
+      raise ACTV::IdentityMapKeyError, 'key not found'
+    end
+
+    def self.store(object)
+      @@identity_map[self] ||= {}
+      @@identity_map[self][Marshal.dump(object.attrs)] = object
+    end
+
+    def self.create(attrs={})
+      object = self.new(attrs)
+      self.store(object)
     end
 
     def self.from_response(response={})
-      self.fetch(response[:body]) || self.new(response[:body])
+      self.fetch_or_create(response[:body])
     end
 
-    def self.fetch_or_new(attrs={})
-      self.fetch(attrs) || self.new(attrs)
+    def self.fetch_or_create(attrs={})
+      self.fetch(attrs) do
+        self.create(attrs)
+      end
     end
 
     # Initializes a new object
@@ -43,8 +61,6 @@ module ACTV
     # @return [ACTV::Base]
     def initialize(attrs={})
       self.update(attrs)
-      @@identity_map[self.class] ||= {}
-      @@identity_map[self.class][Marshal.dump(attrs)] = self
     end
 
     # Fetches an attribute of an object using hash notation

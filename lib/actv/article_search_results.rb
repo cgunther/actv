@@ -4,7 +4,7 @@ module ACTV
   class ArticleSearchResults < ACTV::SearchResults
     def results
       @results ||= Array(@attrs[:results]).map do |event|
-        ACTV::Article.fetch_or_new(event)
+        ACTV::Article.fetch_or_create(event)
       end
     end
 

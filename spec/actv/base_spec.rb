@@ -3,7 +3,39 @@ require 'spec_helper'
 describe ACTV::Base do
 
   before do
-    @base = ACTV::Base.new(:id => 1)
+    object = ACTV::Base.new(:id => 1)
+    @base = ACTV::Base.store(object)
+  end
+
+  describe '.fetch' do
+    it 'returns existing objects' do
+      ACTV::Base.fetch(:id => 1).should be
+    end
+
+    it "raises an error on objects that don't exist" do
+      lambda {
+        ACTV::Base.fetch(:id => 6)
+      }.should raise_error(ACTV::IdentityMapKeyError)
+    end
+  end
+
+  describe '.store' do
+    it 'stores ACTV::Base objects' do
+      object = ACTV::Base.new(:id => 1)
+      ACTV::Base.store(object).should be_a ACTV::Base
+    end
+  end
+
+  describe '.fetch_or_create' do
+    it 'returns existing objects' do
+      ACTV::Base.fetch_or_create(:id => 1).should be
+    end
+
+    it 'creates new objects and stores them' do
+      ACTV::Base.fetch_or_create(:id => 2).should be
+
+      ACTV::Base.fetch(:id => 2).should be
+    end
   end
 
   describe "#[]" do
