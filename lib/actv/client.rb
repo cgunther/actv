@@ -59,7 +59,16 @@ module ACTV
     #   ACTV.asset("BA288960-2718-4B20-B380-8F939596B123")
     def asset(id, params={})
       response = get("/v2/assets/#{id}.json", params)
-      ACTV::Asset.from_response(response)
+
+      if response[:body].is_a? Array 
+        results = []
+        response[:body].each do |item|
+          results << ACTV::Asset.from_response({body: item})
+        end
+        results
+      else        
+        [ACTV::Asset.from_response(response)]
+      end    
     end
 
     # Returns articles that match a specified query.
