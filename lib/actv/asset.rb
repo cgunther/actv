@@ -36,32 +36,32 @@ module ACTV
     alias author_name authorName
 
     def place
-      @place ||= ACTV::Place.fetch_or_new(@attrs[:place]) unless @attrs[:place].nil?
+      @place ||= ACTV::Place.new(@attrs[:place]) unless @attrs[:place].nil?
     end
 
     def descriptions
       @descriptions ||= Array(@attrs[:assetDescriptions]).map do |description|
-        ACTV::AssetDescription.fetch_or_new(description)
+        ACTV::AssetDescription.new(description)
       end
     end
     alias asset_descriptions descriptions
     alias assetDescriptions descriptions
 
     def status
-      @status ||= ACTV::AssetStatus.fetch_or_new(@attrs[:assetStatus]) unless @attrs[:assetStatus].nil?
+      @status ||= ACTV::AssetStatus.new(@attrs[:assetStatus]) unless @attrs[:assetStatus].nil?
     end
     alias asset_status status
     alias assetStatus status
 
     def legacy_data
-      @legacy_data ||= ACTV::AssetLegacyData.fetch_or_new(@attrs[:assetLegacyData]) unless @attrs[:assetLegacyData].nil?
+      @legacy_data ||= ACTV::AssetLegacyData.new(@attrs[:assetLegacyData]) unless @attrs[:assetLegacyData].nil?
     end
     alias asset_legacy_data legacy_data
     alias assetLegacyData legacy_data
 
     def channels
       @asset_channels ||= Array(@attrs[:assetChannels]).map do |channel|
-        ACTV::AssetChannel.fetch_or_new(channel)
+        ACTV::AssetChannel.new(channel)
       end
     end
     alias asset_channels channels
@@ -69,7 +69,7 @@ module ACTV
 
     def images
       @images ||= Array(@attrs[:assetImages]).map do |img|
-        ACTV::AssetImage.fetch_or_new(img)
+        ACTV::AssetImage.new(img)
       end
     end
     alias asset_images images
@@ -77,7 +77,7 @@ module ACTV
 
     def tags
       @asset_tags ||= Array(@attrs[:assetTags]).map do |tag|
-        ACTV::AssetTag.fetch_or_new(tag)
+        ACTV::AssetTag.new(tag)
       end
     end
     alias asset_tags tags
@@ -85,7 +85,7 @@ module ACTV
 
     def components
       @asset_components ||= Array(@attrs[:assetComponents]).map do |component|
-        ACTV::AssetComponent.fetch_or_new(component)
+        ACTV::AssetComponent.new(component)
       end
     end
     alias asset_components components
@@ -93,7 +93,7 @@ module ACTV
 
     def prices
       @asset_prices ||= Array(@attrs[:assetPrices]).map do |price|
-        ACTV::AssetPrice.fetch_or_new(price)
+        ACTV::AssetPrice.new(price)
       end
     end
     alias asset_prices prices
@@ -101,7 +101,7 @@ module ACTV
 
     def topics
       @asset_topics ||= Array(@attrs[:assetTopics]).map do |topic|
-        ACTV::AssetTopic.fetch_or_new(topic)
+        ACTV::AssetTopic.new(topic)
       end
     end
     alias asset_topics topics
@@ -109,7 +109,7 @@ module ACTV
 
     def seo_urls
       @seo_urls ||= Array(@attrs[:assetSeoUrls]).map do |seo_url|
-        ACTV::AssetSeoUrl.fetch_or_new(seo_url)
+        ACTV::AssetSeoUrl.new(seo_url)
       end
     end
     alias asset_seo_urls seo_urls
@@ -171,7 +171,7 @@ module ACTV
     end
 
     def evergreen?
-      self.evergreenAssetFlag.to_bool rescue false
+      self.evergreenAssetFlag.downcase == 'true' rescue false
     end
 
     def registration_status
