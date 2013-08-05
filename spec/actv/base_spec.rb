@@ -2,111 +2,50 @@ require 'spec_helper'
 
 describe ACTV::Base do
 
-  context 'identity map enabled' do
-    before do
-      object = ACTV::Base.new(:id => 1)
-      @base = ACTV::Base.store(object)
+  before do
+    @base = ACTV::Base.new(:id => 1)
+  end
+
+  describe "#[]" do
+    it "calls methods using [] with symbol" do
+      @base[:object_id].should be_an Integer
     end
-
-    describe "#[]" do
-      it "calls methods using [] with symbol" do
-        @base[:object_id].should be_an Integer
-      end
-
-      it "calls methods using [] with string" do
-        @base['object_id'].should be_an Integer
-      end
-
-      it "returns nil for missing method" do
-        @base[:foo].should be_nil
-        @base['foo'].should be_nil
-      end
+    it "calls methods using [] with string" do
+      @base['object_id'].should be_an Integer
     end
-
-    describe "#to_hash" do
-      it "returns a hash" do
-        @base.to_hash.should be_a Hash
-        @base.to_hash[:id].should eq 1
-      end
-    end
-
-    describe "identical objects" do
-      it "have the same object_id" do
-        @base.object_id.should eq ACTV::Base.fetch(:id => 1).object_id
-      end
-    end
-
-    describe '.fetch' do
-      it 'returns existing objects' do
-        ACTV::Base.fetch(:id => 1).should be
-      end
-
-      it "raises an error on objects that don't exist" do
-        lambda {
-          ACTV::Base.fetch(:id => 6)
-        }.should raise_error(ACTV::IdentityMapKeyError)
-      end
-    end
-
-    describe '.store' do
-      it 'stores ACTV::Base objects' do
-        object = ACTV::Base.new(:id => 1)
-        ACTV::Base.store(object).should be_a ACTV::Base
-      end
-    end
-
-    describe '.fetch_or_new' do
-      it 'returns existing objects' do
-        ACTV::Base.fetch_or_new(:id => 1).should be
-      end
-
-      it 'creates new objects and stores them' do
-        ACTV::Base.fetch_or_new(:id => 2).should be
-
-        ACTV::Base.fetch(:id => 2).should be
-      end
-    end
-
-    describe "#[]" do
-      it "calls methods using [] with symbol" do
-        @base[:object_id].should be_an Integer
-      end
-      it "calls methods using [] with string" do
-        @base['object_id'].should be_an Integer
-      end
-      it "returns nil for missing method" do
-        @base[:foo].should be_nil
-        @base['foo'].should be_nil
-      end
+    it "returns nil for missing method" do
+      @base[:foo].should be_nil
+      @base['foo'].should be_nil
     end
   end
 
-  context 'identity map disabled' do
-    before(:all) do
-      ACTV.identity_map = false
-    end
-
-    after(:all) do
-      ACTV.identity_map = ACTV::IdentityMap.new
-    end
-
-    describe '.fetch' do
-      it 'returns nil' do
-        ACTV::Base.fetch(:id => 1).should be_nil
-      end
-    end
-
-    describe '.store' do
-      it 'returns an instance of the object' do
-        ACTV::Base.store(ACTV::Base.new(:id => 1)).should be_a ACTV::Base
-      end
-    end
-
-    describe '.fetch_or_new' do
-      it 'creates new objects' do
-        ACTV::Base.fetch_or_new(:id => 2).should be
-        ACTV.identity_map.should be_false
-      end
+  describe "#attrs" do
+    it "returns a hash of attributes" do
+      @base.attrs.should eq({:id => 1})
     end
   end
+
+  describe "#delete" do
+    it "deletes an attribute and returns its value" do
+      base = ACTV::Base.new(:id => 1)
+      base.delete(:id).should eq(1)
+      base.attrs[:id].should be_nil
+    end
+  end
+
+  describe "#update" do
+    it "returns a hash of attributes" do
+      base = ACTV::Base.new(:id => 1)
+      base.update(:id => 2)
+      base.attrs[:id].should eq(2)
+    end
+  end
+
+  describe "#to_hash" do
+    it "returns a hash" do
+      @base.to_hash.should be_a Hash
+      @base.to_hash[:id].should eq 1
+    end
+  end
+
 end
