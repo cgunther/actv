@@ -4,7 +4,7 @@ require 'actv/phone_number'
 module ACTV
   class User < ACTV::Identity
 
-    attr_reader :first_name, :last_name, :middle_name, :gender,
+    attr_reader :first_name, :last_name, :middle_name, :gender, 
       :display_name, :date_of_birth, :email, :user_name, :created_date
 
     attr_accessor :access_token
@@ -33,6 +33,6 @@ module ACTV
     def phone_number
       @phone_number ||= ACTV::PhoneNumber.fetch_or_new(@attrs[:phone_number]) unless @attrs[:phone_number].nil?
     end
-
+    
   end
 end

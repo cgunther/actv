@@ -3,25 +3,6 @@ require 'actv/base'
 module ACTV
   class Identity < Base
 
-    def self.fetch(attrs)
-      return unless ACTV.identity_map
-
-      id = attrs[:id]
-      ACTV.identity_map[self] ||= {}
-
-      if id && ACTV.identity_map[self][id]
-        return ACTV.identity_map[self][id].update(attrs)
-      end
-
-      return yield if block_given?
-      raise ACTV::IdentityMapKeyError, 'key not found'
-    end
-
-    def self.store(object)
-      ACTV.identity_map[self] ||= {}
-      object.id && ACTV.identity_map[self][object.id] = object || super(object)
-    end
-
     # Initializes a new object
     #
     # @param attrs [Hash]
@@ -29,7 +10,13 @@ module ACTV
     # @return [ACTV::Base]
     def initialize(attrs={})
       self.update(attrs)
-      raise ArgumentError, "argument must have an :id key" unless self.id
+
+      if self.id
+        @@identity_map[self.class] ||= {}
+        @@identity_map[self.class][self.id] = self
+      else
+        raise ArgumentError, "argument (#{self.class}) must have an :id key"
+      end
     end
 
     # @param other [ACTV::Identity]

@@ -12,14 +12,14 @@ module ACTV
         ACTV::Asset.fetch_or_new(asset)
       end
     end
-
+    
     # @return [Array<ACTV::Facet>]
     def facets
       @facets ||= Array(@attrs[:facets]).map do |facet|
         ACTV::Facet.fetch_or_new(facet)
       end
     end
-
+    
     # @return [Array<ACTV::FacetValue>]
     def facet_values
       @facet_values ||= Array(@attrs[:facet_values]).map do |facet_value|

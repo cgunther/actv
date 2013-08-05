@@ -5,7 +5,4 @@ module ACTV
   class IdentityMap < Hash
   end
 
-  class IdentityMapKeyError < ::StandardError
-  end
-
 end

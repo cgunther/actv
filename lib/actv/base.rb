@@ -1,7 +1,12 @@
+require 'actv/identity_map'
+# require 'twitter/rate_limit'
+
 module ACTV
   class Base
     attr_reader :attrs
     alias body attrs
+
+    @@identity_map = IdentityMap.new
 
     # Define methods that retrieve the value from an initialized instance variable Hash, using the attribute as a key
     #
@@ -20,35 +25,16 @@ module ACTV
     end
 
     def self.fetch(attrs)
-      return unless ACTV.identity_map
-
-      ACTV.identity_map[self] ||= {}
-      if object = ACTV.identity_map[self][Marshal.dump(attrs)]
-        return object
-      end
-
-      return yield if block_given?
-      raise ACTV::IdentityMapKeyError, 'key not found'
-    end
-
-    def self.store(object)
-      return object unless ACTV.identity_map
-
-      ACTV.identity_map[self] ||= {}
-      ACTV.identity_map[self][Marshal.dump(object.attrs)] = object
+      @@identity_map[self] ||= {}
+      @@identity_map[self][Marshal.dump(attrs)]
     end
 
     def self.from_response(response={})
-      self.fetch_or_new(response[:body])
+      self.fetch(response[:body]) || self.new(response[:body])
     end
 
     def self.fetch_or_new(attrs={})
-      return self.new(attrs) unless ACTV.identity_map
-
-      self.fetch(attrs) do
-        object = self.new(attrs)
-        self.store(object)
-      end
+      self.fetch(attrs) || self.new(attrs)
     end
 
     # Initializes a new object
@@ -57,6 +43,8 @@ module ACTV
     # @return [ACTV::Base]
     def initialize(attrs={})
       self.update(attrs)
+      @@identity_map[self.class] ||= {}
+      @@identity_map[self.class][Marshal.dump(attrs)] = self
     end
 
     # Fetches an attribute of an object using hash notation

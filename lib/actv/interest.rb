@@ -5,7 +5,7 @@ require 'actv/asset_topic'
 module ACTV
   class Interest < ACTV::Identity
 
-    attr_reader :interestGuid, :interestName, :urlAdr, :imgUrlAdr, :sorCreatedBy, :sorModifiedBy, :createdDate,
+    attr_reader :interestGuid, :interestName, :urlAdr, :imgUrlAdr, :sorCreatedBy, :sorModifiedBy, :createdDate, 
         :modifiedDate, :interestTags, :interestAttributes, :interestTopics, :assetServiceHostName
 
     alias id interestGuid
