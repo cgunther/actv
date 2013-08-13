@@ -7,7 +7,7 @@ module ACTV
     def author_footer
       @author_footer ||= description_by_type 'authorFooter'
     end
-    
+
     def by_line
       @author ||= description_by_type 'articleByLine'
     end
@@ -60,7 +60,14 @@ module ACTV
     end
 
     def inline_ad
-      @inline_ad ||= tag_by_description 'inlinead'
+      @inline_ad ||= begin
+        val = tag_by_description 'inlinead'
+        if val
+          val.downcase == 'true'
+        else
+          true
+        end
+      end
     end
     alias inline_ad? inline_ad
 
