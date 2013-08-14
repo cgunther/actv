@@ -9,14 +9,14 @@ module ACTV
     alias activity_end_date activityEndDate
 
     def online_registration_available?
-      if is_present?(self.legacy_data) && is_present?(self.legacy_data.onlineRegistration)
-        self.legacy_data.onlineRegistration.downcase == 'true'
-      else
-        if is_present? self.registrationUrlAdr
-          true
+      if is_present?(self.registrationUrlAdr)
+        if is_present?(self.legacy_data) && is_present?(self.legacy_data.onlineRegistration)
+          self.legacy_data.onlineRegistration.downcase == 'true'
         else
-          false
+          true
         end
+      else
+        false
       end
     end
 
