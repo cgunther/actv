@@ -39,6 +39,10 @@ module ACTV
       @place ||= ACTV::Place.new(@attrs[:place]) unless @attrs[:place].nil?
     end
 
+    def timezone
+      @timezone ||= place[:timezone] unless place[:timezone].nil?
+    end
+
     def descriptions
       @descriptions ||= Array(@attrs[:assetDescriptions]).map do |description|
         ACTV::AssetDescription.new(description)
