@@ -299,4 +299,32 @@ describe ACTV::Event do
       end
     end
   end
+
+  describe '#diaply_close_date' do
+    context 'when tag is not set' do
+      before do
+        subject.stub(:tag_by_description, 'displayclosedate').and_return nil
+      end
+
+      its(:display_close_date?) { should eq true }
+    end
+
+    context 'when tag is set' do
+      context 'when true' do
+        before do
+          subject.stub(:tag_by_description, 'displayclosedate').and_return 'true'
+        end
+
+        its(:display_close_date?) { should eq true }
+      end
+
+      context 'when false' do
+        before do
+          subject.stub(:tag_by_description, 'displayclosedate').and_return 'false'
+        end
+
+        its(:display_close_date?) { should eq false }
+      end
+    end
+  end
 end
