@@ -39,7 +39,7 @@ module ACTV
       @place ||= ACTV::Place.new(@attrs[:place]) unless @attrs[:place].nil?
     end
 
-    def timezone
+    def place_timezone
       @timezone ||= place[:timezone] unless place[:timezone].nil?
     end
 
