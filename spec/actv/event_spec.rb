@@ -11,6 +11,7 @@ describe ACTV::Event do
   def format_date date
     date.strftime('%Y-%m-%dT%H:%M:%S')
   end
+
   def format_date_in_utc date
     format_date(date) << ' UTC'
   end
@@ -300,10 +301,10 @@ describe ACTV::Event do
     end
   end
 
-  describe '#diaply_close_date' do
+  describe '#disply_close_date' do
     context 'when tag is not set' do
       before do
-        subject.stub(:tag_by_description, 'displayclosedate').and_return nil
+        subject.stub(:tag_by_description).with("displayclosedate").and_return nil
       end
 
       its(:display_close_date?) { should eq true }
@@ -312,7 +313,7 @@ describe ACTV::Event do
     context 'when tag is set' do
       context 'when true' do
         before do
-          subject.stub(:tag_by_description, 'displayclosedate').and_return 'true'
+          subject.stub(:tag_by_description).with("displayclosedate").and_return 'true'
         end
 
         its(:display_close_date?) { should eq true }
@@ -320,7 +321,7 @@ describe ACTV::Event do
 
       context 'when false' do
         before do
-          subject.stub(:tag_by_description, 'displayclosedate').and_return 'false'
+          subject.stub(:tag_by_description).with("displayclosedate").and_return 'false'
         end
 
         its(:display_close_date?) { should eq false }

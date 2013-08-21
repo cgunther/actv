@@ -49,7 +49,7 @@ module ACTV
     end
     alias search assets
 
-    # Returns an asset with the specified ID
+    # Returns an asset with the specified ID in an array
     #
     # @authentication_required No
     # @return [ACTV::Asset] The requested asset.
@@ -69,6 +69,20 @@ module ACTV
       else        
         [ACTV::Asset.from_response(response)]
       end    
+    end
+    
+    # Returns an asset with the specified url path
+    #
+    # @authentication_required No
+    # @return [ACTV::Asset] The requested asset
+    # @param path [String]
+    # @example Return an asset with the url http://www.active.com/miami-fl/running/miami-marathon-and-half-marathon-2014
+    #   ACTV.asset_by_path("http://www.active.com/miami-fl/running/miami-marathon-and-half-marathon-2014")
+    def asset_by_path(path)
+      url_md5 = Digest::MD5.hexdigest(path)
+      response = get("/v2/seourls/#{url_md5}?load_asset=true")
+
+      ACTV::Asset.from_response(response)
     end
 
     # Returns articles that match a specified query.
