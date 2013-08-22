@@ -78,8 +78,8 @@ module ACTV
     # @param path [String]
     # @example Return an asset with the url http://www.active.com/miami-fl/running/miami-marathon-and-half-marathon-2014
     #   ACTV.asset_by_path("http://www.active.com/miami-fl/running/miami-marathon-and-half-marathon-2014")
-    def asset_by_path(path)
-      url_md5 = Digest::MD5.hexdigest(path)
+    def find_asset_by_url(url)
+      url_md5 = Digest::MD5.hexdigest(url)
       response = get("/v2/seourls/#{url_md5}?load_asset=true")
 
       ACTV::Asset.from_response(response)

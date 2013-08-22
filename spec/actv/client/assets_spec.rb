@@ -70,7 +70,7 @@ describe ACTV::Client do
         stub_get("/v2/seourls/#{@seo_url_md5}?load_asset=true").
           to_return(body: fixture("valid_asset.json"), headers: { content_type: "application/json; charset=utf-8" })
 
-        @asset = @client.asset_by_path(@seo_url)
+        @asset = @client.find_asset_by_url(@seo_url)
       end
 
       it "returns the correct url" do
