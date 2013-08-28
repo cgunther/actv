@@ -78,6 +78,10 @@ module ACTV
         ENV['ACTV_OAUTH_TOKEN_SECRET']
       end
 
+      def api_key
+        nil
+      end
+
     end
   end
 end

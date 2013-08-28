@@ -42,6 +42,7 @@ describe ACTV::Client do
           :oauth_token => 'OT',
           :oauth_token_secret => 'OS',
           :search_endpoint => 'http://search.twitter.com',
+          :api_key => 'TEST'
         }
       end
 
