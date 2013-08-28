@@ -1,6 +1,7 @@
 # ACTV
 
-A Ruby wrapper for The ACTIVE Network 3.0 API
+A Ruby wrapper for The ACTIVE Network 3.0 API. You can get your v2
+search API key at http://developer.active.com
 
 ## Installation
 

@@ -19,8 +19,8 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'active_support'
 
   
-  gem.authors       = ["Jonathan Spooner"]
-  gem.email         = ["jspooner@gmail.com"]
+  gem.authors       = ["Nathaniel Barnes"]
+  gem.email         = ["Nathaniel.Barnes@activenetwork.com"]
   gem.description   = %q{A Ruby wrapper for the Active API}
   gem.summary       = %q{Active API}
   gem.homepage      = ""
