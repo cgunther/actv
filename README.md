@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/[activenetwork]/[actv].png)](https://travis-ci.org/[activenetwork]/[actv])
+
 # ACTV
 
 A Ruby wrapper for The ACTIVE Network 3.0 API. You can get your v2
