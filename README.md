@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/[activenetwork]/[actv].png)](https://travis-ci.org/[activenetwork]/[actv])
+[![Build Status](https://travis-ci.org/activenetwork/actv.png)](https://travis-ci.org/activenetwork/actv)
 
 # ACTV
 
