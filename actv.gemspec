@@ -24,7 +24,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{A Ruby wrapper for the Active API}
   gem.summary       = %q{Active API}
   gem.homepage      = ""
-  gem.license       = ["MIT"]
+  gem.license       = "MIT"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
