@@ -100,7 +100,7 @@ describe ACTV::Client do
     end
 
     it "does something" do
-      stub_request(:get, "https://api.active.com/system_health").
+      stub_request(:get, "http://api.amp.active.com/system_health").
         with(:headers => {'Accept'=>'application/json'}).
         to_return(:status => 200, :body => '{"status":"not implemented"}', :headers => {})
 
