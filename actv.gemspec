@@ -32,4 +32,5 @@ Gem::Specification.new do |gem|
   gem.name          = "actv"
   gem.require_paths = ["lib"]
   gem.version       = ACTV::VERSION
+  gem.license       = 'MIT'
 end
