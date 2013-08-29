@@ -23,7 +23,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["Nathaniel.Barnes@activenetwork.com"]
   gem.description   = %q{A Ruby wrapper for the Active API}
   gem.summary       = %q{Active API}
-  gem.homepage      = ""
+  gem.homepage      = "http://developer.active.com"
   gem.license       = "MIT"
 
   gem.files         = `git ls-files`.split($\)
