@@ -178,6 +178,30 @@ module ACTV
       self.evergreenAssetFlag.downcase == 'true' rescue false
     end
 
+    def regcenter?
+      self.sourceSystem[:legacyGuid].upcase == "EA4E860A-9DCD-4DAA-A7CA-4A77AD194F65" rescue false
+    end
+
+    def regcenter2?
+      self.sourceSystem[:legacyGuid].upcase == "3BF82BBE-CF88-4E8C-A56F-78F5CE87E4C6" rescue false
+    end
+
+    def awendurance?
+      self.sourceSystem[:legacyGuid].upcase == "DFAA997A-D591-44CA-9FB7-BF4A4C8984F1" rescue false
+    end
+
+    def awsports?
+      self.sourceSystem[:legacyGuid].upcase == "F036B0FF-2B21-43A9-8C20-7F447D3AB105" rescue false
+    end
+
+    def awcamps?
+      self.sourceSystem[:legacyGuid].upcase == "2B22B4E6-5AA4-44D7-BF06-F7A71F9FA8A6" rescue false
+    end
+
+    def thriva?
+      self.sourceSystem[:legacyGuid].upcase == "2BA50ABA-080E-4E3D-A01C-1B4F56648A2E" rescue false
+    end
+
     def registration_status
       @registration_status ||= nil
     end
