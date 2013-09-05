@@ -278,6 +278,7 @@ module ACTV
       uri = URI(uri) unless uri.respond_to?(:host)
       uri += path
       request_headers = {}
+      params[:api_key] = @api_key unless @api_key.nil?
 
       if self.credentials?
         # When posting a file, don't sign any params
