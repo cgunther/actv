@@ -40,7 +40,11 @@ module ACTV
     end
 
     def place_timezone
-      @timezone ||= place[:timezone] unless place[:timezone].nil?
+      @place_timezone ||= place[:timezone] unless place[:timezone].nil?
+    end
+
+    def org_timezone
+      @org_timezone ||= @attrs[:localTimeZoneId] unless @attrs[:localTimeZoneId].nil?
     end
 
     def descriptions
