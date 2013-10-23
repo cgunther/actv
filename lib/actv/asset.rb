@@ -47,6 +47,10 @@ module ACTV
       @org_timezone ||= @attrs[:localTimeZoneId] unless @attrs[:localTimeZoneId].nil?
     end
 
+    def version
+      @asset_version ||= @attrs[:assetVersion] unless @attrs[:assetVersion].nil?
+    end
+
     def descriptions
       @descriptions ||= Array(@attrs[:assetDescriptions]).map do |description|
         ACTV::AssetDescription.new(description)
