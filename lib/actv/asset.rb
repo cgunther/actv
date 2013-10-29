@@ -182,6 +182,10 @@ module ACTV
       is_article
     end
 
+    def has_location?
+      self.place && place.has_lat_long?
+    end
+
     def evergreen?
       self.evergreenAssetFlag.downcase == 'true' rescue false
     end

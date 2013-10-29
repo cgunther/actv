@@ -20,5 +20,9 @@ module ACTV
     alias country countryName
     alias country_code countryCode
 
+    def has_lat_long?
+      latitude && longitude && latitude != "" && longitude != ""
+    end
+
   end
 end
